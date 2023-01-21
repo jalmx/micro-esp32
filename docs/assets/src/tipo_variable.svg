@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="tipo_variable.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.97102974"
+     inkscape:cx="900.59033"
+     inkscape:cy="368.16586"
+     inkscape:window-width="1280"
+     inkscape:window-height="736"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="38.146786"
+       y="119.8899"
+       id="text759"><tspan
+         sodipodi:role="line"
+         id="tspan757"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#0000ff;stroke-width:0.264583"
+         x="38.146786"
+         y="119.8899">int</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-1.6495764"
+       y="79.587761"
+       id="text759-1"><tspan
+         sodipodi:role="line"
+         id="tspan757-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#0000ff;stroke-width:0.264583"
+         x="-1.6495764"
+         y="79.587761">Tipo de dato</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="17.151339"
+       y="162.42079"
+       id="text759-7"><tspan
+         sodipodi:role="line"
+         id="tspan757-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#1a1a1a;stroke-width:0.264583"
+         x="17.151339"
+         y="162.42079">Nombre de variable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="61.565102"
+       y="119.8899"
+       id="text759-3"><tspan
+         sodipodi:role="line"
+         id="tspan757-6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#000000;stroke-width:0.264583"
+         x="61.565102"
+         y="119.8899">edad</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#008000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="89.24353"
+       y="119.8899"
+       id="text759-3-7"><tspan
+         sodipodi:role="line"
+         id="tspan757-6-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#008000;stroke-width:0.264583"
+         x="89.24353"
+         y="119.8899">=</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#008000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="92.191978"
+       y="78.423683"
+       id="text759-3-7-9"><tspan
+         sodipodi:role="line"
+         id="tspan757-6-5-3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#008000;stroke-width:0.264583"
+         x="92.191978"
+         y="78.423683">Asignación</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="100.68756"
+       y="119.8899"
+       id="text759-3-3"><tspan
+         sodipodi:role="line"
+         id="tspan757-6-56"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#aa0000;stroke-width:0.264583"
+         x="100.68756"
+         y="119.8899">17</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="171.39235"
+       y="92.962898"
+       id="text759-3-3-6"><tspan
+         sodipodi:role="line"
+         id="tspan757-6-56-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#aa0000;stroke-width:0.264583"
+         x="171.39235"
+         y="92.962898">Valor guardado en la variable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#d45500;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="115.26208"
+       y="119.8899"
+       id="text759-3-3-2"><tspan
+         sodipodi:role="line"
+         id="tspan757-6-56-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#d45500;stroke-width:0.264583"
+         x="115.26208"
+         y="119.8899">;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#d45500;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="166.27139"
+       y="149.25427"
+       id="text759-3-3-2-6"><tspan
+         sodipodi:role="line"
+         id="tspan757-6-56-9-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';fill:#d45500;stroke-width:0.264583"
+         x="166.27139"
+         y="149.25427">Toda sentencia termian con punto y coma (;)</tspan></text>
+  </g>
+</svg>
