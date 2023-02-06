@@ -8,7 +8,16 @@ date: 2023-01-15
 
 ## Introducción al Lenguaje C
 
-En el capitulo 1 es para toda la base del Lenguaje C
+De las cosas importantes que debemos saber del lenguaje C es que es unos los principales lenguajes que existen hoy en día. 
+
+Es la base de la mayoría de los lenguajes de alto nivel, por ejemplo JAVA, Python, están hechos con este lenguaje. Infinidad de aplicaciones y herramientas están realizadas con dicho lenguaje. El kernel de Linux esta escrito en C.
+
+De las cosas importantes a destacar son:
+
+- Es un lenguaje compilado
+- Te permite una manipulación libre de la memoria
+
+![process](../assets/process_compile.png)
 
 ## Mapa del sitio
 

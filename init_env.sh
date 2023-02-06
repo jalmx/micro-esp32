@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 -m venv .env
+python3 -m venv .venv
