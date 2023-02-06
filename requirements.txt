@@ -1,1 +1,5 @@
 mkdocs-material
+mkdocs-markmap
+mkdocs-material-extensions
+mkdocs-minify-plugin
+mkdocs-plugin-tags
