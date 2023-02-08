@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="2714.5583mm"
+   height="928.4953mm"
+   viewBox="0 0 2714.5583 928.49532"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="scanf.svg"
+   inkscape:export-filename="/home/xizuth/Downloads/scanf.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.095878051"
+     inkscape:cx="5048.0792"
+     inkscape:cy="2195.4973"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path40399" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect40278"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect40274"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect40270"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(760.68986,166.9854)">
+    <g
+       id="g40802"
+       transform="translate(49.999973,49.999998)">
+      <text
+         xml:space="preserve"
+         style="font-size:62.0694px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';stroke-width:0.264583"
+         x="62.964592"
+         y="248.88004"
+         id="text1640"><tspan
+           sodipodi:role="line"
+           id="tspan1638"
+           style="stroke-width:0.264583"
+           x="62.964592"
+           y="248.88004"><tspan
+   style="fill:#0000ff"
+   id="tspan5846">scanf</tspan><tspan
+   style="fill:#ff00ff"
+   id="tspan17674">(</tspan><tspan
+   style="fill:#ffcc00"
+   id="tspan9052">&quot;%d&quot;</tspan>, <tspan
+   style="fill:#008000"
+   id="tspan11670">&amp;variable</tspan><tspan
+   style="fill:#800080"
+   id="tspan19824">);</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:62.0694px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';fill:#550000;stroke-width:0.264583"
+         x="-255.80681"
+         y="547.9455"
+         id="text22372"><tspan
+           sodipodi:role="line"
+           id="tspan22370"
+           style="fill:#550000;stroke-width:0.264583"
+           x="-255.80681"
+           y="547.9455">función scanf</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:62.0694px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';fill:#d4aa00;stroke-width:0.264583"
+         x="-765.96576"
+         y="-118.75748"
+         id="text26148"><tspan
+           sodipodi:role="line"
+           id="tspan26146"
+           style="fill:#d4aa00;stroke-width:0.264583"
+           x="-765.96576"
+           y="-118.75748">primer argumento, es un string que</tspan><tspan
+           sodipodi:role="line"
+           style="fill:#d4aa00;stroke-width:0.264583"
+           x="-765.96576"
+           y="-41.170727"
+           id="tspan29148">indica el tipo de dato que se recibe</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:62.0694px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';fill:#008000;stroke-width:0.264583"
+         x="741.89789"
+         y="505.7157"
+         id="text30938"><tspan
+           sodipodi:role="line"
+           style="fill:#008000;stroke-width:0.264583"
+           x="741.89789"
+           y="505.7157"
+           id="tspan31204">segundo argumento, la variable</tspan><tspan
+           sodipodi:role="line"
+           style="fill:#008000;stroke-width:0.264583"
+           x="741.89789"
+           y="583.30243"
+           id="tspan37577">donde se almacenara el valor</tspan><tspan
+           sodipodi:role="line"
+           style="fill:#008000;stroke-width:0.264583"
+           x="741.89789"
+           y="660.88922"
+           id="tspan38545">recibido</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2.11667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+         d="M 1012.9262,441.59438 C 921.21449,417.52819 829.5025,393.46193 773.56442,363.8667 717.62634,334.27147 697.46311,299.14842 677.29929,264.02435"
+         id="path40268"
+         inkscape:path-effect="#path-effect40270"
+         inkscape:original-d="m 1012.9262,441.59438 c -91.71176,-24.066 -183.42375,-48.13226 -275.13601,-72.19879 -20.16376,-35.12417 -40.327,-70.24722 -60.4909,-105.37124" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2.11667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+         d="M -22.557375,468.37167 C 32.618463,434.09 87.79321,399.809 115.11216,366.63611 c 27.31895,-33.1729 26.78012,-65.23549 26.24127,-97.29898"
+         id="path40272"
+         inkscape:path-effect="#path-effect40274"
+         inkscape:original-d="M -22.557375,468.37167 C 32.618658,434.09031 87.793402,399.80931 142.96996,365.52676 c -0.53859,-32.06355 -1.07742,-64.12614 -1.61653,-96.18963"
+         sodipodi:nodetypes="ccc" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2.11667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+         d="M -59.976629,-20.725195 C 61.225502,12.35811 182.42732,45.44133 250.18312,79.545283 317.93891,113.64924 332.2483,148.77227 346.55784,183.89569"
+         id="path40276"
+         inkscape:path-effect="#path-effect40278"
+         inkscape:original-d="M -59.976629,-20.725195 C 61.225453,12.35829 182.42727,45.441507 303.62882,78.524463 c 14.31023,35.124717 28.61961,70.247757 42.92902,105.371227" />
+    </g>
+  </g>
+</svg>
