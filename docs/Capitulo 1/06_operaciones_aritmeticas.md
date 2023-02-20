@@ -101,5 +101,5 @@ En C, la expresiones son normalmente evaluador de izquierda a derecha. Sin embar
 !!! Nota
     Con respecto a las operaciones matemáticas que conoces, sigue funcionando igual, ahora debes añadir las relacionadas al lenguaje.
 
-## Ejercicios con operadores aritmeticos
+## Ejercicios con operadores aritméticos
 
