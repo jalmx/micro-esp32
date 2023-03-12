@@ -79,5 +79,3 @@ plugins:
       indexing: 'full'
   - minify:
       minify_html: true
-  - tags
-  - markmap
