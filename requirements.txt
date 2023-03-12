@@ -1,5 +1,2 @@
-mkdocs-material
-mkdocs-markmap
-mkdocs-material-extensions
-mkdocs-minify-plugin
-mkdocs-plugin-tags
+mkdocs-material==9.1.2
+mkdocs-material-extensions==1.1.1

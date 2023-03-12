@@ -6,6 +6,14 @@
 origen="$1"
 destino="$2"
 
+
+if [[ -z $2 || -z $1 ]]
+then
+    echo "Need a dir output"
+    echo "Example input.svg ./output_dir"
+    exit 1
+fi
+
 # Buscar todos los archivos con la extensión .svg en la carpeta de origen
 archivos_svg=$(find $origen -type f -name "*.svg")
 
@@ -19,5 +27,5 @@ do
 done
 
 # Mover los archivos svg a la carpeta de destino
-mv *.png ../
+mv *.png $destino
 echo "imagenes moved"
