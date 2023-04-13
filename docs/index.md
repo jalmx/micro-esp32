@@ -7,4 +7,6 @@ Documentación para el aprendizaje del Lenguaje C con un enfoque básico para qu
 
 ## Mapa del sitio
 
-pendiente
+[Capitulo 1](./Capitulo%201/index.md)
+
+[Capitulo 2](./Capitulo%202/index.md)
