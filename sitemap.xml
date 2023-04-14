@@ -126,7 +126,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.alejandro-leyva.com/micro_23/Capitulo%202/05_adc/</loc>
+         <loc>https://www.alejandro-leyva.com/micro_23/Capitulo%202/05_adc_pwm/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.alejandro-leyva.com/micro_23/Capitulo%202/06_teoria_sensores/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.alejandro-leyva.com/micro_23/Capitulo%202/07_sensores/</loc>
          <lastmod>2023-04-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
