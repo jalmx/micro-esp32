@@ -15,9 +15,6 @@ Realizar el siguiente ejercicio, como se ve en la animacion
 4. Hay un tercer botón, para el reset del conteo
 5. Cuando llegue al topo superior (F) o inferior (cero), no debe pasar nada
 
-**Pictórico**
-
-![basic](../assets/schematic/display_7segm_btn.png)
 
 <details markdown="1">
 <summary>Código</summary>

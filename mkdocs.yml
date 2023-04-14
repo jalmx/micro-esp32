@@ -21,7 +21,10 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
   language: es
+  features:
+    - navigation.footer
 
+repo_url: https://github.com/jalmx/micro-23
 
 markdown_extensions:
   - tables
@@ -42,7 +45,6 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
-
 
 extra_javascript:
   - javascripts/mathjax.js
