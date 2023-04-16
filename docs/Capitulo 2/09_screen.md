@@ -1,4 +1,6 @@
-### Pantalla LCD con comunicación I^2^C
+# Pantallas
+
+## Pantalla LCD con comunicación I^2^C
 
 La pantalla LCD es una pantalla de cristal liquido, su controlador mas común es el [HD44780](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf), su comunicación puede ser de 4 bits u 8 bits. Dado que si nos comunicamos con 8 bits, implica usar 8 pines del microcontrolador, o en su defecto si usamos la comunicación de 4 bits, se usarían 4 pines, y en ocasiones dependiendo del microcontrolador, no nos podemos dar el lujo de usar tantos, surgió un modulo de comunicación I^2^C, que implica solo usar 2 pines para el control total de toda la pantalla.
 
@@ -65,3 +67,8 @@ Ya posicionados, podemos comenzar a escribir el mensaje en pantalla.
 
 
 https://lastminuteengineers.com/esp32-i2c-lcd-tutorial/
+
+
+## OLED 
+
+check https://github.com/durydevelop/arduino-lib-oled
