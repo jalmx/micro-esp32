@@ -51,3 +51,19 @@ void loop() {
   delay(1000);                       // wait for a second
 }
 ```
+
+## Configuración del entorno para el ESP32
+
+Hoy en día la version de Arduino IDE 1.8x, ya se considera legacy, pero aun asi sigue funcionando de la misma manera para compilar, y hacer todo lo necesario para las placas que soporten el firmware de Arduino.
+Aunque ya se recomienda hacer uso de la version 2, dado que mejora de cierta manera algunas cosas (pero a mi consideración aun esta verde y consume demasiado). 
+
+Otra alternativa es usar VS Code con un plugin de [PlatformIO](https://platformio.org/), esto es aun más pesado, pero muy bueno (a mí consideración es el mejor entorno, elimina varias limitaciones de la version 2, que me imagino en un futuro va a superar). Si deseas usarla en su sitio oficial están las instrucciones [click aquí](https://platformio.org/install/ide?install=vscode).
+
+
+### Arduino IDE 1.8.x
+
+...
+
+### Arduino IDE 2
+
+En un futuro
