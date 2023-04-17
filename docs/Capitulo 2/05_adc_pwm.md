@@ -68,7 +68,6 @@ void loop() {
 }
 ```
 
-
 ### Barra de LEDs con potenciómetro
 
 Vamos a realizar una lectura del ADC e ir encendiendo los LEDs en función del valor que tengamos de entrada, es decir, entre mas valores, mas se prenderán, y entre menor sea el valor, menos encenderán.
@@ -91,26 +90,94 @@ Vamos a realizar una lectura del ADC e ir encendiendo los LEDs en función del v
 **Código**
 
 ```C
-const byte pinADC = 34; //pin que sera leído del ADC
+const byte pinADC = 34;  //pin que sera leído del ADC
+const byte LED1 = 33;    //Configuro el pin en donde colocaré el LED
+const byte LED2 = 25;    //Configuro el pin en donde colocaré el LED
+const byte LED3 = 26;    //Configuro el pin en donde colocaré el LED
 
 // the setup routine runs once when you press reset:
 void setup() {
   // inicializamos el monitor serial a 115200 baudios
   Serial.begin(115200);
+  pinMode(LED1, OUTPUT);  //configuro como salida el pin para el led
+  pinMode(LED2, OUTPUT);  //configuro como salida el pin para el led
+  pinMode(LED3, OUTPUT);  //configuro como salida el pin para el led
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
   //se lee el pin del ADC y se guarda en la variable valueADC
   int valueADC = analogRead(pinADC);
-  Serial.println(valueADC);// se imprime el valor del ADC
-  delay(10);        // para la estabilidad del valor de entrada
+  Serial.println(valueADC);  // se imprime el valor del ADC
+  if (valueADC < 100) {      // si esta por debajo de este valor, se apagando todos los LEDs
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2, LOW);
+    digitalWrite(LED3, LOW);
+  } else if (valueADC > 100 && valueADC <= 1500) {  // si esta en este rango prenderá los leds indicados
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2, LOW);
+    digitalWrite(LED3, LOW);
+  } else if (valueADC > 1500 && valueADC <= 3000) {  // si esta en este rango prenderá los leds indicados
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2, HIGH);
+    digitalWrite(LED3, LOW);
+  } else {  //si es mayor a 3000, se encienden todos los leds
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2, HIGH);
+    digitalWrite(LED3, HIGH);
+  }
+  delay(10);  // para la estabilidad del valor de entrada
 }
 ```
 
-### Voltímetro
+
 
 ### Control crepuscular (Sensor de luz)
+
+Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
+
+**Material**
+
+|Cantidad|Descripción|
+|---|---|
+|1| Placa ESP32|
+|1|  LED|
+|1|  R330|
+|1|  R10k|
+|1|  LDR|
+
+**Diagrama pictórico**
+
+![basic](../assets/schematic/ldr_led.png)
+
+**Código**
+
+```C
+const byte pinADC = 34;  //pin que sera leído del ADC
+const byte LED1 = 25;    //Configuro el pin en donde colocaré el LED
+#define LIMIT 2500       //ESTE VALOR SE CAMBIA CON BASE AL AJUSTE DEL SENSOR
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // inicializamos el monitor serial a 115200 baudios
+  Serial.begin(115200);
+  pinMode(LED1, OUTPUT);  //configuro como salida el pin para el led
+}
+
+void loop() {
+  int valueLDR = analogRead(pinADC);  //leemos el pin del ADC
+  Serial.print("Valor del ADC: ");
+  Serial.println(valueLDR);
+
+  if (valeLDR > LIMIT) {
+    digitalWrite(LED1, HIGH);
+  } else {
+    digitalWrite(LED1, LOW);
+  }
+
+  delay(10);  // para la estabilidad del valor de entrada
+}
+```
 
 ## Salida Analógica (PWM)
 
@@ -130,7 +197,7 @@ En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su 
 
 ### Control de Intensidad de un LED con 2 botones
 
-### Control de intensidad de un LED con potenciometro
+### Control de intensidad de un LED con potenciómetro
 
 ### Control LED RGB
 

@@ -1,27 +1,3 @@
-# Ejercicios con IO Analógicas
-
-## Lámparas del parque
-
-Realizar el siguiente ejercicio, ver la animación
-
-![ldr_bar_sch](../assets/videos/../schematic/ldr_led_bar.png)
-
-![ldr_bar_gir](../assets/videos/LDR_bar.gif)
-
-**Funcionamiento**
-
-1. Cuando exista poca luz en el sensor (esto definido por el programador), se deben encender todas las lamparas (los LEDs), de forma secuencial e ir quedando encendidas hasta que estén todas prendidas.
-2. Si hay una luz intermedia, solo deben estar encendidas 2 lamparas.
-3. Si hay suficiente luz en el ambiente, deben continuar apagadas.
-4. Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.
-
-
-<!-- Bloque de código -->
-<!-- 
-<details markdown="1">
-<summary>Código</summary>
-
-```C
 const byte pinADC = 34;  //pin que sera leído del ADC
 const byte LED1 = 25;    //Configuro el pin en donde colocaré el LED
 const byte LED2 = 26;    //Configuro el pin en donde colocaré el LED
@@ -71,7 +47,3 @@ void loop() {
 
   delay(10);  // para la estabilidad del valor de entrada
 }
-```
-</details>
-
- -->

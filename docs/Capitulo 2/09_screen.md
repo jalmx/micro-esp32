@@ -68,6 +68,11 @@ Ya posicionados, podemos comenzar a escribir el mensaje en pantalla.
 
 https://lastminuteengineers.com/esp32-i2c-lcd-tutorial/
 
+### Ejemplos
+
+#### Voltímetro
+
+----
 
 ## OLED 
 

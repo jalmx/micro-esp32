@@ -1,8 +1,4 @@
----
-title: Sensores
----
-
-# Sensores
+# Sensores - Introducción
 
 Un sensor en es un sistema el cual capta una variable física y reacciona para la activación de un actuador. Las partes generales de un sensor son:
 

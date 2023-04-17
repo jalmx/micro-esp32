@@ -2,7 +2,7 @@
 
 ## Display de 7 Segmentos
 
-Realizar el siguiente ejercicio, como se ve en la animacion
+Realizar el siguiente ejercicio, como se ve en la animación
 
 ![](../assets/videos/contador_btn.gif)
 
@@ -15,7 +15,8 @@ Realizar el siguiente ejercicio, como se ve en la animacion
 4. Hay un tercer botón, para el reset del conteo
 5. Cuando llegue al topo superior (F) o inferior (cero), no debe pasar nada
 
-
+<!-- Bloque de código -->
+<!-- 
 <details markdown="1">
 <summary>Código</summary>
 
@@ -115,3 +116,5 @@ void loop()
 }
 ```
 </details>
+
+ -->

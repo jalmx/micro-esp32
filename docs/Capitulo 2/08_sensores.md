@@ -1,4 +1,4 @@
-# Sensores
+# Sensores -Aplicación
 
 ## Sensores digitales
 
