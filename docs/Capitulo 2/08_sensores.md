@@ -91,6 +91,8 @@ void loop() {
 }
 ```
 
+## Sensor de Sonido
+
 ## Sensor Ultrasónico HC-SR04
 
 ## Sensor DS18B - Sensor de temperatura
