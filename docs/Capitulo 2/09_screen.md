@@ -40,7 +40,7 @@ Al igual en este modulo incorpora un trimpot para ajustar el contraste de la pan
 
 ![lcd](https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/I2C-LCD-Display-Pinout.png)
 
-!!! Warning Cuidado
+!!! Warning Conexión
     Los pines a los que se conectan los pines de `SDA` y `SCL` de la pantalla Iran a:
 
     |LCD | ESP32|
@@ -53,11 +53,18 @@ Al igual en este modulo incorpora un trimpot para ajustar el contraste de la pan
 ![connect](../assets/schematic/lcd_basic_connect.png)]
 
 
+!!! Warning Librería
+    Descargar la librería para poder comunicar el ESP32 con el módulo I^2^C. Agregarla a Arduino IDE.
+    [Dar click aquí](../assets/libs/LiquidCrystal-I2C.zip)
+
+!!! Note Nota
+    Si al arrancar la pantalla no se ve nada, recuerda mover el tripot para el contraste.
+
 ## Algoritmos de encendido de pantalla
 
 Estos son los pasos que siempre Iran al inicio para arrancar la pantalla.
 
-1. Función `init()`: Solo se llama al inicio para arrancar la pantalla
+1. Función `begin()`: Solo se llama al inicio para arrancar la pantalla
 2. Función `backlight()`: Enciende la luz de fondo (depende si quieres prenderla)
 3. Función `clear()`: Limpia la pantalla de cualquier ruido o carácter raro que salga en pantalla
 4. Función `setCursor(column, row)` 
@@ -68,9 +75,58 @@ Ya posicionados, podemos comenzar a escribir el mensaje en pantalla.
 
 https://lastminuteengineers.com/esp32-i2c-lcd-tutorial/
 
-### Ejemplos
+### Visualización de mensaje
+
+Se mandara un mensaje a la pantalla, línea por línea.
+
+**Diagrama Pictórico**
+
+![connect](../assets/schematic/lcd_basic_connect.png)]
+
+
+```C
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 20, 4);
+
+void setup()
+{
+  // inicializamos la pantalla para comunicación 
+  lcd.begin();
+
+  // Enciende la luz de fondo pantalla
+  lcd.backlight();
+  //Por default comenzará a escribir en la posición x=0,y=0
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Mecatronica");
+  //Nos movemos al segundo renglón, en la primera posición
+  lcd.setCursor(0, 1);
+  //se manda el siguiente texto a la pantalla
+  lcd.print("CBTIS 85");
+  //Nos movemos al tercer renglón, en la primera posición
+  lcd.setCursor(0, 2);
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Mecatronica 85");
+  //Nos movemos al cuarto renglón, en la primera posición
+  lcd.setCursor(0, 3);
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Rules");
+
+}
+
+void loop()
+{
+  // Aquí no colocamos nada
+}
+```
 
 #### Voltímetro
+
+![voltimetro lcd](../assets/schematic/voltimetro_lcd_01.png)
+
+
 
 ----
 
