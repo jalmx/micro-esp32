@@ -169,7 +169,7 @@ void loop() {
   Serial.print("Valor del ADC: ");
   Serial.println(valueLDR);
 
-  if (valeLDR > LIMIT) {
+  if (valueLDR > LIMIT) {
     digitalWrite(LED1, HIGH);
   } else {
     digitalWrite(LED1, LOW);
