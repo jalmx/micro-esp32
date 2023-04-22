@@ -374,26 +374,18 @@
 <span class=w>    </span><span class=n>delay</span><span class=p>(</span><span class=mi>250</span><span class=p>);</span>
 <span class=w>  </span><span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=control-rf-315-mhz>Control RF 315 MHz</h3> <p>El control RF ya incluye un decodificador, es decir, este IC es el encargado de decirnos qué botón fue presionado en el control y con ello sabremos la acción a realizar.</p> <p><img alt="control rf" src=../../assets/control_rf.jpg></p> <p>Descripción del receptor </p> <p><img alt=receptor src=../../assets/Pinout-2.png></p> <p>Cuando se pulsa un botón el control remoto, si la comunicación es correcta levanta el pin VT para indicar que ha detectado una transmisión valida (Valid Trans).</p> <p><img alt=RF src=../../assets/schematic/rf_01.png></p> <p>Probando el funcionamiento del Control con receptor</p> <p><strong>Código</strong></p> <div class=highlight><pre><span></span><code><span class=c1>//CÓDIGO NO PROBADO</span>
-<span class=c1>// D0 - 34</span>
-<span class=c1>// D1 - 35</span>
-<span class=c1>// D2 - 32</span>
-<span class=c1>// D3 - 33</span>
+</code></pre></div> <h3 id=control-rf-315-mhz>Control RF 315 MHz</h3> <p>El control RF ya incluye un decodificador, es decir, este IC es el encargado de decirnos qué botón fue presionado en el control y con ello sabremos la acción a realizar.</p> <p><img alt="control rf" src=../../assets/control_rf.jpg></p> <p>Descripción del receptor </p> <p><img alt=receptor src=../../assets/Pinout-2.png></p> <p>Cuando se pulsa un botón el control remoto, si la comunicación es correcta levanta el pin VT para indicar que ha detectado una transmisión valida (Valid Trans).</p> <p><img alt=RF src=../../assets/schematic/rf_01.png></p> <p>Probando el funcionamiento del Control con receptor</p> <p><strong>Código</strong></p> <div class=highlight><pre><span></span><code><span class=c1>///defino los pines de entrada y salida</span>
+<span class=cp>#define D0 34</span>
+<span class=cp>#define D1 35</span>
+<span class=cp>#define D2 32</span>
+<span class=cp>#define D3 33</span>
 
-<span class=k>const</span><span class=w> </span><span class=n>byte</span><span class=w> </span><span class=n>D0</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>34</span><span class=p>;</span>
-<span class=k>const</span><span class=w> </span><span class=n>byte</span><span class=w> </span><span class=n>D1</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>35</span><span class=p>;</span>
-<span class=k>const</span><span class=w> </span><span class=n>byte</span><span class=w> </span><span class=n>D2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>32</span><span class=p>;</span>
-<span class=k>const</span><span class=w> </span><span class=n>byte</span><span class=w> </span><span class=n>D3</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>33</span><span class=p>;</span>
+<span class=cp>#define LED1 26</span>
+<span class=cp>#define LED2 27</span>
+<span class=cp>#define LED3 14</span>
+<span class=cp>#define LED4 12</span>
 
-<span class=k>const</span><span class=w> </span><span class=n>LED1</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>26</span><span class=p>;</span>
-<span class=k>const</span><span class=w> </span><span class=n>LED2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>27</span><span class=p>;</span>
-<span class=k>const</span><span class=w> </span><span class=n>LED3</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>14</span><span class=p>;</span>
-<span class=k>const</span><span class=w> </span><span class=n>LED4</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>12</span><span class=p>;</span>
-
-<span class=kt>void</span><span class=w> </span><span class=nf>setup</span><span class=p>()</span><span class=w> </span>
-<span class=p>{</span>
-<span class=w>  </span><span class=n>Serial</span><span class=p>.</span><span class=n>begin</span><span class=p>(</span><span class=mi>115200</span><span class=p>);</span>
-
+<span class=kt>void</span><span class=w> </span><span class=nf>setup</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
 <span class=w>  </span><span class=n>pinMode</span><span class=p>(</span><span class=n>D0</span><span class=p>,</span><span class=w> </span><span class=n>INPUT</span><span class=p>);</span>
 <span class=w>  </span><span class=n>pinMode</span><span class=p>(</span><span class=n>D1</span><span class=p>,</span><span class=w> </span><span class=n>INPUT</span><span class=p>);</span>
 <span class=w>  </span><span class=n>pinMode</span><span class=p>(</span><span class=n>D2</span><span class=p>,</span><span class=w> </span><span class=n>INPUT</span><span class=p>);</span>
@@ -402,34 +394,32 @@
 <span class=w>  </span><span class=n>pinMode</span><span class=p>(</span><span class=n>LED2</span><span class=p>,</span><span class=w> </span><span class=n>OUTPUT</span><span class=p>);</span>
 <span class=w>  </span><span class=n>pinMode</span><span class=p>(</span><span class=n>LED3</span><span class=p>,</span><span class=w> </span><span class=n>OUTPUT</span><span class=p>);</span>
 <span class=w>  </span><span class=n>pinMode</span><span class=p>(</span><span class=n>LED4</span><span class=p>,</span><span class=w> </span><span class=n>OUTPUT</span><span class=p>);</span>
+<span class=w>  </span><span class=c1>// inicializamos la pantalla para comunicación</span>
+<span class=w>  </span><span class=n>Serial</span><span class=p>.</span><span class=n>begin</span><span class=p>(</span><span class=mi>115200</span><span class=p>);</span>
+
 <span class=p>}</span>
 
 <span class=kt>void</span><span class=w> </span><span class=nf>loop</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
-<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D0</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>HIGH</span><span class=p>){</span>
+<span class=w>  </span><span class=n>lcd</span><span class=p>.</span><span class=n>setCursor</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=p>);</span><span class=w> </span><span class=c1>//regresamos a la posición para colocar el texto</span>
 
-<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;A&quot;</span><span class=p>);</span><span class=w> </span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D0</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D0&quot;</span><span class=p>);</span>
 <span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED1</span><span class=p>));</span>
-<span class=w>    </span><span class=n>delay</span><span class=p>(</span><span class=mi>500</span><span class=p>);</span>
 <span class=w>  </span><span class=p>}</span>
-
-<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D1</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>HIGH</span><span class=p>){</span>
-<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;B&quot;</span><span class=p>);</span>
-<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED2</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED2</span><span class=p>));</span>
-<span class=w>    </span><span class=n>delay</span><span class=p>(</span><span class=mi>500</span><span class=p>);</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D1</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D1&quot;</span><span class=p>);</span>
+<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED2</span><span class=p>));</span>
 <span class=w>  </span><span class=p>}</span>
-
-<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D2</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>HIGH</span><span class=p>){</span>
-<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED3</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED3</span><span class=p>));</span>
-<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;C&quot;</span><span class=p>);</span>
-<span class=w>    </span><span class=n>delay</span><span class=p>(</span><span class=mi>500</span><span class=p>);</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D2</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D2&quot;</span><span class=p>);</span>
+<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED3</span><span class=p>));</span>
 <span class=w>  </span><span class=p>}</span>
-
-<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D3</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>HIGH</span><span class=p>){</span>
-<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED3</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED3</span><span class=p>));</span>
-<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D&quot;</span><span class=p>);</span>
-<span class=w>    </span><span class=n>delay</span><span class=p>(</span><span class=mi>500</span><span class=p>);</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D3</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D3&quot;</span><span class=p>);</span>
+<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED4</span><span class=p>));</span>
 <span class=w>  </span><span class=p>}</span>
-<span class=w>  </span><span class=n>delay</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span>
+<span class=w>  </span><span class=n>delay</span><span class=p>(</span><span class=mi>250</span><span class=p>);</span>
+<span class=p>}</span>
 </code></pre></div> <hr> <h2 id=mini-proyecto>Mini proyecto</h2> <h3 id=seguidor-de-luz>Seguidor de Luz</h3> <p>Es un carrito seguidor de Luz, cuando se recibe la luz en el sensor izquierdo, se activa el motor derecho, cuando recibe luz el sensor derecho se activa el motor izquierdo, si se recibe la luz en ambos se activan los 2 motores al mismo tiempo.</p> <p><img alt=esquemático src=../../assets/carrito_seguidor_luz.png></p> <blockquote> <p><a href=../../assets/carrito_seguidor_luz.png>Abrir la imagen</a></p> </blockquote> <p><code>Nota: Solo se cambia la sección de control por la placa ESP32</code></p> <p><img alt=carrito src=../../assets/carrito.png></p> <p><strong>Código</strong></p> <div class=highlight><pre><span></span><code><span class=c1>//Se uso el ESP32 version Wemos</span>
 <span class=k>const</span><span class=w> </span><span class=n>byte</span><span class=w> </span><span class=n>sensorD</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>19</span><span class=p>;</span><span class=w> </span><span class=c1>//</span>
 <span class=k>const</span><span class=w> </span><span class=n>byte</span><span class=w> </span><span class=n>sensorI</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>23</span><span class=p>;</span>
