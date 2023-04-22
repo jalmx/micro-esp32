@@ -89,31 +89,21 @@ Se mandara un mensaje a la pantalla, línea por línea.
 #include <LiquidCrystal_I2C.h>
 
 // Set the LCD address to 0x27 for a 16 chars and 2 line display
-LiquidCrystal_I2C lcd(0x27, 20, 4);
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup()
 {
   // inicializamos la pantalla para comunicación 
   lcd.begin();
-
   // Enciende la luz de fondo pantalla
   lcd.backlight();
   //Por default comenzará a escribir en la posición x=0,y=0
   //se manda el siguiente texto a la pantalla
-  lcd.print("Mecatronica");
+  lcd.print("Mecatronica 85"); //no se ponen acentos 
   //Nos movemos al segundo renglón, en la primera posición
   lcd.setCursor(0, 1);
   //se manda el siguiente texto a la pantalla
-  lcd.print("CBTIS 85");
-  //Nos movemos al tercer renglón, en la primera posición
-  lcd.setCursor(0, 2);
-  //se manda el siguiente texto a la pantalla
-  lcd.print("Mecatronica 85");
-  //Nos movemos al cuarto renglón, en la primera posición
-  lcd.setCursor(0, 3);
-  //se manda el siguiente texto a la pantalla
   lcd.print("Rules");
-
 }
 
 void loop()
@@ -124,7 +114,114 @@ void loop()
 
 #### Voltímetro
 
+Realizaremos un voltímetro sencillo y básico, donde vamos a leer el voltaje de un divisor de tension.
+
+Para ello debemos aplicar una formula donde vamos a convertir el valor que se recibe del ADC a un valor equivalente de voltaje, como tenemos un potenciómetro lineal, la relación es directa, quedando la formula
+
+$$voltaje = ADC_{bit} \frac{3.3V}{4095_{bit}}$$
+
+Con esta formula estamos convirtiendo lo que recibimos en la entrada del ADC a lo correspondiente de voltaje.
+
+Como el valor máximo de voltaje es 3.3V, esto se divide entre la resolución del ADC y lo multiplicamos por el valor leído.
+
+**Diagrama pictórico**
+
 ![voltimetro lcd](../assets/schematic/voltimetro_lcd_01.png)
+
+
+**Código básico**
+
+```C
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define PIN_ADC 34
+
+
+void setup(){
+  // inicializamos la pantalla para comunicación 
+  lcd.begin();
+  // Enciende la luz de fondo pantalla
+  lcd.backlight();
+  //Por default comenzará a escribir en la posición x=0,y=0
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Mecatronica 85");
+  //Nos movemos al segundo renglón, en la primera posición
+  lcd.setCursor(0, 1);
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Voltimetro");
+  delay(1000); //esperamos un segundo para el mensaje de bienvenida
+  lcd.clear(); //limpiamos la pantalla
+  lcd.setCursor(0,0); //regresamos a la posición inicial
+  lcd.print("Voltimetro 85");
+  lcd.setCursor(15,1);  //nos movemos a la columna 15 y la ultima posición
+  lcd.print("V"); //colocamos la unidad del voltaje (V)
+}
+
+void loop(){
+  int valorADC = analogRead(PIN_ADC);
+  delay(10); //esperamos un momento de estabilización del dato
+  float voltaje = (valorADC * 3.3) / 4095.0; //convertimos el valor a voltaje
+  lcd.setCursor(11,1); //nos colocamos en la parte para que el numero salga al final al lado de la "V"
+  lcd.print(voltaje);
+  delay(50);
+}
+```
+
+**Código más estable**
+
+Este código es más eficiente para tener una valor más estable. Aplicamos un promedio de la muestra. Con esto hacemos que el valor que se muestra se más conciso.
+
+```C
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define PIN_ADC 34
+
+
+void setup() {
+  // inicializamos la pantalla para comunicación
+  lcd.begin();
+  // Enciende la luz de fondo pantalla
+  lcd.backlight();
+  //Por default comenzará a escribir en la posición x=0,y=0
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Mecatronica 85");
+  //Nos movemos al segundo renglón, en la primera posición
+  lcd.setCursor(0, 1);
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Voltimetro");
+  delay(1000); //esperamos un segundo para el mensaje de bienvenida
+  lcd.clear(); //limpiamos la pantalla
+  lcd.setCursor(0, 0); //regresamos a la posición inicial
+  lcd.print("Voltimetro 85");
+  lcd.setCursor(15, 1); //nos movemos a la columna 15 y la ultima posición
+  lcd.print("V"); //colocamos la unidad del voltaje (V)
+}
+
+#define MUESTRAS 60.0 // defino una cantidad de muestras que se tomaran para el promedio
+
+void loop() {
+  int valorADC = 0;     //aquí guardaremos el valor del ADC
+  int suma = 0;         //acumulara el valor de las muestras del ADC
+  for (byte x = 0; x < MUESTRAS; x++) {
+    valorADC = analogRead(PIN_ADC);
+    suma += valorADC;
+    delay(5); //esperamos un momento de estabilización del dato
+  }
+  float promedio = suma / MUESTRAS;
+  float voltaje = (valorADC * 3.3) / 4095.0; //convertimos el valor a voltaje
+  lcd.setCursor(11, 1); //nos colocamos en la parte para que el numero salga al final al lado de la "V"
+  lcd.print(voltaje);
+
+}
+```
+
+
 
 
 
