@@ -81,8 +81,9 @@ Se mandara un mensaje a la pantalla, línea por línea.
 
 **Diagrama Pictórico**
 
-![connect](../assets/schematic/lcd_basic_connect.png)]
+![connect](../assets/schematic/lcd_basic_connect.png)
 
+![lcd](../assets/videos/lcd_meka.gif)
 
 ```C
 #include <Wire.h>
@@ -128,6 +129,13 @@ Como el valor máximo de voltaje es 3.3V, esto se divide entre la resolución de
 
 ![voltimetro lcd](../assets/schematic/voltimetro_lcd_01.png)
 
+
+<picture width="100%" markdown="1">
+  <source srcset="../assets/videos/voltimetro.webp" type="image/webp">
+
+![voltimetro gif](../assets/videos/voltimetro.gif)
+  
+</picture>
 
 **Código básico**
 

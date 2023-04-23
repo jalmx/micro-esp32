@@ -23,6 +23,7 @@ theme:
   language: es
   features:
     - navigation.footer
+    - content.code.copy
 
 repo_url: https://github.com/jalmx/micro-23
 
