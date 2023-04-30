@@ -15,7 +15,7 @@ Realizar el siguiente ejercicio, como se ve en la animación
 4. Hay un tercer botón, para el reset del conteo
 5. Cuando llegue al topo superior (F) o inferior (cero), no debe pasar nada
 
-<!-- Bloque de código -->
+<!-- Código -->
 <!-- 
 <details markdown="1">
 <summary>Código</summary>
@@ -118,3 +118,133 @@ void loop()
 </details>
 
  -->
+
+## Control de Motor DC con LCD
+
+Realizar el siguiente ejercicio, como se ve en la animación
+
+![motor lcd](../assets/videos/motor_lcd.gif)
+
+**Funcionamiento**
+
+1. Cuando el no se este presionando ningún botón, debe estar parpadeando los 2 leds y en la pantalla indicar "MOTOR DETENIDO"
+2. Cuando sea presionado un botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA DERECHA"
+3. Cuando sea presionado el otro botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA IZQUIERDA"
+
+
+<!-- 
+**Código**
+
+<details markdown="1">
+<summary>Código</summary>
+
+```C
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+//Configuro los pines físicos para las entradas y salidas
+const byte LED_I = 25;
+const byte LED_D = 26;
+const byte MOTOR_1 = 18;
+const byte MOTOR_2 = 19;
+const byte BTN_D = 34;
+const byte BTN_I = 35;
+
+// Set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup() {
+  // configurando los pines como entradas y salidas
+  pinMode(LED_I, OUTPUT);
+  pinMode(LED_D, OUTPUT);
+  pinMode(MOTOR_1, OUTPUT);
+  pinMode(MOTOR_2, OUTPUT);
+  pinMode(BTN_I, INPUT);
+  pinMode(BTN_D, INPUT);
+
+  Serial.begin(115200);
+  lcd.begin();
+  // Enciende la luz de fondo pantalla
+  lcd.backlight();
+  //Por default comenzará a escribir en la posición x=0,y=0
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Mecatronica 85"); //no se ponen acentos
+  //Nos movemos al segundo renglón, en la primera posición
+  lcd.setCursor(0, 1);
+  //se manda el siguiente texto a la pantalla
+  lcd.print("Motor DC");
+}
+
+int mensaje1 = 0;
+int mensaje2 = 0;
+int mensaje3 = 0;
+
+void loop() {
+  if (digitalRead(BTN_I) == 1) {
+
+    if (mensaje1 == 0) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("MOTOR"); //no se ponen acentos
+      lcd.setCursor(0, 1);
+      lcd.print("DERECHA");
+      Serial.println("Motor gira derecha");
+      mensaje1++;
+      mensaje2 = 0;
+      mensaje3 = 0;
+    }
+    digitalWrite(MOTOR_1, HIGH);
+    digitalWrite(MOTOR_2, LOW);
+    //Leds
+    digitalWrite(LED_I, HIGH);
+    digitalWrite(LED_D, LOW);
+
+  } else if (digitalRead(BTN_D) == 1) {
+
+    if (mensaje2 == 0) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("MOTOR"); //no se ponen acentos
+      lcd.setCursor(0, 1);
+      lcd.print("IZQUIERDA");
+      Serial.println("Motor gira Izquierdar");
+      mensaje2++;
+      mensaje1 = 0;
+      mensaje3 = 0;
+    }
+
+    // Motor
+    digitalWrite(MOTOR_1, LOW);
+    digitalWrite(MOTOR_2, HIGH);
+    //Leds
+    digitalWrite(LED_I, LOW);
+    digitalWrite(LED_D, HIGH);
+  } else {
+
+    if (mensaje3 == 0) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("MOTOR"); //no se ponen acentos
+      lcd.setCursor(0, 1);
+      lcd.print("DETENIDO");
+      Serial.println("Motor Detenido");
+      mensaje3++;
+      mensaje1 = 0;
+      mensaje2 = 0;
+    }
+    // Motor apagado
+    digitalWrite(MOTOR_1, LOW);
+    digitalWrite(MOTOR_2, LOW);
+    //Hago un blink con los leds
+    //Leds
+    digitalWrite(LED_I, LOW);
+    digitalWrite(LED_D, LOW);
+    delay(200);
+    digitalWrite(LED_I, HIGH);
+    digitalWrite(LED_D, HIGH);
+    delay(200);
+  }
+}
+```
+
+</details> -->
