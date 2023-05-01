@@ -193,7 +193,38 @@ En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su 
 
 ![pwm concepts](https://www.researchgate.net/profile/Ahmed-Elmahalawy-2/publication/271437313/figure/fig4/AS:668441367306246@1536380249520/PWM-signal-with-its-two-basic-time-periods.png)
 
-### Control de Intensidad de un LED
+### Configuración de PWM en ESP32
+
+Características del PWM en el ESP32
+
+- 16 Canales. `Canal 0 - 15` (excepto los pines GPIO36, GPIO39, GPIO34, y GPIO35)
+- Resolución de 1 - 16 bits. 
+- 3 Funciones para control y configuración
+
+![](../assets/esp32_pwm_pins.png)
+
+Las funciones para el PWM
+
+- `ledcSetup`: Para configuración de inicio del PWM
+- `ledcAttachPin`: Asigna la configuración al pin indicado
+- `ledcWrite`: Escribe el valor que saldrá por el pin.
+
+Detalles de la funciones
+
+- `ledcSetup(canal_PWM, frecuencia, resolucion)`: Es la primera funcion que se debe llamar y solo una vez para configurar el comportamiento del PWM
+  - `canal_PWM`: Es un valor del 0 al 15, donde se selecciona el canal que usaremos del uC
+  - `frecuencia`: Es la frecuencia de trabajo del PWM. Vamos a manejar por default 1000 (1kHz)
+  - `resolucion`: Tenemos desde 1 a 16 bits de resolución, en la mayoria de aplicaciones con 8 bits es suficiente o hasta 10 bits. Recordemos que para saber cual sera el valor minimo debemos de aplicar $3.3V/resolucion_{bits}$. Con 8 bits sería $3.3/256=0.012V$
+- `ledcAttachPin(pin, canal_PWM)`:
+  - `pin`: Es el numero del pin que vamos a usar como salida PWM (ver el esquema de los pines que podemos usar)
+  - `canal_PWM`: El canal que colocamos en la función anterior
+- `ledcWrite(canal_PWM, valorPWM)`: La función que se encarga de poner el valor en el pin indicado con un cierto ciclo de trabajo.
+  - `canal_PWM`: El canal que estamos usando para el PWM
+  - `valorPWM`: El valor que queremos asignar. Recordar que el valor esta en función de la resolución. Por ejemplo, si estamos usando 8 bits, los valores van desde 0 a 255.
+
+
+[Ver mas detalles en la documentación oficial](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/ledc.html)
+
 
 ### Control de Intensidad de un LED con 2 botones
 
@@ -201,11 +232,40 @@ En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su 
 
 ### Control LED RGB
 
+```C
+#define LED_R 25; //
+#define LED_G 26;
+#define LED_B 27;
+
+// PWM channel 0 parameter
+const int freq = 1000; // 1KHz
+const int ledChannel = 0;
+const int resolution = 8; // 8-bit resolution
+
+void setup(){
+    // Configure the channel 0
+    ledcSetup(ledChannel, freq, resolution);
+
+    // Attach the channel 0 on the 3 pins
+    ledcAttachPin(ledPin, ledChannel);
+    ledcAttachPin(ledPin2, ledChannel);
+    ledcAttachPin(ledPin3, ledChannel);
+}
+
+void loop(){
+    // Increase the brightness of the led in the loop
+    for(int dutyCycle = 0; dutyCycle <= 255; dutyCycle++){
+        ledcWrite(ledChannel, dutyCycle);
+        delay(15);
+    }
+}
+```
+
 ### Control de velocidad de Motor DC
 
 ### Servomotor
 
-l servomotor que utilizaremos el SG-90, es un servomotor básico.
+El servomotor que utilizaremos el SG-90, es un servomotor básico.
 
 ![servo](../assets/servo_conection.jpg)
 
