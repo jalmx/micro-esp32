@@ -226,40 +226,268 @@ Detalles de la funciones
 [Ver mas detalles en la documentación oficial](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/ledc.html)
 
 
-### Control de Intensidad de un LED con 2 botones
+### Control LED RGB
+
+Haremos un simple cambio de color, incrementando el brillo de cada uno.
+
+!!! Warning Cuidado
+    **Se esta utilizando en LED RGB de cátodo común**, si usas uno de Ánodo común, haz tu ajuste en el código y las conexiones
+
+**Diagrama pictórico**
+
+![rgb](../assets/schematic/rgb_basic.png)
+
+<details markdown="1">
+<summary>Animación</summary>
+  
+  ![rgb anima](../assets/videos/rgb_basic_anima.gif)
+
+  ![rgb video](../assets/videos/led_rgb.gif)
+
+</details>
+
+<details markdown="1">
+<summary>Código</summary>
+
+```C
+#define LED_R 25  // PIN LED ROJO
+#define LED_G 26  // PIN LED VERDE
+#define LED_B 27  // PIN LED AZUL
+
+#define FREQ        1000  // frecuencia de trabajo para el PWM a 1KHz
+#define ledChannel0 0     //defino el canal 0, que usaremos para el color Rojo
+#define ledChannel1 1     //defino el canal 1, que usaremos para el color Verde
+#define ledChannel2 2     //defino el canal 2, que usaremos para el color Azul
+#define resolution  8     // 8-bit de resolución (para Leds es ideal)
+
+void setup() {
+  // configuro el comportamiento del canal
+  ledcSetup(ledChannel0, FREQ, resolution);
+  ledcSetup(ledChannel1, FREQ, resolution);
+  ledcSetup(ledChannel2, FREQ, resolution);
+
+  //se asigna el Pin al canal configurado previamente
+  ledcAttachPin(LED_R, ledChannel0);
+  ledcAttachPin(LED_G, ledChannel1);
+  ledcAttachPin(LED_B, ledChannel2);
+}
+
+void loop() {
+  //se apagan todos los Leds
+  ledcWrite(ledChannel0, 0);
+  ledcWrite(ledChannel1, 0);
+  ledcWrite(ledChannel2, 0);
+  delay(15);
+
+  // Incrementa el brillo del rojo
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+    ledcWrite(ledChannel0, dutyCycle);
+    delay(15);
+  }
+  // Incrementa el brillo del verde
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+    ledcWrite(ledChannel1, dutyCycle);
+    delay(15);
+  }
+  // Incrementa el brillo del azul
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+    ledcWrite(ledChannel2, dutyCycle);
+    delay(15);
+  }
+}
+```
+
+</details>
+
+
+### Control de Intensidad de un LED botones
+
+Haremos un simple cambio de color con botones, incrementando el brillo de cada uno cuando se presione un botón, para su respectivo color.
+
+!!! Warning Cuidado
+    **Se esta utilizando en LED RGB de cátodo común**, si usas uno de Ánodo común, haz tu ajuste en el código y las conexiones
+
+**Diagrama pictórico**
+
+![rgb](../assets/schematic/rgb_btn.png)
+
+<details markdown="1">
+<summary>Animación</summary>
+  
+  ![rgb video](../assets/videos/rgb_btn_anima.gif)
+
+</details>
+
+<details markdown="1">
+<summary>Código</summary>
+
+```C
+#define LED_R 25  // PIN LED ROJO
+#define LED_G 26  // PIN LED VERDE
+#define LED_B 27  // PIN LED AZUL
+
+#define BTN_R 34  // PIN LED ROJO
+#define BTN_G 35  // PIN LED VERDE
+#define BTN_B 32  // PIN LED AZUL
+
+#define FREQ        1000  // frecuencia de trabajo para el PWM a 1KHz
+#define ledChannel0 0     //defino el canal 0, que usaremos para el color Rojo
+#define ledChannel1 1     //defino el canal 1, que usaremos para el color Verde
+#define ledChannel2 2     //defino el canal 2, que usaremos para el color Azul
+#define resolution  8     // 8-bit resolution
+
+void setup() {
+  pinMode(BTN_R, INPUT);
+  pinMode(BTN_G, INPUT);
+  pinMode(BTN_B, INPUT);
+  // configuro el comportamiento del canal
+  ledcSetup(ledChannel0, FREQ, resolution);
+  ledcSetup(ledChannel1, FREQ, resolution);
+  ledcSetup(ledChannel2, FREQ, resolution);
+
+  //se asigna el Pin al canal configurado previamente
+  ledcAttachPin(LED_R, ledChannel0);
+  ledcAttachPin(LED_G, ledChannel1);
+  ledcAttachPin(LED_B, ledChannel2);
+  //se apagan todos los Leds
+  ledcWrite(ledChannel0, 0);
+  ledcWrite(ledChannel1, 0);
+  ledcWrite(ledChannel2, 0);
+  Serial.begin(115200);
+}
+
+unsigned char red = 0;
+unsigned char blue = 0;
+unsigned char green = 0;
+unsigned char inc = 5;
+
+void loop() {
+  // Incrementa el brillo del rojo
+  if (digitalRead(BTN_R) == 1) {
+    if (red > 254) {
+      red = 0;
+    } else {
+      red += inc;
+    }
+    ledcWrite(ledChannel0, red);
+    Serial.print("Rojo: ");
+    Serial.println(red);
+    delay(200);
+  }
+
+  if (digitalRead(BTN_G) == 1) {
+    if (green > 254) {
+      green = 0;
+    } else {
+      green += inc;
+    }
+    ledcWrite(ledChannel1, green);
+    Serial.print("Verde: ");
+    Serial.println(green);
+
+    delay(200);
+  }
+
+
+  if (digitalRead(BTN_B) == 1) {
+    if (blue > 254) {
+      blue = 0;
+    } else {
+      blue += inc;
+    }
+    ledcWrite(ledChannel2, blue);
+    Serial.print("Azul: ");
+    Serial.println(blue);
+    delay(200);
+  }
+
+}
+```
+</details>
 
 ### Control de intensidad de un LED con potenciómetro
 
-### Control LED RGB
+Haremos un simple cambio de color con botones, incrementando el brillo de cada uno cuando moviendo el vástago de un potenciómetro, cada uno hará el cambio de su respectivo color.
 
+!!! Warning Cuidado
+    **Se esta utilizando en LED RGB de cátodo común**, si usas uno de Ánodo común, haz tu ajuste en el código y las conexiones
+
+**Diagrama pictórico**
+
+![rgb](../assets/schematic/rgb_pot.png)
+
+<details markdown="1">
+<summary>Animación</summary>
+  
+  ![rgb video](../assets/videos/rgb_pot_anima.gif)
+
+</details>
+
+
+<details markdown="1">
+<summary>Código</summary>
+  
 ```C
-#define LED_R 25; //
-#define LED_G 26;
-#define LED_B 27;
+#define LED_R 25  // PIN LED ROJO
+#define LED_G 26  // PIN LED VERDE
+#define LED_B 27  // PIN LED AZUL
 
-// PWM channel 0 parameter
-const int freq = 1000; // 1KHz
-const int ledChannel = 0;
-const int resolution = 8; // 8-bit resolution
+#define POT_R 34  // PIN LED ROJO
+#define POT_G 35  // PIN LED VERDE
+#define POT_B 32  // PIN LED AZUL
 
-void setup(){
-    // Configure the channel 0
-    ledcSetup(ledChannel, freq, resolution);
+#define FREQ        1000  // frecuencia de trabajo para el PWM a 1KHz
+#define ledChannel0 0     //defino el canal 0, que usaremos para el color Rojo
+#define ledChannel1 1     //defino el canal 1, que usaremos para el color Verde
+#define ledChannel2 2     //defino el canal 2, que usaremos para el color Azul
+#define resolution  8     // 8-bit resolution
 
-    // Attach the channel 0 on the 3 pins
-    ledcAttachPin(ledPin, ledChannel);
-    ledcAttachPin(ledPin2, ledChannel);
-    ledcAttachPin(ledPin3, ledChannel);
+void setup() {
+  // configuro el comportamiento del canal
+  ledcSetup(ledChannel0, FREQ, resolution);
+  ledcSetup(ledChannel1, FREQ, resolution);
+  ledcSetup(ledChannel2, FREQ, resolution);
+
+  //se asigna el Pin al canal configurado previamente
+  ledcAttachPin(LED_R, ledChannel0);
+  ledcAttachPin(LED_G, ledChannel1);
+  ledcAttachPin(LED_B, ledChannel2);
+  //se apagan todos los Leds
+  ledcWrite(ledChannel0, 0);
+  ledcWrite(ledChannel1, 0);
+  ledcWrite(ledChannel2, 0);
+  Serial.begin(115200);
 }
 
-void loop(){
-    // Increase the brightness of the led in the loop
-    for(int dutyCycle = 0; dutyCycle <= 255; dutyCycle++){
-        ledcWrite(ledChannel, dutyCycle);
-        delay(15);
-    }
+
+void loop() {
+  int red = analogRead(POT_R);
+  int blue = analogRead(POT_B);
+  int green = analogRead(POT_G);
+
+  red = map(red, 0, 4095, 0, 255); //se esta convirtiendo el valor del ADC de 0 a 4095 a un valor de 8 bits, es decir, de 0 a 255
+  blue = map(blue, 0, 4095, 0, 255); //se esta convirtiendo el valor del ADC de 0 a 4095 a un valor de 8 bits, es decir, de 0 a 255
+  green = map(green, 0, 4095, 0, 255); //se esta convirtiendo el valor del ADC de 0 a 4095 a un valor de 8 bits, es decir, de 0 a 255
+
+  // Incrementa el brillo del rojo
+  ledcWrite(ledChannel0, red);
+  Serial.print("Rojo: ");
+  Serial.println(red);
+
+  ledcWrite(ledChannel1, green);
+  Serial.print("Verde: ");
+  Serial.println(green);
+
+  ledcWrite(ledChannel2, blue);
+  Serial.print("Azul: ");
+  Serial.println(blue);
+
+  delay(15);
 }
 ```
+
+</details>
+
 
 ### Control de velocidad de Motor DC
 
@@ -288,7 +516,7 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
     | 90 grados |76 |
     | 180 grados | 127 |
 
-  
+
 ### Control de giro de Servomotor con botones
 
 ### Control de giro de Servomotor con potenciómetro
