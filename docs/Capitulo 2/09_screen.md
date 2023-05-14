@@ -237,4 +237,70 @@ void loop() {
 
 ## OLED 
 
-check https://github.com/durydevelop/arduino-lib-oled
+Las pantalla OLED se han popularizado mucho últimamente, y gracias a Adafruit se ha economizado mucho.
+
+Nos da una amplia gama de aplicación en diversas situaciones, como realizar estaciones meteorológicas, un contador para nuestros suscriptores de YT, juegos, etc.
+
+![oled 1](../assets/oled_01.png)
+
+![oled 1](../assets/oled_02.png)
+
+Contamos con 2 drivers, los mas comunes son:
+
+-  SSD1306
+-  SH110X
+
+Con dos protocolos, estos son
+
+- I^2^C
+- SPI
+
+
+!!! Note Nota
+    Aquí debes probar en caso de no conocer cual es el driver de tuu pantalla OLED, en mi caso tengo con driver: **SH110X con I^2^C**
+
+!!! Warning Conexión
+    Los pines a los que se conectan los pines de `SDA` y `SCL` de la pantalla Iran a:
+
+    |OLED | ESP32|
+    |---|---|
+    |SDA| GPIO21| 
+    |SCL| GPIO22|
+    |VDD| 3V3|
+    |GND| GND|
+
+![connect](../assets/schematic/oled_basic.png)
+
+!!! Warning Librería
+    Las librerías que se necesitan son varias, si estas con el gestor e instalar en la carpeta de `librerías` del IDE de Arduino. [Descargar aquí](../assets/libs/oled_ssd%26shx.zip) y las agregamos de manera manual.
+
+
+<details markdown="1">
+<summary markdown="1"> Instalando desde el **Gestor de librerías** </summary>
+
+**Buscamos por "oled" e instalamos las siguientes e instalamos las librerías adiciones**
+
+![lib1](../assets/install_oled_1.png)
+
+![lib1](../assets/install_oled_2.png)
+
+![lib1](../assets/install_oled_3.png)
+
+</details>
+
+### Convertidores de imágenes para la pantalla
+
+- [image2cpp](https://javl.github.io/image2cpp/) [web]
+
+![image2cpp](../assets/image2cpp.png) 
+
+- [LCD Image Converter](https://lcd-image-converter.riuson.com/en/about/) [Desktop]
+
+
+![lcd](../assets/LCD%20Image%20Converter.png)
+
+[Descargar](https://sourceforge.net/projects/lcd-image-converter/files/)
+
+[Para conocer mas, ingresa a la documentación oficial de Adafruit](https://github.com/adafruit/Adafruit-GFX-Library)
+
+#### Probando la OLED
