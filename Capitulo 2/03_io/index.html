@@ -418,7 +418,6 @@
 <span class=p>}</span>
 
 <span class=kt>void</span><span class=w> </span><span class=nf>loop</span><span class=p>()</span><span class=w> </span><span class=p>{</span>
-<span class=w>  </span><span class=n>lcd</span><span class=p>.</span><span class=n>setCursor</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=p>);</span><span class=w> </span><span class=c1>//regresamos a la posición para colocar el texto</span>
 
 <span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D0</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
 <span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D0&quot;</span><span class=p>);</span>
@@ -426,15 +425,15 @@
 <span class=w>  </span><span class=p>}</span>
 <span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D1</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
 <span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D1&quot;</span><span class=p>);</span>
-<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED2</span><span class=p>));</span>
+<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED2</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED2</span><span class=p>));</span>
 <span class=w>  </span><span class=p>}</span>
 <span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D2</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
 <span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D2&quot;</span><span class=p>);</span>
-<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED3</span><span class=p>));</span>
+<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED3</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED3</span><span class=p>));</span>
 <span class=w>  </span><span class=p>}</span>
 <span class=w>  </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>D3</span><span class=p>)</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=p>{</span>
 <span class=w>    </span><span class=n>Serial</span><span class=p>.</span><span class=n>println</span><span class=p>(</span><span class=s>&quot;D3&quot;</span><span class=p>);</span>
-<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED1</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED4</span><span class=p>));</span>
+<span class=w>    </span><span class=n>digitalWrite</span><span class=p>(</span><span class=n>LED4</span><span class=p>,</span><span class=w> </span><span class=o>!</span><span class=n>digitalRead</span><span class=p>(</span><span class=n>LED4</span><span class=p>));</span>
 <span class=w>  </span><span class=p>}</span>
 <span class=w>  </span><span class=n>delay</span><span class=p>(</span><span class=mi>250</span><span class=p>);</span>
 <span class=p>}</span>
