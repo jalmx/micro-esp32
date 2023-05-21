@@ -187,6 +187,7 @@ void loop(){
 Este código es más eficiente para tener una valor más estable. Aplicamos un promedio de la muestra. Con esto hacemos que el valor que se muestra se más conciso.
 
 ```C
+
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -232,7 +233,6 @@ void loop() {
 
 }
 ```
-----
 
 ## OLED 
 
@@ -670,7 +670,14 @@ Con esta formula estamos convirtiendo lo que recibimos en la entrada del ADC a l
 
 Como el valor máximo de voltaje es 3.3V, esto se divide entre la resolución del ADC y lo multiplicamos por el valor leído.
 
-Haciendo uso de una pantalla OLED
+Haciendo uso de una pantalla OLED para mostrar le valor en la pantalla.
 
 **Diagrama pictórico**
 
+![volti](../assets/schematic/oled_volti.png)
+
+**Código**
+
+```C
+
+```
