@@ -47,12 +47,12 @@ https://naylampmechatronics.com/oled/638-display-oled-i2c-130-12864-sh1106.html
 !!! Warning Conexión
     Los pines a los que se conectan los pines de `SDA` y `SCL` de la pantalla Iran a:
 
-    |LCD | ESP32|
-    |---|---|
-    |SDA| GPIO21| 
-    |SCL| GPIO22|
-    |VCC| 5V|
-    |GND| GND|
+    | LCD | ESP32  |
+    | --- | ------ |
+    | SDA | GPIO21 |
+    | SCL | GPIO22 |
+    | VCC | 5V     |
+    | GND | GND    |
 
 ![connect](../assets/schematic/lcd_basic_connect.png)]
 
@@ -261,12 +261,12 @@ Con dos protocolos, estos son
 !!! Warning Conexión
     Los pines a los que se conectan los pines de `SDA` y `SCL` de la pantalla Iran a:
 
-    |OLED | ESP32|
-    |---|---|
-    |SDA| GPIO21| 
-    |SCL| GPIO22|
-    |VDD| 3V3|
-    |GND| GND|
+    | OLED | ESP32  |
+    | ---- | ------ |
+    | SDA  | GPIO21 |
+    | SCL  | GPIO22 |
+    | VDD  | 3V3    |
+    | GND  | GND    |
 
 ![connect](../assets/schematic/oled_basic.png)
 
@@ -686,8 +686,8 @@ Haciendo uso de una pantalla OLED para mostrar le valor en la pantalla.
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
-#define i2c_Address 0x3c //inicializa la comunicacion con el I2C con la direccion 0x3C.
-//#define i2c_Address 0x3d // inicializa la comunicacion con el I2C con la direccion 0x3D.
+#define i2c_Address 0x3c //inicializa la comunicación con el I2C con la dirección 0x3C.
+//#define i2c_Address 0x3d // inicializa la comunicación con el I2C con la dirección 0x3D.
 
 #define SCREEN_WIDTH 128 // OLED ancho del display, en pixels
 #define SCREEN_HEIGHT 64 // OLED alto del display, en pixels

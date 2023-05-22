@@ -12,6 +12,34 @@ Usaremos diversos sensores para controlar distintos elementos.
 
 ![pir](../assets/schematic/pir_basic_bb.png)
 
+![pir basic](../assets/videos/PIR_basic.gif)
+
+**Código**
+
+```C
+#define PIR 34 //defino el pin para el sensor PIR
+#define LED 25 //defino el pin para el LED
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(PIR, INPUT);
+  pinMode(LED, OUTPUT);
+
+}
+
+void loop() {
+  if(digitalRead(PIR) == 1){
+    digitalWrite(LED, HIGH);
+    Serial.println("Hay presencia");
+    delay(1000);
+  }else{
+    digitalWrite(LED, LOW);
+  }
+  delay(10);
+}
+
+```
+
 ## Sensor de Temperatura y Humedad DTH11
 
 !!! Warning Lib
