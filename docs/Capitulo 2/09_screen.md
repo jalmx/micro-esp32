@@ -676,6 +676,8 @@ Haciendo uso de una pantalla OLED para mostrar le valor en la pantalla.
 
 ![volti](../assets/schematic/oled_volti.png)
 
+![voltimetro oled](../assets/videos/voltimetro_oled.gif)
+
 **Código**
 
 ```C
