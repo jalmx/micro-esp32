@@ -48,6 +48,8 @@ void loop() {
 
 ![dht](../assets/schematic/dht11_bb.png)
 
+![dht11 anima](../assets/videos/DHT11.gif)
+
 ```C
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
@@ -119,11 +121,176 @@ void loop() {
 }
 ```
 
-## Sensor de Sonido
-
 ## Sensor Ultrasónico HC-SR04
 
+**Instalación de la librería**
+
+![newping lib](../assets/newping_download.png)
+
+### Distancia con sensor Ultrasónico
+
+![ultrasonico anima](../assets/videos/ultrasonico.gif)
+
+```C
+#include <NewPing.h>
+
+#define TRIGGER_PIN  4  // Pin que se usara para el TRIGGER que recibe el sensor
+#define ECHO_PIN     2  // Pin que se usara el el ECHO que enviara el sensor
+#define MAX_DISTANCE 400 // Distancia maxima que puede medir el sensor
+
+NewPing ultrasonico(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // Se configura el objeto del sensor que usara los datos
+
+void setup() {
+  Serial.begin(115200);
+}
+
+float duracion, distancia;
+
+void loop() {
+
+  duracion = ultrasonico.ping();
+
+  distancia = (duracion / 2) * 0.0343;
+  Serial.print("Distancia: ");
+
+  if (distancia >= 400 || distancia <= 2) {
+    Serial.println("Fuera de rango");
+  } else {
+    Serial.print(distancia);
+    Serial.println(" cm");
+    delay(500);
+  }
+
+  delay(500);
+}
+```
+
+### Barra de leds con Ultrasonico
+
+![utra bar](../assets/videos/ultrasonico_barra.gif)
+
+```C
+#include <NewPing.h>
+
+#define TRIGGER_PIN  4  // Pin que se usara para el TRIGGER que recibe el sensor
+#define ECHO_PIN     2  // Pin que se usara el el ECHO que enviara el sensor
+#define MAX_DISTANCE 400 // Distancia maxima que puede medir el sensor
+
+NewPing ultrasonico(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // Se configura el objeto del sensor que usara los datos
+
+#define NO_LEDS 7
+const int PINS[] = {32, 33, 25, 26, 27, 12, 14}; //pines para leds
+
+
+void setup() {
+  Serial.begin(115200);
+  for (char x = 0; x < NO_LEDS; x++) {
+    pinMode(PINS[x], OUTPUT);
+  }
+}
+
+void loop() {
+
+  float distancia = (ultrasonico.ping() / 2) * 0.0343;
+  Serial.print("Distancia: ");
+
+  if (distancia >= 400 || distancia <= 2) {
+    Serial.println("Fuera de rango");
+
+    for (char x = 0; x < NO_LEDS; x++) {
+      digitalWrite(PINS[x], HIGH);
+    }
+    delay(250);
+    for (char x = 0; x < NO_LEDS; x++) {
+      digitalWrite(PINS[x], LOW);
+    }
+    delay(250);
+
+  } else {
+    Serial.print(distancia);
+    Serial.println(" cm");
+
+    if (distancia < 50) {
+      const int LEVEL = 1;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    } else if (distancia >= 50 && distancia < 100) {
+      const int LEVEL = 2;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    } else if (distancia >= 100 && distancia < 150) {
+      const int LEVEL = 3;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    } else if (distancia >= 150 && distancia < 200) {
+      const int LEVEL = 4;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    } else if (distancia >= 200 && distancia < 250) {
+      const int LEVEL = 5;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    } else if (distancia >= 250 && distancia < 300) {
+      const int LEVEL = 6;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    } else {
+      const int LEVEL = 7;
+
+      for (char x = 0; x < LEVEL; x++) {
+        digitalWrite(PINS[x], HIGH);
+      }
+      delay(100);
+      for (char x = LEVEL; x < NO_LEDS; x++) {
+        digitalWrite(PINS[x], LOW);
+      }
+    }
+    delay(500);
+  }
+
+  delay(10);
+}
+```
+
 ## Sensor DS18B - Sensor de temperatura
+
+## Sensor de Sonido
 
 ## Sensor de humedad de tierra
 
