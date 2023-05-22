@@ -314,7 +314,7 @@ La imagen demo que sale al inicio
 
 ![mk logo](../assets/MK_inv.png)
 
-#### Probando la OLED 
+#### Código DEMO de la OLED 
 
 Se realizara demo simple de uso de la pantalla OLED
 
@@ -679,5 +679,65 @@ Haciendo uso de una pantalla OLED para mostrar le valor en la pantalla.
 **Código**
 
 ```C
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
 
+#define i2c_Address 0x3c //inicializa la comunicacion con el I2C con la direccion 0x3C.
+//#define i2c_Address 0x3d // inicializa la comunicacion con el I2C con la direccion 0x3D.
+
+#define SCREEN_WIDTH 128 // OLED ancho del display, en pixels
+#define SCREEN_HEIGHT 64 // OLED alto del display, en pixels
+#define OLED_RESET -1   //   QT-PY / XIAO
+Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+#define PIN_ADC 34
+
+void setup()   {
+  ////NO MODIFICAR
+  Serial.begin(115200);
+  delay(250); // wait for the OLED to power up
+  display.begin(i2c_Address, true); // Address 0x3C default
+  //display.setContrast (0); // dim display
+  display.display();
+  delay(2000);
+  display.clearDisplay();
+  ////NO MODIFICAR
+
+  // text display tests
+  display.setTextSize(2);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(0, 0);
+  display.println("Voltimetro");
+  display.display();
+  delay(2000);
+  display.clearDisplay();
+
+}
+
+#define MUESTRAS 60.0 // defino una cantidad de muestras que se tomaran para el promedio
+
+void loop() {
+
+  int valorADC = 0;     //aquí guardaremos el valor del ADC
+  int suma = 0;         //acumulara el valor de las muestras del ADC
+  for (byte x = 0; x < MUESTRAS; x++) {
+    valorADC = analogRead(PIN_ADC);
+    suma += valorADC;
+    delay(5); //esperamos un momento de estabilización del dato
+  }
+  float promedio = suma / MUESTRAS;
+  float voltaje = (valorADC * 3.3) / 4095.0; //convertimos el valor a voltaje
+
+  display.setTextSize(2);
+  display.setTextColor(SH110X_WHITE);
+  display.clearDisplay();
+  display.setCursor(0, 0);
+  display.print("Voltimetro");
+  display.setCursor(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+  display.print(voltaje);
+  display.println("V");
+  display.display();
+}
 ```
