@@ -516,8 +516,103 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
     | 90 grados |76 |
     | 180 grados | 127 |
 
+!!! Note Descargar librería 
+    Descargar librería. [Dar click aqui](../assets/libs/ESP32Servo.zip)
 
-### Control de giro de Servomotor con botones
+!!! Note Instalar librería
+    ![](../assets/esp_servo_install.png)
+
+### Servomotor básico
+
+Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática.
+
+!!! Warning
+    Se necesita un fuente externa de 5V para el correcto funcionamiento del servomotor.
+
+
+**Diagrama pictórico**
+
+![servo](../assets/schematic/servo_basic.png)
+
+**Código**
+
+```C
+#include <ESP32Servo.h>
+
+int pos = 0;    // variable que guarda la posicion del servo
+
+#define SERVO_PIN 25
+
+// Los GPIO recomendados para colocar el Servo en ESP32 2,4,12-19,21-23,25-27,32-33
+Servo myservo;  // Crea el objeto para el control del servomotor
+// Puede controlar hasta 16 servos
+
+void setup() {
+  // permite el uso de todos los timer, simpre deja esta seccion, y no preguntes por qué
+  ESP32PWM::allocateTimer(0);
+  ESP32PWM::allocateTimer(1);
+  ESP32PWM::allocateTimer(2);
+  ESP32PWM::allocateTimer(3);
+  myservo.setPeriodHertz(50);    // estandar de trabajo del servo es a 50 hz
+  myservo.attach(SERVO_PIN, 500, 2400); // configuramos el objeto del servo
+  // por default se usa min/max de 1000us and 2000us
+  // Si usas otro servo se deben ajustar los tiempos para el giro de 180 grados
+}
+
+void loop() {
+
+  for (pos = 0; pos <= 180; pos += 1) { // va desde 0 a 180 grados
+    // in steps of 1 degree
+    myservo.write(pos);    // le indica al servo en donde colocarse
+    delay(15);             // espera 15ms para la siguiente posicion
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // va desde 180 a 0 grados
+    myservo.write(pos);    // le indica al servo en donde colocarse
+    delay(15);             // espera 15ms para la siguiente posicion
+  }
+}
+
+
+```
 
 ### Control de giro de Servomotor con potenciómetro
 
+Se va a realizar un control de la posición del servo en función de la posición de un potenciómetro
+
+!!! Warning
+    Se necesita un fuente externa de 5V para el correcto funcionamiento del servomotor.
+
+**Diagrama pictórico**
+
+![servo pot](../assets/schematic/servo_pot.png)
+
+**Código**
+
+```C
+#include <ESP32Servo.h>
+
+Servo myservo;  // Crea el objeto para el control del servomotor
+
+#define SERVO 25 // pin donde colocamos el servo
+#define POT  34
+
+void setup() {
+  // permite el uso de todos los timer, simpre deja esta seccion, y no preguntes por qué
+  ESP32PWM::allocateTimer(0);
+  ESP32PWM::allocateTimer(1);
+  ESP32PWM::allocateTimer(2);
+  ESP32PWM::allocateTimer(3);
+  myservo.setPeriodHertz(50);// estándar de trabajo del servo es a 50 hz
+  myservo.attach(SERVO, 500, 2400);   // usando el SG90 servo min/max de 500us y 2400us
+  // para MG995 servo, usa 1000us y 2000us
+}
+
+void loop() {
+
+  int val = analogRead(POT);            // Lee el valor del potenciómetro
+  val = map(val, 0, 4096, 0, 180);     // Convierte el valor de ADC a grados
+  myservo.write(val);                  // ajusta los grados que colocara el servo
+  delay(200);                          //espera 200mS para hacer el cambio
+}
+
+```

@@ -6,6 +6,8 @@ Usaremos diversos sensores para controlar distintos elementos.
 
 ## Teclado 4x4
 
+
+
 <!-- https://esp32io.com/tutorials/esp32-keypad -->
 
 ## Sensor PIR HC-SR501 (Sensor de presencia)
@@ -123,9 +125,14 @@ void loop() {
 
 ## Sensor Ultrasónico HC-SR04
 
-**Instalación de la librería**
+!!! Note **Descargar la librería**
 
-![newping lib](../assets/newping_download.png)
+    Agregar la librería de manera manual. [Dar click aquí](../assets/libs/NewPing.zip)
+
+!!! Note **Instalación de la librería**
+    Abrir el "Gestor de Librerías" y buscar como se muestra.
+
+    ![newping lib](../assets/newping_download.png)
 
 ### Distancia con sensor Ultrasónico
 
