@@ -489,8 +489,6 @@ void loop() {
 </details>
 
 
-### Control de velocidad de Motor DC
-
 ### Servomotor
 
 El servomotor que utilizaremos el SG-90, es un servomotor básico.
@@ -622,5 +620,19 @@ void loop() {
   myservo.write(val);                  // ajusta los grados que colocara el servo
   delay(200);                          //espera 200mS para hacer el cambio
 }
+
+```
+
+### Control de velocidad de Motor DC
+
+Vamos a realizar un control de velocidad con un motor DC, utilizando un potenciómetro para definir la velocidad y mostrando la velocidad en una pantalla LCD
+
+**Diagrama pictórico**
+
+**Animación**
+
+**Código**
+
+```C
 
 ```
