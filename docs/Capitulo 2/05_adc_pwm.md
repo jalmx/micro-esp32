@@ -530,6 +530,10 @@ Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática
     Se necesita un fuente externa de 5V para el correcto funcionamiento del servomotor.
 
 
+**Animación**
+
+![servo basic](../assets/videos/servo_basic.gif)
+
 **Diagrama pictórico**
 
 ![servo](../assets/schematic/servo_basic.png)
@@ -585,6 +589,10 @@ Se va a realizar un control de la posición del servo en función de la posició
 **Diagrama pictórico**
 
 ![servo pot](../assets/schematic/servo_pot.png)
+
+**Animación**
+
+![servo pot](../assets/videos/servo_pot.gif)
 
 **Código**
 
