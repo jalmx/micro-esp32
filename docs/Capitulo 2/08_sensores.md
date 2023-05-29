@@ -150,6 +150,59 @@ void loop() {
 }
 
 ```
+## Sensor de flama
+
+El sensor de flama va detectar cuando exista fuego, haciendo sonar una alarma y una lampara de emergencia (LED). Cuando ya no detecte peligro se apagará.
+
+**Diagrama pictórico**
+
+![](../assets/schematic/flame_basic.png)
+
+**Código**
+
+```C
+// defino los pines que se usaran para el sensor, buzzer y lámpara
+#define BUZZER 25
+#define LAMP 26
+#define FLAME_SENSOR 34
+
+void setup() {
+  //configuro e inicio la comunicacion serial
+  Serial.begin(115200);
+
+  //configuro los pines como entradas y salidas
+  pinMode(BUZZER, OUTPUT);
+  pinMode(LAMP, OUTPUT);
+  pinMode(FLAME_SENSOR, INPUT);
+
+}
+
+void loop() {
+
+  // si detecta flama enciende la lampara y suena la alarma
+  if (digitalRead(FLAME_SENSOR) == 1 ) {
+    digitalWrite(LAMP, HIGH);
+    digitalWrite(BUZZER, HIGH);
+    delay(250);
+    digitalWrite(BUZZER, LOW);
+    delay(250);
+    digitalWrite(BUZZER, HIGH);
+    delay(250);
+    digitalWrite(BUZZER, LOW);
+    delay(250);
+    digitalWrite(BUZZER, HIGH);
+    delay(250);
+    digitalWrite(BUZZER, LOW);
+    delay(250);
+  } else { // de lo contrario esta apagado todo
+    digitalWrite(LAMP, LOW);
+    digitalWrite(BUZZER, LOW);
+    delay(1000); //espero 1 segundo para volver a detectar el sensor
+  }
+  delay(250);
+}
+```
+
 
 ## Sensor PIR HC-SR501 (Sensor de presencia)
 
@@ -569,5 +622,11 @@ void loop() {
 ## Sensor de humedad de tierra
 
 ![](../assets/schematic/humedad_tierra.png)
+
+### Sensor de Gas LP (MQ-2)
+
+!!! Note Conexión del modulo
+
+    ![](../assets/MQ2-Gas-Sensor-Pin-Diagram-Image-1024x878.png)
 
 ### Tarjeta RFID
