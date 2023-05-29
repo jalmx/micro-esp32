@@ -4,11 +4,152 @@
 
 Usaremos diversos sensores para controlar distintos elementos.
 
-## Teclado 4x4
+## Teclado matricial 4x4
+
+Aquí vamos a probar el correcto conexionado y funcionamiento del teclado, imprimiendo por monitor serial la tecla presionada.
+
+**Diagrama pictórico**
+
+![](../assets/schematic/keypad_basic.png)
+
+**Código**
+
+```C
+#include <Keypad.h> // importamos la librería para utilizar el teclado
+
+#define ROW_NUM     4 // indicamos el numero de renglones del teclado
+#define COLUMN_NUM  4 // indicamos el numero de columnas del teclado
+
+char keys[ROW_NUM][COLUMN_NUM] = { // indicamos las letras que tiene el teclado, estas se pueden cambiar
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
+
+byte pin_rows[ROW_NUM]      = {19, 18, 5, 17}; // indicamos los pines que se usaran para los renglones
+byte pin_column[COLUMN_NUM] = {16, 4, 0, 2};   // indicamos los pines que se usaran para las columnas
+
+Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM ); // se crea y configura el objeto para el uso del teclado
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  char key = keypad.getKey(); // esperemos la tecla que se presiono
+
+  if (key) { // si presionaron una tecla, entra al bloque del if
+    Serial.println(key); // se imprime la tecla que fue presionada
+  }
+}
+
+```
+
+### Cerradura básica
+
+Haremos una cerradura básica, en la cual si se colocar la contraseña correcta se encenderá un led 3 veces cada medio segundo, esto indica que la contraseña fue correctamente colocada.
+En caso que la contraseña se incorrecta, parpadeara el led, indicando que la contraseña fue incorrecta.
+Tendremos todo el feedback en el monitor serial.
+
+**Diagrama pictórico**
+
+![](../assets/schematic/keypad_pwd.png)
+
+**Código**
+
+```C
+#include <Keypad.h> // importamos la librería para utilizar el teclado
+
+#define ROW_NUM     4 // indicamos el numero de renglones del teclado
+#define COLUMN_NUM  4 // indicamos el numero de columnas del teclado
+
+char keys[ROW_NUM][COLUMN_NUM] = { // indicamos las letras que tiene el teclado, estas se pueden cambiar
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
+
+byte pin_rows[ROW_NUM]      = {19, 18, 5, 17}; // indicamos los pines que se usaran para los renglones
+byte pin_column[COLUMN_NUM] = {16, 4, 0, 2};   // indicamos los pines que se usaran para las columnas
+
+Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );  // se crea y configura el objeto para el uso del teclado
 
 
+const String password = "7890"; // Aquí el password super secreto
+String input_password;
 
-<!-- https://esp32io.com/tutorials/esp32-keypad -->
+#define LED 25
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED, OUTPUT);
+  Serial.println("------------------------");
+  Serial.println("El password es de 4 digitos");
+  Serial.println("Presionar # para aceptar el password");
+  Serial.println("Presionar * para cancelar y volver a escribir el password");
+  Serial.println("------------------------");
+  Serial.println("Introduccir el password");
+  Serial.println("------------------------");
+}
+
+void loop() {
+  char key = keypad.getKey(); // esperemos la tecla que se presiono
+
+  if (key) {
+    Serial.print(key);
+
+    if (key == '*') {
+      input_password = ""; // clear input password
+      Serial.println("cancelado");
+      Serial.println("");
+    } else if (key == '#') {
+      Serial.println("");
+      if (password == input_password) {
+        Serial.println("The password CORRECTO!!");
+        digitalWrite(LED, HIGH);
+        delay(500);
+        digitalWrite(LED, LOW);
+        delay(500);
+        digitalWrite(LED, HIGH);
+        delay(500);
+        digitalWrite(LED, LOW);
+        delay(500);
+        digitalWrite(LED, HIGH);
+        delay(500);
+        digitalWrite(LED, LOW);
+        delay(500);
+      } else {
+        Serial.println("The password INCORRECTO!");
+        digitalWrite(LED, HIGH);
+        delay(250);
+        digitalWrite(LED, LOW);
+        delay(250);
+        digitalWrite(LED, HIGH);
+        delay(250);
+        digitalWrite(LED, LOW);
+        delay(250);
+        digitalWrite(LED, HIGH);
+        delay(250);
+        digitalWrite(LED, LOW);
+        delay(250);
+      }
+      Serial.println("------------------------");
+      Serial.println("El password es de 4 digitos");
+      Serial.println("Presionar # para aceptar el password");
+      Serial.println("Presionar * para cancelar y volver a escribir el password");
+      Serial.println("------------------------");
+      Serial.println("Introduccir el password");
+      Serial.println("------------------------");
+      input_password = ""; // se limpia el contenido
+    } else {
+      input_password += key; // va juntando los caracteres
+    }
+  }
+}
+
+```
 
 ## Sensor PIR HC-SR501 (Sensor de presencia)
 
@@ -44,7 +185,7 @@ void loop() {
 
 ## Sensor de Temperatura y Humedad DTH11
 
-!!! Warning Lib
+!!! Warning Librería
     Se deben agregar una librerías para usar este sensor. [Click aquí](../assets/libs/Pack_DTHxx.zip), agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.
 
 
@@ -295,9 +436,138 @@ void loop() {
 }
 ```
 
-## Sensor DS18B - Sensor de temperatura
+## Sensor DS18B20 - Sensor de temperatura
+
+!!! Note **Descargar la librería**
+
+    Agregar la librería de manera manual. [Dar click aquí](../assets/libs/DS18B20.zip)
+
+!!! Note **Instalación de la librería**
+    Abrir el "Gestor de Librerías" y buscar como se muestra.
+
+    ![ds18 install ide](../assets/ds18b_1-fs8.png)
+
+    ![ds18 install ide](../assets/ds18b_2-fs8.png)
+
+!!! warning Resistencia pull-up
+    Se necesita agregarle una resistencia de pull-up al pin de señal, de lo contrario funcionara mal.
+    `La resistencia es de` $4.7k\Omega$
+
+
+<details markdown="1">
+<summary>Pines DS18B20</summary>
+  Descripción del encapsulado. Hacer los ajustes necesarios
+
+  ![](../assets/AR0333-Sensor-de-temperatura-Digital-DS18B20-V1.jpg)
+
+</details>
+
+
+Vamos a realizar un lectura básica de la temperatura con el sensor de Dallas DS18B20 y mandar el valor al monitor serial
+
+
+**Diagrama pictórico**
+
+![ds18b](../assets/schematic/ds18b_basic.png)
+
+**Código**
+
+```C
+// Se deben incluir estas librerías para el control del sensor
+#include <OneWire.h> // conexión de one wire para la comunicación
+#include <DallasTemperature.h> // lib que se encarga de transformar el dato al valor de temperatura
+
+// definimos el pin que usaremos para la comunicación con el sensor
+#define ONE_WIRE_BUS 25
+
+// se configura la instancia (el objeto) para la comunicación con el protocolo one wire
+OneWire oneWire(ONE_WIRE_BUS);
+
+// se pasa la referencia a la lib de Dallas, que recibirá los datos del sensor y hacer la conversión
+DallasTemperature sensors(&oneWire);
+
+void setup(void) {
+  Serial.begin(115200); // Se configura la comunicación serial
+
+  //se arranca y configura la comunicación con el sensor de temperatura
+  sensors.begin();
+}
+
+void loop(void) {
+  Serial.print("Obteniendo temperatura...");
+  sensors.requestTemperatures(); // se hace la solicitud de temperatura al sensor
+
+  // se obtiene la temperatura en grados Celsius del sensor que hay (se le pasa 0 porque solo tenemos un sensor)
+  float tempC = sensors.getTempCByIndex(0);
+
+  // se verifica si el valor es correcto
+  if (tempC != DEVICE_DISCONNECTED_C) {
+    Serial.print("La temperatura es: ");
+    Serial.println(tempC);
+  }
+  else  {
+    Serial.println("Error: No se pudo obtener el valor de temperatura");
+  }
+  delay(5000);
+}
+```
 
 ## Sensor de Sonido
 
+Vamos a realizar un interruptor por aplausos, con dos aplausos se prende y con otros 2 se apaga el led.
+
+**Diagrama Pictórico**
+
+![sound](../assets/schematic/sound_basic.png)
+
+**Código**
+
+```C
+//CODIGO NO PROBADO
+#define MICROPHONE 34
+#define LED 25
+int clap = 0;
+long detection_range_start = 0;
+long detection_range = 0;
+boolean status_lights = false;
+
+void setup() {
+  pinMode(MICROPHONE, INPUT);
+  pinMode(LED, OUTPUT);
+}
+
+void loop() {
+  int status_microphone = digitalRead(MICROPHONE);
+
+  if (status_microphone == 0) {
+    if (clap == 0) {
+      detection_range_start = detection_range = millis();
+      clap++;
+    }
+    else if (clap > 0 && millis() - detection_range >= 50) {
+      detection_range = millis();
+      clap++;
+    }
+  }
+
+  if (millis() - detection_range_start >= 400) {
+    if (clap == 2) {
+      if (!status_lights) {
+        status_lights = true;
+        digitalWrite(LED, HIGH);
+      }
+      else if (status_lights) {
+        status_lights = false;
+        digitalWrite(LED, LOW);
+      }
+    }
+    clap = 0;
+  }
+}
+```
+
 ## Sensor de humedad de tierra
 
+![](../assets/schematic/humedad_tierra.png)
+
+### Tarjeta RFID
