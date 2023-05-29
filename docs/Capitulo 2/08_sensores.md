@@ -573,6 +573,8 @@ Vamos a realizar un interruptor por aplausos, con dos aplausos se prende y con o
 
 ![sound](../assets/schematic/sound_basic.png)
 
+![sound](../assets/schematic/sound_basic_digital.png)
+
 **Código**
 
 ```C
@@ -619,14 +621,150 @@ void loop() {
 }
 ```
 
-## Sensor de humedad de tierra
+## Sensor de humedad de tierra (Pendiente)
 
 ![](../assets/schematic/humedad_tierra.png)
 
 ### Sensor de Gas LP (MQ-2)
 
-!!! Note Conexión del modulo
+<!-- https://hetpro-store.com/TUTORIALES/sensor-de-gas-mq2/ -->
+
+!!! Note Conexión del módulo
 
     ![](../assets/MQ2-Gas-Sensor-Pin-Diagram-Image-1024x878.png)
 
+**Diagrama Pictórico**
+
+![mq2](../assets/schematic/mq2_basic.png)
+
+**Código**
+
+```C
+//codigo por probar
+#define SENSOR_MQ_PIN 34     //define la entrada analógica para el sensor
+#define RL_VALOR    5     //define el valor de la resistencia mide carga en kilo ohms
+#define RAL         9.83  // resistencia del sensor en el aire limpio / RO, que se deriva de la tabla de la hoja de datos
+#define RESOLUTION_ADC 4096
+
+float LPCurve[3]  =  {2.3, 0.21, -0.47};
+float Ro =  10;
+
+void setup() {
+  Serial.begin(11520);   //Inicializa Serial a 115200 baudios
+  Serial.println("Iniciando ...");
+  //configuracion del sensor
+  Serial.print("Calibrando...\n");
+  Ro = calibracion(SENSOR_MQ_PIN);    //Calibrando el sensor. Por favor de asegurarse que el sensor se encuentre en una zona de aire limpio mientras se calibra
+  Serial.print("Calibracion finalizada...\n");
+  Serial.print("Ro=");
+  Serial.print(Ro);
+  Serial.print("kohm");
+  Serial.print("\n");
+}
+
+void loop() {
+  Serial.print("LP: ");
+  Serial.print(porcentaje_gas(lecturaMQ(SENSOR_MQ_PIN) / Ro, LPCurve) );
+  Serial.print( "ppm" );
+  Serial.print("    ");
+  Serial.print("\n");
+  delay(200);
+}
+
+float calc_res(int raw_adc) {
+  return ( ((float)RL_VALOR * (RESOLUTION_ADC - raw_adc) / raw_adc));
+}
+
+float calibracion(float mq_pin) {
+  const int COUNT_SAMPLE = 60; // la cantidad de muestras a tomar
+  float val = 0;
+  for (char i = 0; i < COUNT_SAMPLE; i++) {    //tomar múltiples muestras
+    val += calc_res(analogRead(mq_pin));
+    delay(500);
+  }
+  val = val / COUNT_SAMPLE;   //calcular el valor medio
+  val = val / RAL;
+  return val;
+}
+
+float lecturaMQ(int mq_pin) {
+  float rs = 0;
+  for (char i = 0; i < 5; i++) {
+    rs += calc_res(analogRead(mq_pin));
+    delay(50);
+  }
+  rs = rs / 5;
+  return rs;
+}
+
+int porcentaje_gas(float rs_ro_ratio, float *pcurve) {
+  return (pow(10, (((log(rs_ro_ratio) - pcurve[1]) / pcurve[2]) + pcurve[0])));
+}
+```
+
 ### Tarjeta RFID
+
+!!! Note Descargar la librería
+    Descarga la librería, [Dar click aquí](../assets/libs/MFRC522.zip)
+
+!!! Note Instalar librería con IDE
+    ![rfid ide](../assets/rfid_install_ide.png)
+
+
+!!! Warning Conexiones del módulo
+    ![](../assets/RC522-RFID-Reader-Writer-Module-Pinout.png)
+
+
+!!! Note Conexiones
+    ||ESP32|<--->|RFID|
+    |:---:|:---:|:---:|:---:|
+    |1|3.3V|<--->|VCC|
+    |2|D0|<--->|RST|
+    |3|GND|<--->|GND|
+    |4|NC|<--->|IRQ|
+    |5|D19|<--->|MISO|
+    |6|D23|<--->|MOSI|
+    |7|D18|<--->|SCK|
+    |8|D5|<--->|SDA|
+
+
+**Diagrama Pictórico**
+
+![rfid schematic](../assets/schematic/rfid_basic.png)
+
+**Código**
+
+```C
+#include <SPI.h>
+#include <MFRC522.h>
+
+#define RST_PIN   0
+#define SS_PIN    5
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);  // Crea el objeto para el módulo RFID
+
+void setup() {
+  Serial.begin(115200);		// Initializa la comunicacion serial
+
+  SPI.begin();			// Inicia la comunicacion de SPI
+  mfrc522.PCD_Init();		// Inicializa la comunicacion con el modulo
+  delay(4);				// un delay para esperar que se configure correctamente el modulo
+  mfrc522.PCD_DumpVersionToSerial();	// Muestra los detalles del modulo MFRC522
+  Serial.println(F("Scan PICC to see UID, SAK, type, and data blocks..."));
+}
+//
+void loop() {
+  // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
+  if ( ! mfrc522.PICC_IsNewCardPresent()) {
+    return;
+  }
+
+  // Selecciona una tarjeta
+  if ( ! mfrc522.PICC_ReadCardSerial()) {
+    return;
+  }
+
+  // Dump debug info about the card; PICC_HaltA() is automatically called
+  mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+}
+```
