@@ -156,7 +156,7 @@ El sensor de flama va detectar cuando exista fuego, haciendo sonar una alarma y 
 
 **Diagrama pictórico**
 
-![](../assets/schematic/flame_basic.png)
+![analogico](../assets/schematic/flame_basic.png)
 
 **Código**
 
@@ -640,22 +640,21 @@ void loop() {
 **Código**
 
 ```C
-//codigo por probar
-#define SENSOR_MQ_PIN 34     //define la entrada analógica para el sensor
-#define RL_VALOR    5     //define el valor de la resistencia mide carga en kilo ohms
-#define RAL         9.83  // resistencia del sensor en el aire limpio / RO, que se deriva de la tabla de la hoja de datos
+#define SENSOR_MQ_PIN   34     //define la entrada analogica para el sensor
+#define RL_VALOR        5     //define el valor de la resistencia mide carga en kilo ohms
+#define RAL             9.83  // resistencia del sensor en el aire limpio / RO, que se deriva de la tabla de la hoja de datos
 #define RESOLUTION_ADC 4096
 
 float LPCurve[3]  =  {2.3, 0.21, -0.47};
 float Ro =  10;
 
 void setup() {
-  Serial.begin(11520);   //Inicializa Serial a 115200 baudios
+  Serial.begin(115200);   //Inicializa Serial a 115200 baudios
   Serial.println("Iniciando ...");
   //configuracion del sensor
   Serial.print("Calibrando...\n");
   Ro = calibracion(SENSOR_MQ_PIN);    //Calibrando el sensor. Por favor de asegurarse que el sensor se encuentre en una zona de aire limpio mientras se calibra
-  Serial.print("Calibracion finalizada...\n");
+  Serial.println("Calibracion finalizada...");
   Serial.print("Ro=");
   Serial.print(Ro);
   Serial.print("kohm");
@@ -665,7 +664,7 @@ void setup() {
 void loop() {
   Serial.print("LP: ");
   Serial.print(porcentaje_gas(lecturaMQ(SENSOR_MQ_PIN) / Ro, LPCurve) );
-  Serial.print( "ppm" );
+  Serial.print( " ppm" );
   Serial.print("    ");
   Serial.print("\n");
   delay(200);
@@ -680,8 +679,10 @@ float calibracion(float mq_pin) {
   float val = 0;
   for (char i = 0; i < COUNT_SAMPLE; i++) {    //tomar múltiples muestras
     val += calc_res(analogRead(mq_pin));
+    Serial.print(".");
     delay(500);
   }
+  Serial.println(".");
   val = val / COUNT_SAMPLE;   //calcular el valor medio
   val = val / RAL;
   return val;
