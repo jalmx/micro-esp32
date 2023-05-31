@@ -6,6 +6,15 @@ Usaremos diversos sensores para controlar distintos elementos.
 
 ## Teclado matricial 4x4
 
+!!! Note Instalar la librería
+    En ocasiones NO se encuentra la librería en el IDE, puedes instalarla desde el "Gestor de bibliotecas"
+    
+    ![kepad](../assets/keypad_install.png)
+
+
+!!! Note Instalación manual de librería
+    De otra forma, puedes descarga la librería y realizar la instalación manual. [Dar click aquí](../assets/libs/Keypad-3.1.1.zip)
+
 Aquí vamos a probar el correcto conexionado y funcionamiento del teclado, imprimiendo por monitor serial la tecla presionada.
 
 **Diagrama pictórico**
@@ -578,7 +587,8 @@ Vamos a realizar un interruptor por aplausos, con dos aplausos se prende y con o
 **Código**
 
 ```C
-//CODIGO NO PROBADO
+//CÓDIGO NO PROBADO 
+// CÓDIGO PARA EL SENSOR CON SALIDA ANALÓGICA
 #define MICROPHONE 34
 #define LED 25
 int clap = 0;
@@ -621,17 +631,81 @@ void loop() {
 }
 ```
 
-## Sensor de humedad de tierra (Pendiente)
+## Sensor de humedad de tierra (Higrómetro)
+
+Este sensor mide la conductividad de la tierra, es decir, que entre mas seca, menos conduce. Esta medición me esta indicando que haría falta agua (esto depende de la planta, que tanta agua requiera).
+
+**Diagrama pictórico**
 
 ![](../assets/schematic/humedad_tierra.png)
 
+**Código**
+
+```C
+#define SENSOR 34
+#define LED 25
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(SENSOR, INPUT);
+  pinMode(LED, OUTPUT);
+}
+
+void loop() {
+
+  if (humedad == digitalRead(SENSOR)) {
+    Serial.println("Tierra seca");
+    Serial.println("Encender bomba");
+    digitalWrite(LED, HIGH);
+  } else {
+    Serial.println("Encender apagada");
+    digitalWrite(LED, LOW);
+  }
+  delay(1000);
+}
+```
+
+**Diagrama pictórico**
+
+![](../assets/schematic/humedad_tierra_adc.png)
+
+**Código**
+
+```C
+//Entrada analógica
+#define SENSOR_HUMEDAD 34
+#define LED 25
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED, OUTPUT);
+}
+
+void loop() {
+  int humedad = analogRead(SENSOR_HUMEDAD);
+  Serial.print(humedad);
+
+  if (humedad < 500) {
+    Serial.println("Tierra seca");
+    Serial.println("Encender bomba");
+    digitalWrite(LED, HIGH);
+  }else{
+    Serial.println("Encender apagada");
+    digitalWrite(LED, LOW);
+  }
+
+
+  delay(1000);
+}
+```
+
 ### Sensor de Gas LP (MQ-2)
 
-<!-- https://hetpro-store.com/TUTORIALES/sensor-de-gas-mq2/ -->
+Vamos a realizar una simple alarma que al detectar una fuga de gas, active una alarma sonora, para alarmar al usuario de dicha fuga.
 
 !!! Note Conexión del módulo
 
-    ![](../assets/MQ2-Gas-Sensor-Pin-Diagram-Image-1024x878.png)
+    ![conexion](../assets/MQ2-Gas-Sensor-Pin-Diagram-Image-1024x878.png)
 
 **Diagrama Pictórico**
 
@@ -640,66 +714,49 @@ void loop() {
 **Código**
 
 ```C
-#define SENSOR_MQ_PIN   34     //define la entrada analogica para el sensor
-#define RL_VALOR        5     //define el valor de la resistencia mide carga en kilo ohms
-#define RAL             9.83  // resistencia del sensor en el aire limpio / RO, que se deriva de la tabla de la hoja de datos
-#define RESOLUTION_ADC 4096
-
-float LPCurve[3]  =  {2.3, 0.21, -0.47};
-float Ro =  10;
+#define LED  25
+#define BUZZER  26
+#define SENSOR_GAS 34
+#define LIMIT 1200
 
 void setup() {
-  Serial.begin(115200);   //Inicializa Serial a 115200 baudios
-  Serial.println("Iniciando ...");
-  //configuracion del sensor
-  Serial.print("Calibrando...\n");
-  Ro = calibracion(SENSOR_MQ_PIN);    //Calibrando el sensor. Por favor de asegurarse que el sensor se encuentre en una zona de aire limpio mientras se calibra
-  Serial.println("Calibracion finalizada...");
-  Serial.print("Ro=");
-  Serial.print(Ro);
-  Serial.print("kohm");
-  Serial.print("\n");
+  Serial.begin(115200);
+  pinMode(LED, OUTPUT);
 }
-
 void loop() {
-  Serial.print("LP: ");
-  Serial.print(porcentaje_gas(lecturaMQ(SENSOR_MQ_PIN) / Ro, LPCurve) );
-  Serial.print( " ppm" );
-  Serial.print("    ");
-  Serial.print("\n");
-  delay(200);
-}
 
-float calc_res(int raw_adc) {
-  return ( ((float)RL_VALOR * (RESOLUTION_ADC - raw_adc) / raw_adc));
-}
+  int valor = analogRead(SENSOR_GAS);
 
-float calibracion(float mq_pin) {
-  const int COUNT_SAMPLE = 60; // la cantidad de muestras a tomar
-  float val = 0;
-  for (char i = 0; i < COUNT_SAMPLE; i++) {    //tomar múltiples muestras
-    val += calc_res(analogRead(mq_pin));
-    Serial.print(".");
-    delay(500);
+  Serial.print("Gas Sensor: ");
+  Serial.println(valor);
+
+  if (valor > LIMIT) {
+    Serial.println("Fuga de Gas");
+    digitalWrite (LED, HIGH);
+    digitalWrite (BUZZER, HIGH);
+    delay(250);
+    digitalWrite (LED, LOW);
+    digitalWrite (BUZZER, LOW);
+    delay(250);
+    digitalWrite (LED, HIGH);
+    digitalWrite (BUZZER, HIGH);
+    delay(250);
+    digitalWrite (LED, LOW);
+    digitalWrite (BUZZER, LOW);
+    delay(250);
+    digitalWrite (LED, HIGH);
+    digitalWrite (BUZZER, HIGH);
+    delay(250);
+    digitalWrite (LED, LOW);
+    digitalWrite (BUZZER, LOW);
+    delay(250);
   }
-  Serial.println(".");
-  val = val / COUNT_SAMPLE;   //calcular el valor medio
-  val = val / RAL;
-  return val;
-}
-
-float lecturaMQ(int mq_pin) {
-  float rs = 0;
-  for (char i = 0; i < 5; i++) {
-    rs += calc_res(analogRead(mq_pin));
-    delay(50);
+  else {
+    Serial.println("Sin fuga de Gas");
+    digitalWrite (LED, HIGH) ;
+    digitalWrite (BUZZER, LOW);
+    delay(1000);
   }
-  rs = rs / 5;
-  return rs;
-}
-
-int porcentaje_gas(float rs_ro_ratio, float *pcurve) {
-  return (pow(10, (((log(rs_ro_ratio) - pcurve[1]) / pcurve[2]) + pcurve[0])));
 }
 ```
 
