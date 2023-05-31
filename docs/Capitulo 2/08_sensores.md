@@ -717,6 +717,9 @@ int porcentaje_gas(float rs_ro_ratio, float *pcurve) {
 
 
 !!! Note Conexiones
+
+    Estas conexiones no pueden cambiar, siempre se debe conectar de esta manera
+
     ||ESP32|<--->|RFID|
     |:---:|:---:|:---:|:---:|
     |1|3.3V|<--->|VCC|
