@@ -796,6 +796,7 @@ void loop() {
 **Código**
 
 ```C
+//https://forum.arduino.cc/t/macro-f-error/1118126/7
 #include <SPI.h>
 #include <MFRC522.h>
 
@@ -829,3 +830,6 @@ void loop() {
   mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
 }
 ```
+
+
+### Reloj tiempo real (RTC DS1302)
