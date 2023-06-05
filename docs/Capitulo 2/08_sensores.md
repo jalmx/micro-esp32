@@ -788,6 +788,7 @@ void loop() {
     |7|D18|<--->|SCK|
     |8|D5|<--->|SDA|
 
+#### Dumpeando los datos de tarjeta RFID
 
 Obteniendo todos los datos de la tarjeta o llavero. Mostrando toda la información en el monitor serial.
 
@@ -833,7 +834,9 @@ void loop() {
 
 ```
 
-Leyendo el NUID de la tarjeta RFID
+#### Leyendo el NUID de la tarjeta RFID
+
+Lo que se realiza es leer la tarjeta, si es diferente a la anterior, te muestra su código en hexadecimal y decimal, en caso que se la misma tarjeta que se vuelve a pasar por el lector, manda el mensaje de `tarjeta leída`
 
 ```C
 #include <SPI.h>
@@ -851,7 +854,7 @@ byte nuidPICC[4];
 
 void setup() { 
   Serial.begin(115200);
-  SPI.begin(); // Inicializa el bus para la comunicacion SPI
+  SPI.begin(); // Inicializa el bus para la comunicación SPI
   rfid.PCD_Init(); // Inicializa el modulo MFRC522 
 
   for (byte i = 0; i < 6; i++) {// crea una llave temporal de referencia
@@ -861,61 +864,52 @@ void setup() {
   Serial.println(F("Este es el codigo leido NUID."));
   Serial.print(F("Usa la siguiente llave:"));
   printHex(key.keyByte, MFRC522::MF_KEY_SIZE);
+  Serial.println("");//solo para dar un enter
 }
  
 void loop() {
 
-  // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
+  // Resetea en cada vuelta del ciclo, para leer una una tarjeta.
   if ( ! rfid.PICC_IsNewCardPresent())
     return;
 
-  // Verify if the NUID has been readed
+  // Verifica si el NUID ha sido leído
   if ( ! rfid.PICC_ReadCardSerial())
     return;
-
-  Serial.print(F("PICC type: "));
-  MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);
-  Serial.println(rfid.PICC_GetTypeName(piccType));
-
-  // Check is the PICC of Classic MIFARE type
-  if (piccType != MFRC522::PICC_TYPE_MIFARE_MINI &&  
-    piccType != MFRC522::PICC_TYPE_MIFARE_1K &&
-    piccType != MFRC522::PICC_TYPE_MIFARE_4K) {
-    Serial.println(F("Your tag is not of type MIFARE Classic."));
-    return;
-  }
 
   if (rfid.uid.uidByte[0] != nuidPICC[0] || 
     rfid.uid.uidByte[1] != nuidPICC[1] || 
     rfid.uid.uidByte[2] != nuidPICC[2] || 
     rfid.uid.uidByte[3] != nuidPICC[3] ) {
-    Serial.println(F("A new card has been detected."));
+    Serial.println(F("Tarjeta nueva detectada."));
 
-    // Store NUID into nuidPICC array
+    // Almacena el NUID dentro del array
     for (byte i = 0; i < 4; i++) {
       nuidPICC[i] = rfid.uid.uidByte[i];
     }
    
-    Serial.println(F("The NUID tag is:"));
-    Serial.print(F("In hex: "));
+    Serial.println(F("El tag del NUID:"));
+    Serial.print(F("En hex: "));
     printHex(rfid.uid.uidByte, rfid.uid.size);
     Serial.println();
-    Serial.print(F("In dec: "));
+    Serial.print(F("En dec: "));
     printDec(rfid.uid.uidByte, rfid.uid.size);
     Serial.println();
   }
-  else Serial.println(F("Card read previously."));
+  else Serial.println(F("Tarjeta ya leida."));
 
+  // Con estas 2 funciones se evita que siga leyendo como loco el sensor,
+  // si lo quitas comenzara a leer sin parar
+  // tu decides si es necesario quitarlo
   // Halt PICC
   rfid.PICC_HaltA();
-
-  // Stop encryption on PCD
+  // Detiene la encriptacion en PCD
   rfid.PCD_StopCrypto1();
 }
 
 
 /**
- * Helper routine to dump a byte array as hex values to Serial. 
+ * Ayuda a imprimir los bytes del array en forma hexadecimal. 
  */
 void printHex(byte *buffer, byte bufferSize) {
   for (byte i = 0; i < bufferSize; i++) {
@@ -925,7 +919,7 @@ void printHex(byte *buffer, byte bufferSize) {
 }
 
 /**
- * Helper routine to dump a byte array as dec values to Serial.
+ * Ayuda a volcar los bytes del array en forma decimal. 
  */
 void printDec(byte *buffer, byte bufferSize) {
   for (byte i = 0; i < bufferSize; i++) {
@@ -935,5 +929,54 @@ void printDec(byte *buffer, byte bufferSize) {
 }
 ```
 
+#### Acceso autorizado
 
-### Reloj tiempo real (RTC DS1302)
+Este codigo lee la tarjeta e indica si el codigo leido es igual al almacenado. En caso que sea correcto, manda el mensaje `ACCESO CORRECTO`, de lo contrario `Acceso no autorizado`.
+
+```C
+#include <SPI.h>
+#include <MFRC522.h>
+
+#define RST_PIN   0
+#define SS_PIN    5
+
+MFRC522 rfid(SS_PIN, RST_PIN); // crea el objeto para ocupar el lector
+
+// Es la NUID de una tarjeta, aquí reemplázalo por tu NUID
+byte nuidPICC[4] = {138, 92, 3, 14};;
+
+void setup() {
+  Serial.begin(115200);
+  SPI.begin(); // Inicializa el bus para la comunicación SPI
+  rfid.PCD_Init(); // Inicializa el modulo MFRC522
+
+}
+
+void loop() {
+
+  // Resetea en cada vuelta del ciclo, para leer una una tarjeta.
+  if ( ! rfid.PICC_IsNewCardPresent())
+    return;
+
+  // Verifica si el NUID ha sido leído
+  if ( ! rfid.PICC_ReadCardSerial())
+    return;
+
+  //aquí verifico que el código almacenado en la memoria sera igual al de la tarjeta que se esta verificando
+  if (rfid.uid.uidByte[0] != nuidPICC[0] || rfid.uid.uidByte[1] != nuidPICC[1] || rfid.uid.uidByte[2] != nuidPICC[2] || rfid.uid.uidByte[3] != nuidPICC[3] ) {
+    Serial.println(F("ACCESO CORRECTO"));
+    
+  }
+  else Serial.println(F("Acceso no autorizado"));
+
+  // Con estas 2 funciones se evita que siga leyendo como loco el sensor,
+  // si lo quitas comenzara a leer sin parar
+  // tu decides si es necesario quitarlo
+  // Halt PICC
+  rfid.PICC_HaltA();
+  // Detiene la encriptación en PCD
+  rfid.PCD_StopCrypto1();
+}
+```
+
+<!-- ### Reloj tiempo real (RTC DS1302) -->
