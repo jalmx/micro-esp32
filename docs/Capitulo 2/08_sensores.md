@@ -339,6 +339,12 @@ void loop() {
 
 ### Distancia con sensor Ultrasónico
 
+**Diagrama pictórico**
+
+![ultrasonico](../assets/schematic/ultrasonic_basico.png)
+
+**Animación**
+
 ![ultrasonico anima](../assets/videos/ultrasonico.gif)
 
 ```C
@@ -377,7 +383,14 @@ void loop() {
 
 ### Barra de leds con Ultrasonico
 
+**Diagrama pictórico**
+
+![ultrasonico](../assets/schematic/ultrasonic_bar.png)
+
+**Animación**
+
 ![utra bar](../assets/videos/ultrasonico_barra.gif)
+
 
 ```C
 #include <NewPing.h>
