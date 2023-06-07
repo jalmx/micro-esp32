@@ -245,7 +245,7 @@
 <span class=p>}</span>
 </code></pre></div> <h2 id=sensor-ultrasonico-hc-sr04>Sensor Ultrasónico HC-SR04</h2> <p>!!! Note <strong>Descargar la librería</strong></p> <pre><code>Agregar la librería de manera manual. [Dar click aquí](../assets/libs/NewPing.zip)
 </code></pre> <p>!!! Note <strong>Instalación de la librería</strong> Abrir el "Gestor de Librerías" y buscar como se muestra.</p> <pre><code>![newping lib](../assets/newping_download.png)
-</code></pre> <h3 id=distancia-con-sensor-ultrasonico>Distancia con sensor Ultrasónico</h3> <p><img alt="ultrasonico anima" src=../../assets/videos/ultrasonico.gif></p> <div class=highlight><pre><span></span><code><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;NewPing.h&gt;</span>
+</code></pre> <h3 id=distancia-con-sensor-ultrasonico>Distancia con sensor Ultrasónico</h3> <p><strong>Diagrama pictórico</strong></p> <p><img alt=ultrasonico src=../../assets/schematic/ultrasonic_basico.png></p> <p><strong>Animación</strong></p> <p><img alt="ultrasonico anima" src=../../assets/videos/ultrasonico.gif></p> <div class=highlight><pre><span></span><code><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;NewPing.h&gt;</span>
 
 <span class=cp>#define TRIGGER_PIN  4  </span><span class=c1>// Pin que se usara para el TRIGGER que recibe el sensor</span>
 <span class=cp>#define ECHO_PIN     2  </span><span class=c1>// Pin que se usara el el ECHO que enviara el sensor</span>
@@ -276,7 +276,7 @@
 
 <span class=w>  </span><span class=n>delay</span><span class=p>(</span><span class=mi>500</span><span class=p>);</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=barra-de-leds-con-ultrasonico>Barra de leds con Ultrasonico</h3> <p><img alt="utra bar" src=../../assets/videos/ultrasonico_barra.gif></p> <div class=highlight><pre><span></span><code><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;NewPing.h&gt;</span>
+</code></pre></div> <h3 id=barra-de-leds-con-ultrasonico>Barra de leds con Ultrasonico</h3> <p><strong>Diagrama pictórico</strong></p> <p><img alt=ultrasonico src=../../assets/schematic/ultrasonic_bar.png></p> <p><strong>Animación</strong></p> <p><img alt="utra bar" src=../../assets/videos/ultrasonico_barra.gif></p> <div class=highlight><pre><span></span><code><span class=cp>#include</span><span class=w> </span><span class=cpf>&lt;NewPing.h&gt;</span>
 
 <span class=cp>#define TRIGGER_PIN  4  </span><span class=c1>// Pin que se usara para el TRIGGER que recibe el sensor</span>
 <span class=cp>#define ECHO_PIN     2  </span><span class=c1>// Pin que se usara el el ECHO que enviara el sensor</span>
