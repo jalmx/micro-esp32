@@ -248,6 +248,7 @@ void loop() {
 ## Sensor de Temperatura y Humedad DTH11
 
 !!! Warning Librería
+
     Se deben agregar una librerías para usar este sensor. [Click aquí](../assets/libs/Pack_DTHxx.zip), agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.
 
 
@@ -328,11 +329,12 @@ void loop() {
 
 ## Sensor Ultrasónico HC-SR04
 
-!!! Note **Descargar la librería**
-
+!!! note Descargar la librería
+    
     Agregar la librería de manera manual. [Dar click aquí](../assets/libs/NewPing.zip)
 
-!!! Note **Instalación de la librería**
+!!! note Instalación de la librería
+    
     Abrir el "Gestor de Librerías" y buscar como se muestra.
 
     ![newping lib](../assets/newping_download.png)
@@ -513,11 +515,11 @@ void loop() {
 
 ## Sensor DS18B20 - Sensor de temperatura
 
-!!! Note **Descargar la librería**
+!!! Note Descargar la librería
 
     Agregar la librería de manera manual. [Dar click aquí](../assets/libs/DS18B20.zip)
 
-!!! Note **Instalación de la librería**
+!!! Note Instalación de la librería
     Abrir el "Gestor de Librerías" y buscar como se muestra.
 
     ![ds18 install ide](../assets/ds18b_1-fs8.png)
@@ -712,7 +714,7 @@ void loop() {
 }
 ```
 
-### Sensor de Gas LP (MQ-2)
+## Sensor de Gas LP (MQ-2)
 
 Vamos a realizar una simple alarma que al detectar una fuga de gas, active una alarma sonora, para alarmar al usuario de dicha fuga.
 
@@ -773,7 +775,7 @@ void loop() {
 }
 ```
 
-### Tarjeta RFID
+## Tarjeta RFID
 
 !!! Note Descargar la librería
     Descarga la librería, [Dar click aquí](../assets/libs/MFRC522.zip)
@@ -801,7 +803,7 @@ void loop() {
     |7|D18|<--->|SCK|
     |8|D5|<--->|SDA|
 
-#### Dumpeando los datos de tarjeta RFID
+### Dumpeando los datos de tarjeta RFID
 
 Obteniendo todos los datos de la tarjeta o llavero. Mostrando toda la información en el monitor serial.
 
@@ -847,7 +849,7 @@ void loop() {
 
 ```
 
-#### Leyendo el NUID de la tarjeta RFID
+### Leyendo el NUID de la tarjeta RFID
 
 Lo que se realiza es leer la tarjeta, si es diferente a la anterior, te muestra su código en hexadecimal y decimal, en caso que se la misma tarjeta que se vuelve a pasar por el lector, manda el mensaje de `tarjeta leída`
 
@@ -942,7 +944,7 @@ void printDec(byte *buffer, byte bufferSize) {
 }
 ```
 
-#### Acceso autorizado
+### Acceso autorizado
 
 Este codigo lee la tarjeta e indica si el codigo leido es igual al almacenado. En caso que sea correcto, manda el mensaje `ACCESO CORRECTO`, de lo contrario `Acceso no autorizado`.
 
