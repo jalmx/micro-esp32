@@ -1,7 +1,7 @@
 site_name: Programa Tarjetas Electrónicas 
-site_description: "Documentación Programa Tarjetas Electrónicas - Mecatrónica 85 - 2023"
+site_description: "Documentación Programa Tarjetas Electrónicas - Mecatrónica 85"
 site_author: Alejandro Leyva
-site_url: https://www.alejandro-leyva.com/micro_23
+site_url: https://www.alejandro-leyva.com/micro-esp32
 edit_uri: ""
 
 theme:
@@ -42,8 +42,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
 
