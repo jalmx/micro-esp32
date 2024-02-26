@@ -54,12 +54,12 @@ https://naylampmechatronics.com/oled/638-display-oled-i2c-130-12864-sh1106.html
     | VCC | 5V     |
     | GND | GND    |
 
-![connect](../assets/schematic/lcd_basic_connect.png)]
+![connect](./assets/schematic/lcd_basic_connect.png)]
 
 
 !!! Warning Librería
     Descargar la librería para poder comunicar el ESP32 con el módulo I^2^C. Agregarla a Arduino IDE.
-    [Dar click aquí](../assets/libs/LiquidCrystal-I2C.zip)
+    [Dar click aquí](./assets/libs/LiquidCrystal-I2C.zip)
 
 !!! Note Nota
     Si al arrancar la pantalla no se ve nada, recuerda mover el tripot para el contraste.
@@ -85,9 +85,9 @@ Se mandara un mensaje a la pantalla, línea por línea.
 
 **Diagrama Pictórico**
 
-![connect](../assets/schematic/lcd_basic_connect.png)
+![connect](./assets/schematic/lcd_basic_connect.png)
 
-![lcd](../assets/videos/lcd_meka.gif)
+![lcd](./assets/videos/lcd_meka.gif)
 
 ```C
 #include <Wire.h>
@@ -131,13 +131,13 @@ Como el valor máximo de voltaje es 3.3V, esto se divide entre la resolución de
 
 **Diagrama pictórico**
 
-![voltimetro lcd](../assets/schematic/voltimetro_lcd_01.png)
+![voltimetro lcd](./assets/schematic/voltimetro_lcd_01.png)
 
 
 <picture width="100%" markdown="1">
-  <source srcset="../assets/videos/voltimetro.webp" type="image/webp">
+  <source srcset="./assets/videos/voltimetro.webp" type="image/webp">
 
-![voltimetro gif](../assets/videos/voltimetro.gif)
+![voltimetro gif](./assets/videos/voltimetro.gif)
   
 </picture>
 
@@ -240,9 +240,9 @@ Las pantalla OLED se han popularizado mucho últimamente, y gracias a Adafruit s
 
 Nos da una amplia gama de aplicación en diversas situaciones, como realizar estaciones meteorológicas, un contador para nuestros suscriptores de YT, juegos, etc.
 
-![oled 1](../assets/oled_01.png)
+![oled 1](./assets/oled_01.png)
 
-![oled 1](../assets/oled_02.png)
+![oled 1](./assets/oled_02.png)
 
 Contamos con 2 drivers, los mas comunes son:
 
@@ -268,10 +268,10 @@ Con dos protocolos, estos son
     | VDD  | 3V3    |
     | GND  | GND    |
 
-![connect](../assets/schematic/oled_basic.png)
+![connect](./assets/schematic/oled_basic.png)
 
 !!! Warning Librería
-    Las librerías que se necesitan son varias, si estas con el gestor e instalar en la carpeta de `librerías` del IDE de Arduino. [Descargar aquí](../assets/libs/oled_ssd%26shx.zip) y las agregamos de manera manual.
+    Las librerías que se necesitan son varias, si estas con el gestor e instalar en la carpeta de `librerías` del IDE de Arduino. [Descargar aquí](./assets/libs/oled_ssd%26shx.zip) y las agregamos de manera manual.
 
 
 <details markdown="1">
@@ -279,11 +279,11 @@ Con dos protocolos, estos son
 
 **Buscamos por "oled" e instalamos las siguientes e instalamos las librerías adiciones**
 
-![lib1](../assets/install_oled_1.png)
+![lib1](./assets/install_oled_1.png)
 
-![lib1](../assets/install_oled_2.png)
+![lib1](./assets/install_oled_2.png)
 
-![lib1](../assets/install_oled_3.png)
+![lib1](./assets/install_oled_3.png)
 
 </details>
 
@@ -291,12 +291,12 @@ Con dos protocolos, estos son
 
 - [image2cpp](https://javl.github.io/image2cpp/) [web]
 
-![image2cpp](../assets/image2cpp.png) 
+![image2cpp](./assets/image2cpp.png) 
 
 - [LCD Image Converter](https://lcd-image-converter.riuson.com/en/about/) [Desktop]
 
 
-![lcd](../assets/LCD%20Image%20Converter.png)
+![lcd](./assets/LCD%20Image%20Converter.png)
 
 [Descargar](https://sourceforge.net/projects/lcd-image-converter/files/)
 
@@ -306,13 +306,13 @@ Con dos protocolos, estos son
 
 La imagen demo que sale al inicio
 
-![m](../assets/m85_invrt_px.png)
+![m](./assets/m85_invrt_px.png)
 
-![m85](../assets/m85_px_invert_black.png)
+![m85](./assets/m85_px_invert_black.png)
 
-![mk logo](../assets/MK.png)
+![mk logo](./assets/MK.png)
 
-![mk logo](../assets/MK_inv.png)
+![mk logo](./assets/MK_inv.png)
 
 #### Código DEMO de la OLED 
 
@@ -320,9 +320,9 @@ Se realizara demo simple de uso de la pantalla OLED
 
 **Diagrama Pictórico**
 
-![connect](../assets/schematic/oled_basic.png)
+![connect](./assets/schematic/oled_basic.png)
 
-![oled basic](../assets/videos/oled_demo.gif)
+![oled basic](./assets/videos/oled_demo.gif)
 
 ```C
 // Para la pantalla SH110X
@@ -674,9 +674,9 @@ Haciendo uso de una pantalla OLED para mostrar le valor en la pantalla.
 
 **Diagrama pictórico**
 
-![volti](../assets/schematic/oled_volti.png)
+![volti](./assets/schematic/oled_volti.png)
 
-![voltimetro oled](../assets/videos/voltimetro_oled.gif)
+![voltimetro oled](./assets/videos/voltimetro_oled.gif)
 
 **Código**
 

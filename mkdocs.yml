@@ -1,5 +1,5 @@
-site_name: Programa Tarjetas Electrónicas 
-site_description: "Documentación Programa Tarjetas Electrónicas - Mecatrónica 85"
+site_name: Programa Tarjetas Electrónicas - ESP32 - Arduino
+site_description: "Documentación Programa Tarjetas Electrónicas con ESP32 Arduino- Mecatrónica 85"
 site_author: Alejandro Leyva
 site_url: https://www.alejandro-leyva.com/micro-esp32
 edit_uri: ""
@@ -25,7 +25,7 @@ theme:
     - navigation.footer
     - content.code.copy
 
-repo_url: https://github.com/jalmx/micro-23
+repo_url: https://github.com/jalmx/micro-esp
 
 markdown_extensions:
   - tables
@@ -61,10 +61,9 @@ extra:
   homepage: https://www.alejandro-leyva.com/algoritmos/
   version: 1.0
   
-  copyright: "Alejandro Leyva 2022 - 2022"
+  copyright: "Alejandro Leyva 2022 - 2024"
 
   social:
-  
     - icon: fontawesome/brands/github
       link: https://github.com/jalmx
     - icon: fontawesome/brands/dev
@@ -80,5 +79,5 @@ plugins:
   - search:
       lang: es
       indexing: 'full'
-  - minify:
-      minify_html: true
+  # - minify:
+  #     minify_html: true

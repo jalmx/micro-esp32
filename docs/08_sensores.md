@@ -9,17 +9,17 @@ Usaremos diversos sensores para controlar distintos elementos.
 !!! Note Instalar la librería
     En ocasiones NO se encuentra la librería en el IDE, puedes instalarla desde el "Gestor de bibliotecas"
     
-    ![kepad](../assets/keypad_install.png)
+    ![kepad](./assets/keypad_install.png)
 
 
 !!! Note Instalación manual de librería
-    De otra forma, puedes descarga la librería y realizar la instalación manual. [Dar click aquí](../assets/libs/Keypad-3.1.1.zip)
+    De otra forma, puedes descarga la librería y realizar la instalación manual. [Dar click aquí](./assets/libs/Keypad-3.1.1.zip)
 
 Aquí vamos a probar el correcto conexionado y funcionamiento del teclado, imprimiendo por monitor serial la tecla presionada.
 
 **Diagrama pictórico**
 
-![](../assets/schematic/keypad_basic.png)
+![](./assets/schematic/keypad_basic.png)
 
 **Código**
 
@@ -63,7 +63,7 @@ Tendremos todo el feedback en el monitor serial.
 
 **Diagrama pictórico**
 
-![](../assets/schematic/keypad_pwd.png)
+![](./assets/schematic/keypad_pwd.png)
 
 **Código**
 
@@ -165,7 +165,7 @@ El sensor de flama va detectar cuando exista fuego, haciendo sonar una alarma y 
 
 **Diagrama pictórico**
 
-![analogico](../assets/schematic/flame_basic.png)
+![analogico](./assets/schematic/flame_basic.png)
 
 **Código**
 
@@ -215,9 +215,9 @@ void loop() {
 
 ## Sensor PIR HC-SR501 (Sensor de presencia)
 
-![pir](../assets/schematic/pir_basic_bb.png)
+![pir](./assets/schematic/pir_basic_bb.png)
 
-![pir basic](../assets/videos/PIR_basic.gif)
+![pir basic](./assets/videos/PIR_basic.gif)
 
 **Código**
 
@@ -249,12 +249,12 @@ void loop() {
 
 !!! Warning Librería
 
-    Se deben agregar una librerías para usar este sensor. [Click aquí](../assets/libs/Pack_DTHxx.zip), agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.
+    Se deben agregar una librerías para usar este sensor. [Click aquí](./assets/libs/Pack_DTHxx.zip), agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.
 
 
-![dht](../assets/schematic/dht11_bb.png)
+![dht](./assets/schematic/dht11_bb.png)
 
-![dht11 anima](../assets/videos/DHT11.gif)
+![dht11 anima](./assets/videos/DHT11.gif)
 
 ```C
 #include <Adafruit_Sensor.h>
@@ -331,23 +331,23 @@ void loop() {
 
 !!! note Descargar la librería
     
-    Agregar la librería de manera manual. [Dar click aquí](../assets/libs/NewPing.zip)
+    Agregar la librería de manera manual. [Dar click aquí](./assets/libs/NewPing.zip)
 
 !!! note Instalación de la librería
     
     Abrir el "Gestor de Librerías" y buscar como se muestra.
 
-    ![newping lib](../assets/newping_download.png)
+    ![newping lib](./assets/newping_download.png)
 
 ### Distancia con sensor Ultrasónico
 
 **Diagrama pictórico**
 
-![ultrasonico](../assets/schematic/ultrasonic_basico.png)
+![ultrasonico](./assets/schematic/ultrasonic_basico.png)
 
 **Animación**
 
-![ultrasonico anima](../assets/videos/ultrasonico.gif)
+![ultrasonico anima](./assets/videos/ultrasonico.gif)
 
 ```C
 #include <NewPing.h>
@@ -387,11 +387,11 @@ void loop() {
 
 **Diagrama pictórico**
 
-![ultrasonico](../assets/schematic/ultrasonic_bar.png)
+![ultrasonico](./assets/schematic/ultrasonic_bar.png)
 
 **Animación**
 
-![utra bar](../assets/videos/ultrasonico_barra.gif)
+![utra bar](./assets/videos/ultrasonico_barra.gif)
 
 
 ```C
@@ -517,14 +517,14 @@ void loop() {
 
 !!! Note Descargar la librería
 
-    Agregar la librería de manera manual. [Dar click aquí](../assets/libs/DS18B20.zip)
+    Agregar la librería de manera manual. [Dar click aquí](./assets/libs/DS18B20.zip)
 
 !!! Note Instalación de la librería
     Abrir el "Gestor de Librerías" y buscar como se muestra.
 
-    ![ds18 install ide](../assets/ds18b_1-fs8.png)
+    ![ds18 install ide](./assets/ds18b_1-fs8.png)
 
-    ![ds18 install ide](../assets/ds18b_2-fs8.png)
+    ![ds18 install ide](./assets/ds18b_2-fs8.png)
 
 !!! warning Resistencia pull-up
     Se necesita agregarle una resistencia de pull-up al pin de señal, de lo contrario funcionara mal.
@@ -535,7 +535,7 @@ void loop() {
 <summary>Pines DS18B20</summary>
   Descripción del encapsulado. Hacer los ajustes necesarios
 
-  ![](../assets/AR0333-Sensor-de-temperatura-Digital-DS18B20-V1.jpg)
+  ![](./assets/AR0333-Sensor-de-temperatura-Digital-DS18B20-V1.jpg)
 
 </details>
 
@@ -545,7 +545,7 @@ Vamos a realizar un lectura básica de la temperatura con el sensor de Dallas DS
 
 **Diagrama pictórico**
 
-![ds18b](../assets/schematic/ds18b_basic.png)
+![ds18b](./assets/schematic/ds18b_basic.png)
 
 **Código**
 
@@ -595,9 +595,9 @@ Vamos a realizar un interruptor por aplausos, con dos aplausos se prende y con o
 
 **Diagrama Pictórico**
 
-![sound](../assets/schematic/sound_basic.png)
+![sound](./assets/schematic/sound_basic.png)
 
-![sound](../assets/schematic/sound_basic_digital.png)
+![sound](./assets/schematic/sound_basic_digital.png)
 
 **Código**
 
@@ -652,7 +652,7 @@ Este sensor mide la conductividad de la tierra, es decir, que entre mas seca, me
 
 **Diagrama pictórico**
 
-![](../assets/schematic/humedad_tierra.png)
+![](./assets/schematic/humedad_tierra.png)
 
 **Código**
 
@@ -682,7 +682,7 @@ void loop() {
 
 **Diagrama pictórico**
 
-![](../assets/schematic/humedad_tierra_adc.png)
+![](./assets/schematic/humedad_tierra_adc.png)
 
 **Código**
 
@@ -720,11 +720,11 @@ Vamos a realizar una simple alarma que al detectar una fuga de gas, active una a
 
 !!! Note Conexión del módulo
 
-    ![conexion](../assets/MQ2-Gas-Sensor-Pin-Diagram-Image-1024x878.png)
+    ![conexion](./assets/MQ2-Gas-Sensor-Pin-Diagram-Image-1024x878.png)
 
 **Diagrama Pictórico**
 
-![mq2](../assets/schematic/mq2_basic.png)
+![mq2](./assets/schematic/mq2_basic.png)
 
 **Código**
 
@@ -778,14 +778,14 @@ void loop() {
 ## Tarjeta RFID
 
 !!! Note Descargar la librería
-    Descarga la librería, [Dar click aquí](../assets/libs/MFRC522.zip)
+    Descarga la librería, [Dar click aquí](./assets/libs/MFRC522.zip)
 
 !!! Note Instalar librería con IDE
-    ![rfid ide](../assets/rfid_install_ide.png)
+    ![rfid ide](./assets/rfid_install_ide.png)
 
 
 !!! Warning Conexiones del módulo
-    ![](../assets/RC522-RFID-Reader-Writer-Module-Pinout.png)
+    ![](./assets/RC522-RFID-Reader-Writer-Module-Pinout.png)
 
 
 !!! Note Conexiones
@@ -809,7 +809,7 @@ Obteniendo todos los datos de la tarjeta o llavero. Mostrando toda la informaci�
 
 **Diagrama Pictórico**
 
-![rfid schematic](../assets/schematic/rfid_basic.png)
+![rfid schematic](./assets/schematic/rfid_basic.png)
 
 **Código**
 

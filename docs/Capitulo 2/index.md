@@ -1,3 +1,0 @@
-# Arduino con ESP32
-
-...

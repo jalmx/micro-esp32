@@ -14,7 +14,7 @@ Características del ADC
 
 Los pines a los que se puede conectar son los que indican `ADCx CHx`, lo cual significa Canal `X` ADC. ==*Nota: Recuerda que hay pines que no podemos utilizar.*==
 
-![pines adc](../assets/adc-pins-esp32-f-fs8.png)
+![pines adc](./assets/adc-pins-esp32-f-fs8.png)
 
 !!! Note Nota
     No se necesita inicializar el pin como entrada, solo se usa la función `analogRead(pin)`. 
@@ -46,7 +46,7 @@ Vamos a realizar una lectura básica de un ADC y mandar ese valor a la monitor s
 
 **Diagrama pictórico**
 
-![basic](../assets/schematic/potenciometer_01.png)
+![basic](./assets/schematic/potenciometer_01.png)
 
 **Código**
 
@@ -85,7 +85,7 @@ Vamos a realizar una lectura del ADC e ir encendiendo los LEDs en función del v
 
 **Diagrama pictórico**
 
-![basic](../assets/schematic/potenciometer_bar_led_01.png)
+![basic](./assets/schematic/potenciometer_bar_led_01.png)
 
 **Código**
 
@@ -148,7 +148,7 @@ Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
 
 **Diagrama pictórico**
 
-![basic](../assets/schematic/ldr_led.png)
+![basic](./assets/schematic/ldr_led.png)
 
 **Código**
 
@@ -201,7 +201,7 @@ Características del PWM en el ESP32
 - Resolución de 1 - 16 bits. 
 - 3 Funciones para control y configuración
 
-![](../assets/esp32_pwm_pins.png)
+![](./assets/esp32_pwm_pins.png)
 
 Las funciones para el PWM
 
@@ -235,14 +235,14 @@ Haremos un simple cambio de color, incrementando el brillo de cada uno.
 
 **Diagrama pictórico**
 
-![rgb](../assets/schematic/rgb_basic.png)
+![rgb](./assets/schematic/rgb_basic.png)
 
 <details markdown="1">
 <summary>Animación</summary>
   
-  ![rgb anima](../assets/videos/rgb_basic_anima.gif)
+  ![rgb anima](./assets/videos/rgb_basic_anima.gif)
 
-  ![rgb video](../assets/videos/led_rgb.gif)
+  ![rgb video](./assets/videos/led_rgb.gif)
 
 </details>
 
@@ -309,12 +309,12 @@ Haremos un simple cambio de color con botones, incrementando el brillo de cada u
 
 **Diagrama pictórico**
 
-![rgb](../assets/schematic/rgb_btn.png)
+![rgb](./assets/schematic/rgb_btn.png)
 
 <details markdown="1">
 <summary>Animación</summary>
   
-  ![rgb video](../assets/videos/rgb_btn_anima.gif)
+  ![rgb video](./assets/videos/rgb_btn_anima.gif)
 
 </details>
 
@@ -414,12 +414,12 @@ Haremos un simple cambio de color con botones, incrementando el brillo de cada u
 
 **Diagrama pictórico**
 
-![rgb](../assets/schematic/rgb_pot.png)
+![rgb](./assets/schematic/rgb_pot.png)
 
 <details markdown="1">
 <summary>Animación</summary>
   
-  ![rgb video](../assets/videos/rgb_pot_anima.gif)
+  ![rgb video](./assets/videos/rgb_pot_anima.gif)
 
 </details>
 
@@ -493,11 +493,11 @@ void loop() {
 
 El servomotor que utilizaremos el SG-90, es un servomotor básico.
 
-![servo](../assets/servo_conection.jpg)
+![servo](./assets/servo_conection.jpg)
 
 Este motor necesita la siguiente señal para poder generar su desplazamiento:
 
-![signal servo](../assets/pwm_servo_data.png)
+![signal servo](./assets/pwm_servo_data.png)
 
 !!! Warning "Atención"
     Un servomotor solo se puede desplazar desde 0° hasta 180°. Por default siempre esta en 90°. Pero, comúnmente se considera 0°, dado que gira hasta 90° y -90°.
@@ -515,10 +515,10 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
     | 180 grados | 127 |
 
 !!! Note Descargar librería 
-    Descargar librería. [Dar click aqui](../assets/libs/ESP32Servo.zip)
+    Descargar librería. [Dar click aqui](./assets/libs/ESP32Servo.zip)
 
 !!! Note Instalar librería
-    ![](../assets/esp_servo_install.png)
+    ![](./assets/esp_servo_install.png)
 
 ### Servomotor básico
 
@@ -530,11 +530,11 @@ Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática
 
 **Animación**
 
-![servo basic](../assets/videos/servo_basic.gif)
+![servo basic](./assets/videos/servo_basic.gif)
 
 **Diagrama pictórico**
 
-![servo](../assets/schematic/servo_basic.png)
+![servo](./assets/schematic/servo_basic.png)
 
 **Código**
 
@@ -586,11 +586,11 @@ Se va a realizar un control de la posición del servo en función de la posició
 
 **Diagrama pictórico**
 
-![servo pot](../assets/schematic/servo_pot.png)
+![servo pot](./assets/schematic/servo_pot.png)
 
 **Animación**
 
-![servo pot](../assets/videos/servo_pot.gif)
+![servo pot](./assets/videos/servo_pot.gif)
 
 **Código**
 

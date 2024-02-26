@@ -4,7 +4,7 @@
 
 Realizar el siguiente ejercicio, como se ve en la animación
 
-![](../assets/videos/contador_btn.gif)
+![](./assets/videos/contador_btn.gif)
 
 **Funcionamiento**
 
@@ -123,7 +123,7 @@ void loop()
 
 Realizar el siguiente ejercicio, como se ve en la animación
 
-![motor lcd](../assets/videos/motor_lcd.gif)
+![motor lcd](./assets/videos/motor_lcd.gif)
 
 **Funcionamiento**
 

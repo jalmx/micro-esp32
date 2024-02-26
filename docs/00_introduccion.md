@@ -95,7 +95,7 @@ Hay 3 formas mutuamente exclusivas para darle alimentación a la tarjeta:
 
 ## Diagrama esquemático
 
-![esquemático](./../assets/esp32_devkitc_v4-sch.png)
+![esquemático](././assets/esp32_devkitc_v4-sch.png)
 
 [Ver pdf original](https://dl.espressif.com/dl/schematics/esp32_devkitc_v4-sch.pdf)
 
