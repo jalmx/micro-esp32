@@ -12,13 +12,13 @@
         <meta name="author" content="Alejandro Leyva">
       
       
-        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/Referencias/">
+        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/01_estructura/">
       
       
-        <link rel="prev" href="../09_screen/">
+        <link rel="prev" href="../00_introduccion/">
       
       
-        <link rel="next" href="../simuladores/">
+        <link rel="next" href="../02_interfaz_ide/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Referencias - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
+        <title>Estructura de código base Arduino - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#referencias" class="md-skip">
+        <a href="#estructura-de-codigo-base-arduino" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Referencias
+              Estructura de código base Arduino
             
           </span>
         </div>
@@ -298,10 +298,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../01_estructura/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Estructura de código base Arduino
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -310,6 +330,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-funcion-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      La función setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-funcion-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      La función loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-entorno-para-el-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del entorno para el ESP32
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración del entorno para el ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arduino-ide-18x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arduino IDE 1.8.x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arduino-ide-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arduino IDE 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -478,19 +569,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Referencias/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +581,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -544,6 +625,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-funcion-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      La función setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-funcion-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      La función loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-entorno-para-el-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del entorno para el ESP32
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración del entorno para el ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arduino-ide-18x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arduino IDE 1.8.x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arduino-ide-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arduino IDE 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -557,13 +697,53 @@
                   
 
 
-<h1 id="referencias">Referencias</h1>
-<ul>
-<li>https://cplusplus.com/reference/</li>
-<li>https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html</li>
-<li>https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html#get-started-esp32-devkitc-board-front</li>
-<li><a href="https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf">Datasheet</a></li>
-</ul>
+<h1 id="estructura-de-codigo-base-arduino">Estructura de código base Arduino</h1>
+<p>El código Arduino es de base es lenguaje <code>C/C++</code>, toda la sintaxis, estructura, etc. Pero, para facilitar la incursion en el ecosistema Arduino diseño un estructura base que se divide en dos funciones principales, llamada <code>setup()</code> y <code>loop()</code>. Aquí no vemos la función <code>main()</code> porque esta ha sido abstraída para evitar mayores detalles, sin embargo, si existe en el programa principal pero no lo vemos.</p>
+<p>Regresando a la estructura de Arduino y sus funciones principales <code>setup()</code> y <code>loop()</code></p>
+<h2 id="la-funcion-setup">La función setup</h2>
+<p>La finalidad de esta función es configurar pines, inicializar sensores, módulos, comunicación serial, pantallas, etc.</p>
+<p><strong>Esta función es la primera en ejecutarse y solo una vez</strong></p>
+<h2 id="la-funcion-loop">La función loop</h2>
+<p>La finalidad de esta función es realizar todas las tareas colocadas aquí de manera infinita (por eso se llama loop).
+Lo que vayamos a colocar aquí se repetira, realizando todas las tareas indicadas en el codigo, aqui mandamos los diferentes mensajes a pantallas, leemos constantemente los sensores, etc.</p>
+<p><strong>Esta función es la ultima en ejecutarse y se repetirá de manera infinita todo el código que este aquí</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// the setup function runs once when you press reset or power the board</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// sección de configuración e inicialización de todo tipo</span>
+<span class="p">}</span>
+
+<span class="c1">// the loop function runs over and over again forever</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*aquí todo el código que queremos que se repita por siempre;</span>
+<span class="cm">    es decir, las tareas que desarrollara el microcontrolador y realizar por siempre</span>
+<span class="cm">    */</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo de código blink (encendido y apagado de un LED)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED_BUILTIN 34 </span><span class="c1">//for ESP32 board, if you have Arduino UNO board, you don&#39;t have to do this</span>
+
+<span class="c1">// the setup function runs once when you press reset or power the board</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// initialize digital pin LED_BUILTIN as an output.</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// the loop function runs over and over again forever</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// turn the LED on (HIGH is the voltage level)</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">                       </span><span class="c1">// wait for a second</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">    </span><span class="c1">// turn the LED off by making the voltage LOW</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">                       </span><span class="c1">// wait for a second</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="configuracion-del-entorno-para-el-esp32">Configuración del entorno para el ESP32</h2>
+<p>Hoy en día la version de Arduino IDE 1.8x, ya se considera legacy, pero aun asi sigue funcionando de la misma manera para compilar, y hacer todo lo necesario para las placas que soporten el firmware de Arduino.
+Aunque ya se recomienda hacer uso de la version 2, dado que mejora de cierta manera algunas cosas (pero a mi consideración aun esta verde y consume demasiado). </p>
+<p>Otra alternativa es usar VS Code con un plugin de <a href="https://platformio.org/">PlatformIO</a>, esto es aun más pesado, pero muy bueno (a mí consideración es el mejor entorno, elimina varias limitaciones de la version 2, que me imagino en un futuro va a superar). Si deseas usarla en su sitio oficial están las instrucciones <a href="https://platformio.org/install/ide?install=vscode">click aquí</a>.</p>
+<h3 id="arduino-ide-18x">Arduino IDE 1.8.x</h3>
+<p>...</p>
+<h3 id="arduino-ide-2">Arduino IDE 2</h3>
+<p>En un futuro</p>
 
 
 
@@ -593,7 +773,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pie" >
         
           
-          <a href="../09_screen/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Pantallas">
+          <a href="../00_introduccion/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Introducción a Arduino con ESP32">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -603,20 +783,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Pantallas
+                Introducción a Arduino con ESP32
               </div>
             </div>
           </a>
         
         
           
-          <a href="../simuladores/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Simuladores">
+          <a href="../02_interfaz_ide/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Interfaz de Arduino IDE 1.8">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Siguiente
               </span>
               <div class="md-ellipsis">
-                Simuladores
+                Interfaz de Arduino IDE 1.8
               </div>
             </div>
             <div class="md-footer__button md-icon">

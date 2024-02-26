@@ -12,13 +12,13 @@
         <meta name="author" content="Alejandro Leyva">
       
       
-        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/Referencias/">
+        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/07_teoria_sensores/">
       
       
-        <link rel="prev" href="../09_screen/">
+        <link rel="prev" href="../06_analog_ex/">
       
       
-        <link rel="next" href="../simuladores/">
+        <link rel="next" href="../08_sensores/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Referencias - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
+        <title>Sensores - Introducción - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#referencias" class="md-skip">
+        <a href="#sensores-introduccion" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Referencias
+              Sensores - Introducción
             
           </span>
         </div>
@@ -418,10 +418,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../07_teoria_sensores/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sensores - Introducción
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -430,6 +450,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variable-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable física
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transductor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transductor-pasivo-vs-activo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transductor Pasivo vs Activo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transductor Pasivo vs Activo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pasivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pasivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-digitales-vs-analogicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores Digitales vs Analógicos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-digitales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores Digitales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensores Digitales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensores-digitales-basicos-vs-protocolos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores digitales básicos vs protocolos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensores digitales básicos vs protocolos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-sensores-digitales-con-comunicacion-por-protocolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los sensores digitales con comunicación por protocolo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-analogicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores Analógicos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actuadores-electricos-o-electronicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actuadores eléctricos o electrónicos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lista-de-sensores-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de sensores comunes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -478,19 +644,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Referencias/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +656,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -544,6 +700,140 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variable-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable física
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transductor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transductor-pasivo-vs-activo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transductor Pasivo vs Activo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transductor Pasivo vs Activo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pasivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pasivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-digitales-vs-analogicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores Digitales vs Analógicos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-digitales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores Digitales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensores Digitales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensores-digitales-basicos-vs-protocolos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores digitales básicos vs protocolos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensores digitales básicos vs protocolos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-sensores-digitales-con-comunicacion-por-protocolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los sensores digitales con comunicación por protocolo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-analogicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensores Analógicos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actuadores-electricos-o-electronicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actuadores eléctricos o electrónicos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lista-de-sensores-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de sensores comunes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -557,13 +847,136 @@
                   
 
 
-<h1 id="referencias">Referencias</h1>
+<h1 id="sensores-introduccion">Sensores - Introducción</h1>
+<p>Un sensor en es un sistema el cual capta una variable física y reacciona para la activación de un actuador. Las partes generales de un sensor son:</p>
 <ul>
-<li>https://cplusplus.com/reference/</li>
-<li>https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html</li>
-<li>https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html#get-started-esp32-devkitc-board-front</li>
-<li><a href="https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf">Datasheet</a></li>
+<li>Transductor</li>
+<li>Acoplamiento de señal del transductor</li>
+<li>Salida (Pasa la señal o acciona un actuador)</li>
 </ul>
+<p><img alt="diagrama de bloques" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/proceso_sensor.svg" /></p>
+<p><em>Un sensor es todo aquello que tiene una propiedad sensible a una magnitud del medio, y al variar esta magnitud también varía con cierta intensidad la propiedad, es decir, manifiesta la presencia de dicha magnitud, y también su medida...<a href="https://es.wikipedia.org/wiki/Sensor">wikipedia</a></em></p>
+<h2 id="variable-fisica">Variable física</h2>
+<p>Existen 6 variables fundamentales que podemos captar que son:</p>
+<ul>
+<li>Temperatura (Calor, frio)</li>
+<li>Caudal (Flujo)</li>
+<li>Presión (Masa)</li>
+<li>Radiación (Luz,...)</li>
+<li>Velocidad (velocidad, aceleración)</li>
+<li>Nivel</li>
+</ul>
+<p>Existen muchas más, pero solo hago mención de las mas básicas en instrumentación.</p>
+<h2 id="transductor">Transductor</h2>
+<p>Un transductor es un elemento que es capaz de captar una variable física (temperatura, presión, flujo, etc..) convirtiéndola en una señal eléctrica (corriente o voltaje). Sin embargo, normalmente la señal generada es muy pequeña, por ende, se debe mandar a una etapa de amplificación. La señal eléctrica o su variación siempre se da por algún efecto químico en su interior por su constitución física.</p>
+<p><em>Ejemplos:</em></p>
+<ul>
+<li><strong>LDR (Resistencia dependiente de luz)</strong>: En función de la luz que incide por su ventana es el valor ohmico que representa al pasar la corriente</li>
+</ul>
+<p><img alt="ldr" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/ldr.jpeg" /></p>
+<ul>
+<li><strong>Termocupla o termopar</strong>: Es la union de dos conductores de diferente composición química.</li>
+</ul>
+<p><img alt="termocupla" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/termocupla.png" /></p>
+<ul>
+<li><strong>Pizoelectrico</strong>: Es una lamina o material que al deformarse genera un nivel de voltaje.</li>
+</ul>
+<p><img alt="pizoelectrico" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/pizoelectrico.jpeg" /></p>
+<h2 id="transductor-pasivo-vs-activo">Transductor Pasivo vs Activo</h2>
+<p>Existen dos tipos de transductores los cuales pueden ser <em>pasivos</em> o <em>activos</em> esto significa la forma en cómo vamos a leer su señal o adquirirla, en función de ello vamos a acoplar, qué tipo es y amplificación.</p>
+<h3 id="pasivos">Pasivos</h3>
+<p>Los <code>transductores pasivos</code> son aquellos los cuales para poder leer o conocer la variable física, se le debe aplicar un voltaje o corriente constante, para que en función de la variación de este voltaje o corriente que aplicamos podamos calcular su equivalencia o proporción a dicha variable. Es decir, este tipo de transductor no es capaz de generar un voltaje o corriente la cual nos indique el valor de la magnitud física.</p>
+<p>El ejemplo más común es una LDR, la cual se debe aplicar en un divisor de tensión, y en función de la variación del luz hará variar el voltaje de la salida del voltaje.</p>
+<p><img alt="sensor de luz" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensor_luz.jpeg" /></p>
+<p>Como se puede observar en el circuito tenemos un divisor de tension dinámico que oscila el voltaje en función de la entrada de luz, esta salida normalmente va a otra etapa de amplificación.</p>
+<h3 id="activos">Activos</h3>
+<p>Los <code>transductores activos</code> generan energía de forma natural, generando un voltaje o corriente al ser expuesto al contexto. Sin embargo, esta señal es demasiado pequeña para poder ser leído o un elemento digital o cualquier otro elemento.</p>
+<p>El ejemplo más común es un termopar o termocupla, la cual esta constituida por 2 alambres de diferentes elementos químicos. Al se expuesto a altas temperatura genera un mili voltaje.</p>
+<p><img alt="termocupla" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/termocupla_2.png" /></p>
+<p>Como podemos observar al unir dos alambres de elementos distintos, al calentarse estos generan una diferencia de potencial.</p>
+<p>Aquí tenemos un circuito de ejemplo de acoplamiento de una termocupla con su etapa de amplificación.</p>
+<p><img alt="circuito_termocupla" src="https://europe1.discourse-cdn.com/arduino/original/3X/1/c/1ce2cd99b2b31d466c7b22e73e23e301214cec21.png" /></p>
+<h2 id="sensores-digitales-vs-analogicos">Sensores Digitales vs Analógicos</h2>
+<p>En general todos los transductores son analógicos, pero generan una señal muy pequeña, se necesita acoplar una o dos etapas de amplificación para tener un voltaje mayor equivalente. Pero justamente aquí al final de esa etapa la señal se puede enfocar para generar solo <code>señales digitales</code>, es decir, <code>un nivel alto o bajo</code>, o en su defecto generar un <code>rango de voltaje</code>, estos serían los <code>analógicos</code></p>
+<h2 id="sensores-digitales">Sensores Digitales</h2>
+<p>Los sensores digitales solo pueden generar 2 tipos de señal, sea un <code>1</code> o un <code>0</code>. Existen rangos de voltajes que si están en un rango se consideran <code>1 lógico</code> o <code>0 lógico</code>. A un rango se le conoce como voltajes TTL.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nivel lógico</th>
+<th style="text-align: center;">Voltaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3V a 5V</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0V a 0.8V</td>
+</tr>
+</tbody>
+</table>
+<p>Debemos conocer que tipo de sistema digital estamos empleando y verificar nuestro sensor para asegurar que se puede acoplar directamente o tendremos que acoplar esta señal al nivel que deseamos.</p>
+<p><img alt="digital" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/signal_digital.png" /></p>
+<h3 id="sensores-digitales-basicos-vs-protocolos">Sensores digitales básicos vs protocolos</h3>
+<p>Los sensores digitales básicos solo nos da una señal lógica, esto significa que tiene 2 estados, indicando si existe o no existe la variable o la magnitud física, si más.</p>
+<p><strong>Sensores básicos</strong> </p>
+<p><em>Ejemplo:</em></p>
+<ul>
+<li><strong>Sensor PIR</strong>: Indica si existe presencia o no.</li>
+</ul>
+<p><img alt="sensor pir" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensor_pir.jpeg" /></p>
+<ul>
+<li><strong>Sensor de Flama</strong>: Indica si existe flama o no. Este por su naturaleza da un rango de voltaje, entonces se debe calibrar en que punto se dispara indicando si sobrepasa este punto o no.</li>
+</ul>
+<p><img alt="sensor flama" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensor_flama.png" /></p>
+<ul>
+<li><strong>Sensor de luz</strong>: Indica si existe luz o no. Este por su naturaleza da un rango de voltaje, entonces se debe calibrar en que punto se dispara indicando si sobrepasa este punto o no.</li>
+</ul>
+<p><img alt="sensor luz" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensor_luz.png" /></p>
+<h4 id="los-sensores-digitales-con-comunicacion-por-protocolo">Los sensores digitales con comunicación por protocolo</h4>
+<p>Son sensores que internamente son mas complejos, estos ademas de contener su etapa del transductor, amplificación, acoplamiento, tienen un etapa de comunicación por medio de algún protocolo de comunicación:</p>
+<p><strong>Sensores con protocolo de comunicación:</strong></p>
+<ul>
+<li><strong>DS18B20</strong>: Sensor de temperatura con protocolo 1 Wire</li>
+</ul>
+<p><img alt="DS18B20" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/DS18B20.jpg" /></p>
+<ul>
+<li><strong>BME280:</strong>: Sensor de presión, humedad y temperatura con protocolo I2C.</li>
+</ul>
+<p><img alt="BME280" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/BME280.jpg" /></p>
+<ul>
+<li><strong>MAX31855K</strong>: Sensor de temperatura con protocolo SPI</li>
+</ul>
+<p><img alt="MAX31855K" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/MAX31855K.jpg" /></p>
+<h2 id="sensores-analogicos">Sensores Analógicos</h2>
+<p>Los sensores analógicos nos proveen un rango de voltaje en el que operan, este voltaje es proporcional la variable o magnitud física que esta censando. Los sensores que son empleados a sistemas digitales trabajan habitualmente en un rango de <code>0V a 5V</code> o <code>0V a 3.3V</code>, estos rangos son comunes pero no los únicos. En ocasiones tenemos que amplificar este rango para que se pueda aprovechar de mejor manera.</p>
+<p><img alt="signal" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/digital_analogico.jpg" /></p>
+<p>Pero este rango de voltaje no se puede mandar directamente al sistema digital antes debe pasar por otro elemento que haga la conversion a un sistema digital, estos elementos se llaman <strong><a href="https://es.wikipedia.org/wiki/Conversor_de_se%C3%B1al_anal%C3%B3gica_a_digital">ADC</a></strong>, este elemento hace posible que el microcontrolador pueda entender la señal analógica.</p>
+<p><img alt="adc" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/adc.png" /></p>
+<h2 id="actuadores-electricos-o-electronicos">Actuadores eléctricos o electrónicos</h2>
+<p>El actuador es el elemento que actúa o realiza una acción a la salida de un sensor, no siempre viene el actuador incorporado al sensor.</p>
+<p>Los actuadores más comunes son:</p>
+<ul>
+<li>Relay</li>
+<li>Solenoide</li>
+<li>Bocina</li>
+<li>LED</li>
+<li>Buzzer</li>
+</ul>
+<p>Aquí se pueden ver varios circuitos de sensores:</p>
+<p><strong>Sensor crepuscular</strong></p>
+<p><img alt="sensor crepuscular" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensor_crepuscular.jpg" /></p>
+<p><strong>Sensor de temperatura</strong></p>
+<p><img alt="sensor de temperatura" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensor_temp.png" /></p>
+<h2 id="lista-de-sensores-comunes">Lista de sensores comunes</h2>
+<p><img alt="sensores_kit" src="https://www.alejandro-leyva.com/micro-22/ESP8266/imgs/sensores.jpg" /></p>
+<hr />
+<p>Realizado por Docente: <a href="https://www.alejandro-leyva.com/">Alejandro Leyva</a></p>
+<p><a href="https://mecatronica85.com/">Mecatrónica 85</a></p>
+<p><a href="https://www.facebook.com/mecatronica85">fb/mecatronica85</a></p>
 
 
 
@@ -593,7 +1006,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pie" >
         
           
-          <a href="../09_screen/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Pantallas">
+          <a href="../06_analog_ex/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Ejercicios con IO Analógicas">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -603,20 +1016,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Pantallas
+                Ejercicios con IO Analógicas
               </div>
             </div>
           </a>
         
         
           
-          <a href="../simuladores/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Simuladores">
+          <a href="../08_sensores/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Sensores - Aplicación">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Siguiente
               </span>
               <div class="md-ellipsis">
-                Simuladores
+                Sensores - Aplicación
               </div>
             </div>
             <div class="md-footer__button md-icon">

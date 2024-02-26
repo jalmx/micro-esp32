@@ -12,13 +12,13 @@
         <meta name="author" content="Alejandro Leyva">
       
       
-        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/Referencias/">
+        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/06_analog_ex/">
       
       
-        <link rel="prev" href="../09_screen/">
+        <link rel="prev" href="../05_adc_pwm/">
       
       
-        <link rel="next" href="../simuladores/">
+        <link rel="next" href="../07_teoria_sensores/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Referencias - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
+        <title>Ejercicios con IO Analógicas - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#referencias" class="md-skip">
+        <a href="#ejercicios-con-io-analogicas" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Referencias
+              Ejercicios con IO Analógicas
             
           </span>
         </div>
@@ -398,10 +398,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../06_analog_ex/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ejercicios con IO Analógicas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -410,6 +430,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lamparas-del-parque" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lámparas del parque
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -478,19 +527,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Referencias/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +539,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -544,6 +583,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lamparas-del-parque" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lámparas del parque
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -557,13 +613,76 @@
                   
 
 
-<h1 id="referencias">Referencias</h1>
-<ul>
-<li>https://cplusplus.com/reference/</li>
-<li>https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html</li>
-<li>https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html#get-started-esp32-devkitc-board-front</li>
-<li><a href="https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf">Datasheet</a></li>
-</ul>
+<h1 id="ejercicios-con-io-analogicas">Ejercicios con IO Analógicas</h1>
+<h2 id="lamparas-del-parque">Lámparas del parque</h2>
+<p>Realizar el siguiente ejercicio, ver la animación</p>
+<p><img alt="ldr_bar_sch" src="../assets/schematic/ldr_led_bar.png" /></p>
+<p><img alt="ldr_bar_gir" src="../assets/videos/LDR_bar.gif" /></p>
+<p><strong>Funcionamiento</strong></p>
+<ol>
+<li>Cuando exista poca luz en el sensor (esto definido por el programador), se deben encender todas las lamparas (los LEDs), de forma secuencial e ir quedando encendidas hasta que estén todas prendidas.</li>
+<li>Si hay una luz intermedia, solo deben estar encendidas 2 lamparas.</li>
+<li>Si hay suficiente luz en el ambiente, deben continuar apagadas.</li>
+<li>Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.</li>
+</ol>
+<!-- Bloque de código -->
+<!-- 
+<details markdown="1">
+<summary>Código</summary>
+
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">pinADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">  </span><span class="c1">//pin que sera leído del ADC</span>
+<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<span class="cp">#define LIMIT_INF 1500       </span><span class="c1">//ESTE VALOR SE CAMBIA CON BASE AL AJUSTE DEL SENSOR</span>
+<span class="cp">#define LIMIT_SUP 3000       </span><span class="c1">//ESTE VALOR SE CAMBIA CON BASE AL AJUSTE DEL SENSOR</span>
+
+<span class="c1">// the setup routine runs once when you press reset:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// inicializamos el monitor serial a 115200 baudios</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">  </span><span class="c1">//configuro como salida el pin para el led</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">  </span><span class="c1">//configuro como salida el pin para el led</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED3</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">  </span><span class="c1">//configuro como salida el pin para el led</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED4</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">  </span><span class="c1">//configuro como salida el pin para el led</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">valueLDR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">pinADC</span><span class="p">);</span><span class="w">  </span><span class="c1">//leemos el pin del ADC</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Valor del ADC: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">valueLDR</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valueLDR</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LIMIT_INF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED3</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED4</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valueLDR</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">LIMIT_INF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">valueLDR</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LIMIT_SUP</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED3</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED4</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED3</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED4</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// para la estabilidad del valor de entrada</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+
+ -->
 
 
 
@@ -593,7 +712,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pie" >
         
           
-          <a href="../09_screen/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Pantallas">
+          <a href="../05_adc_pwm/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Entradas y Salidas analógicas (ADC y PWM)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -603,20 +722,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Pantallas
+                Entradas y Salidas analógicas (ADC y PWM)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../simuladores/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Simuladores">
+          <a href="../07_teoria_sensores/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Sensores - Introducción">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Siguiente
               </span>
               <div class="md-ellipsis">
-                Simuladores
+                Sensores - Introducción
               </div>
             </div>
             <div class="md-footer__button md-icon">
