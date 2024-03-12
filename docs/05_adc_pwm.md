@@ -130,8 +130,6 @@ void loop() {
 }
 ```
 
-
-
 ### Control crepuscular (Sensor de luz)
 
 Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
@@ -176,6 +174,95 @@ void loop() {
   }
 
   delay(10);  // para la estabilidad del valor de entrada
+}
+```
+
+### Semáforo con Sensor de Luz
+
+Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
+
+**Material**
+
+|Cantidad|Descripción|
+|---|---|
+|1| Placa ESP32|
+|3|  LED|
+|3|  R330|
+|1|  R10k|
+|1|  LDR|
+
+**Diagrama pictórico**
+
+![basic](./assets/schematic/semaforo_con_ldr.png)
+
+**Simulación**
+
+![simulacion](assets/videos/semaforo_con_sensor.gif)
+
+**Código**
+
+```C
+int LED1 = 32; //ROJO
+int LED2 = 33; //AMARILLO
+int LED3 = 25; //VERDE
+const byte pinADC = 34;  //pin que sera leído del ADC
+#define LIMIT 2000  
+
+// the setup function runs once when you press reset or power the board
+
+void setup() {
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  Serial.begin(115200);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+
+  int valueLDR = analogRead(pinADC);  //leemos el pin del ADC
+  Serial.print("Valor del ADC: ");
+
+  Serial.println(valueLDR);
+
+  if (valueLDR < LIMIT) {
+    digitalWrite(LED1, HIGH);
+    Serial.println("Enciende rojo");
+    delay(2000);
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED3, HIGH);
+    Serial.println("Apaga rojo");
+    Serial.println("Enciende Verde");
+    delay(900);
+    digitalWrite(LED3, LOW);
+    delay(300);
+    digitalWrite(LED3, HIGH);
+    delay(300);
+    digitalWrite(LED3, LOW);
+    delay(500);
+    digitalWrite(LED3, HIGH);
+    delay(300);
+    digitalWrite(LED3, LOW);
+    delay(500);
+    digitalWrite(LED3, HIGH);
+    delay(300);
+    digitalWrite(LED3, LOW);
+    digitalWrite(LED2, HIGH);
+    Serial.println("Apaga verde");
+    Serial.println("Enciende amarillo");
+    delay(900);
+    digitalWrite(LED2, LOW);
+    Serial.println("Apaga amarillo");
+  } else {
+    Serial.println("Parpadeo amarillo");
+    digitalWrite(LED2, HIGH);
+    delay(1000);
+    digitalWrite(LED2, LOW);
+    delay(1000);
+  }
 }
 ```
 
