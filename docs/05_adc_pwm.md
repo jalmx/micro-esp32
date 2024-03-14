@@ -266,6 +266,110 @@ void loop() {
 }
 ```
 
+### Semáforo con Sensor de Luz y botón
+
+Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar. En el día el peatón puede cambiar el estado del semáforo, pero si es de noche no puede cambiar.
+
+**Material**
+
+|Cantidad|Descripción|
+|---|---|
+|1| Placa ESP32|
+|3|  LED|
+|3|  R330|
+|1|  Push button|
+|1|  R1k|
+|1|  R10k|
+|1|  LDR|
+
+**Diagrama pictórico**
+
+![basic](./assets/schematic/semaforo_ldr_button.png)
+
+**Simulación**
+
+![simulacion](assets/videos/semaforo_ldr_button.gif)
+
+**Código**
+
+```C
+int LED1 = 32; //ROJO
+int LED2 = 33; //AMARILLO
+int LED3 = 25; //VERDE
+const byte pinADC = 34;  //pin que sera leído del ADC
+int btn = 27; //pin para el botón
+#define LIMIT 2000 // esta constante es para la comparación del sensor de luz
+
+// the setup function runs once when you press reset or power the board
+
+void setup() {
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(btn, INPUT);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  Serial.begin(115200);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+
+  int valueLDR = analogRead(pinADC);  //leemos el pin del ADC
+  Serial.print("Valor del ADC: ");
+
+  Serial.println(valueLDR);
+
+  if (valueLDR < LIMIT) {
+
+    if ( digitalRead(btn) == 1) {
+      digitalWrite(LED1, HIGH);
+      Serial.println("Enciende rojo");
+      delay(2000);
+      digitalWrite(LED1, LOW);
+      digitalWrite(LED3, HIGH);
+      Serial.println("Apaga rojo");
+      Serial.println("Enciende Verde");
+      delay(900);
+      digitalWrite(LED3, LOW);
+      delay(300);
+      digitalWrite(LED3, HIGH);
+      delay(300);
+      digitalWrite(LED3, LOW);
+      delay(500);
+      digitalWrite(LED3, HIGH);
+      delay(300);
+      digitalWrite(LED3, LOW);
+      delay(500);
+      digitalWrite(LED3, HIGH);
+      delay(300);
+      digitalWrite(LED3, LOW);
+      digitalWrite(LED2, HIGH);
+      Serial.println("Apaga verde");
+      Serial.println("Enciende amarillo");
+      delay(900);
+      digitalWrite(LED2, LOW);
+      Serial.println("Apaga amarillo");
+    } else {
+      digitalWrite(LED1, LOW);
+      digitalWrite(LED2, LOW);
+      digitalWrite(LED3, HIGH);
+      Serial.println("Verde parpadeando");
+      delay(500);
+      digitalWrite(LED3, LOW);
+      delay(500);
+    }
+  } else {
+    Serial.println("Parpadeo amarillo");
+    digitalWrite(LED2, HIGH);
+    delay(1000);
+    digitalWrite(LED2, LOW);
+    delay(1000);
+  }
+}
+```
+
 ## Salida Analógica (PWM)
 
 Modulación de Ancho de Pulso (`Pulse width modulation` (`PWM`)) es una manera artificial de generar una salida analógica en un pin digital. Existen dos parámetros asociados al PWM que son la ==frecuencia== y el ==ciclo de trabajo== (*duty cycle*).
