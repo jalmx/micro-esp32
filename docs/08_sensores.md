@@ -9,7 +9,7 @@ Usaremos diversos sensores para controlar distintos elementos.
 !!! Note Instalar la librería
     En ocasiones NO se encuentra la librería en el IDE, puedes instalarla desde el "Gestor de bibliotecas"
     
-    ![kepad](./assets/keypad_install.png)
+    ![keypad](./assets/keypad_install.png)
 
 
 !!! Note Instalación manual de librería

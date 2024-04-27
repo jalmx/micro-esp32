@@ -62,8 +62,8 @@ Otra alternativa es usar VS Code con un plugin de [PlatformIO](https://platformi
 
 ### Arduino IDE 1.8.x
 
-...
+<iframe width="100%" height="515" src="https://www.youtube.com/embed/ipufj0dXbXY?si=yOi_5YtnF2IXTPXB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### Arduino IDE 2
+### Arduino IDE 2.x
 
-En un futuro
+<iframe width="100%" height="515" src="https://www.youtube.com/embed/0nfavn0wDys?si=SVDn4NmQerf2T99P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

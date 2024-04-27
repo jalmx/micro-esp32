@@ -93,6 +93,12 @@ Hay 3 formas mutuamente exclusivas para darle alimentación a la tarjeta:
 ![pinout esp32](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitC-v4-pinout.png)
 
 
+### Consideraciones con algunos pines
+
+Los pines 34 y 35 solo pueden ser entradas, esto lo debes considerar si quieres ocupar la maxima cantidad de pines.
+
+![](./assets/esp32_pwm_pins.png)
+
 ## Diagrama esquemático
 
 ![esquemático](./assets/esp32_devkitc_v4-sch.png)
