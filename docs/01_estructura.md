@@ -14,7 +14,7 @@ La finalidad de esta función es configurar pines, inicializar sensores, módulo
 ## La función loop
 
 La finalidad de esta función es realizar todas las tareas colocadas aquí de manera infinita (por eso se llama loop).
-Lo que vayamos a colocar aquí se repetira, realizando todas las tareas indicadas en el codigo, aqui mandamos los diferentes mensajes a pantallas, leemos constantemente los sensores, etc.
+Lo que vayamos a colocar aquí se repetirá, realizando todas las tareas indicadas en el código, aquí mandamos los diferentes mensajes a pantallas, leemos constantemente los sensores, etc.
 
 **Esta función es la ultima en ejecutarse y se repetirá de manera infinita todo el código que este aquí**
 
