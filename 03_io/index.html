@@ -396,6 +396,16 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#salidas-y-entradas-digitales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salidas y Entradas digitales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Salidas y Entradas digitales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#salidas-digitales" class="md-nav__link">
     <span class="md-ellipsis">
       Salidas digitales
@@ -403,13 +413,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#entradas-digitales" class="md-nav__link">
     <span class="md-ellipsis">
       Entradas digitales
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -823,6 +838,16 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#salidas-y-entradas-digitales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salidas y Entradas digitales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Salidas y Entradas digitales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#salidas-digitales" class="md-nav__link">
     <span class="md-ellipsis">
       Salidas digitales
@@ -830,13 +855,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#entradas-digitales" class="md-nav__link">
     <span class="md-ellipsis">
       Entradas digitales
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1068,34 +1098,49 @@
 </tr>
 </tbody>
 </table>
-<h2 id="salidas-digitales">Salidas digitales</h2>
-<p>Para comenzar vamos a controlar las salidas digitales. Para esto se usa la función <code>digitalWrite</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// uso de la función digitalWrite</span>
-<span class="n">digitalWrite</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span>
+<h2 id="salidas-y-entradas-digitales">Salidas y Entradas digitales</h2>
+<h3 id="salidas-digitales">Salidas digitales</h3>
+<p>Para comenzar vamos a controlar las salidas digitales. Para esto se usa la función <code>piMode</code> y <code>digitalWrite</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// uso de la función piMode y digitalWrite</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span><span class="w"> </span><span class="c1">// </span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">I_O</span><span class="p">);</span>
 </code></pre></div>
-<p>Configuración del <code>MODO</code>:</p>
+Configuración del <code>MODO</code>:</p>
 <ul>
 <li><code>OUTPUT</code>: Indica que el pin será <code>salida</code></li>
 <li><code>INPUT</code>: Indica que el pin será <code>entrada</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// Aquí indicamos que el pin 32 será salida</span>
-<span class="n">digitalWrite</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<p>Configuración <code>I_O</code></p>
+<ul>
+<li><code>LOW</code>: Apagado o nivel bajo o 0V</li>
+<li><code>HIGH</code>: Alto o nivel alto o 3.3V</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Aquí indicamos que el pin 34 será salida</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">)</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
 </code></pre></div>
-<p>Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../index.md#Pinout">tabla de los pines</a></p>
-<h2 id="entradas-digitales">Entradas digitales</h2>
-<p>Para comenzar vamos a controlar las entradas digitales. Para esto se usa la función <code>digitalWrite</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// uso de la función digitalWrite</span>
-<span class="n">digitalWrite</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">)</span>
+<p>Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../#Pinout">tabla de los pines</a></p>
+<h3 id="entradas-digitales">Entradas digitales</h3>
+<p>Para comenzar vamos a controlar las entradas digitales. Para esto se usa la función <code>pinMode</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// uso de la función pinMode</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span><span class="w"> </span><span class="c1">// </span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">I_O</span><span class="p">);</span>
 </code></pre></div>
-<p>Configuración del <code>MODO</code>:</p>
+Configuración del <code>MODO</code>:</p>
 <ul>
 <li><code>OUTPUT</code>: Indica que el pin será <code>salida</code></li>
 <li><code>INPUT</code>: Indica que el pin será <code>entrada</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// Aquí indicamos que el pin 32 será entrada</span>
+<p>Configuración <code>I_O</code></p>
+<ul>
+<li><code>LOW</code>: Apagado o nivel bajo o 0V</li>
+<li><code>HIGH</code>: Alto o nivel alto o 3.3V</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// Aquí indicamos que el pin 32 será entrada</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">)</span>
 <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
 </code></pre></div>
-<p>Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../index.md#Pinout">tabla de los pines</a></p>
+Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../#Pinout">tabla de los pines</a></p>
 <h2 id="utilizando-las-salidas-digitales">Utilizando las salidas digitales</h2>
 <h3 id="encender-un-led">Encender un LED</h3>
 <p>Vamos a realizar un ejemplo básico para encender un LED.</p>
@@ -1125,7 +1170,7 @@
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/io_basic.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">   </span><span class="c1">// configuro el pin 32 como salida</span>
