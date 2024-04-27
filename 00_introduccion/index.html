@@ -369,6 +369,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pinout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consideraciones-con-algunos-pines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consideraciones con algunos pines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -419,7 +434,7 @@
         
   
   <span class="md-ellipsis">
-    Interfaz de Arduino IDE 1.8
+    Interfaz de Arduino IDE
   </span>
   
 
@@ -696,6 +711,21 @@
       Pinout
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Pinout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consideraciones-con-algunos-pines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consideraciones con algunos pines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1036,6 +1066,9 @@ Esta placa trabaja en conjunto con un IDE (Entorno de Desarrollo Integrado) el c
 <p>[3] (1,2): The pins GPIO16 and GPIO17 are available for use only on the boards with the modules ESP32-WROOM and ESP32-SOLO-1. The boards with ESP32-WROVER modules have the pins reserved for internal use.</p>
 <h2 id="pinout">Pinout</h2>
 <p><img alt="pinout esp32" src="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitC-v4-pinout.png" /></p>
+<h3 id="consideraciones-con-algunos-pines">Consideraciones con algunos pines</h3>
+<p>Los pines 34 y 35 solo pueden ser entradas, esto lo debes considerar si quieres ocupar la maxima cantidad de pines.</p>
+<p><img alt="" src="../assets/esp32_pwm_pins.png" /></p>
 <h2 id="diagrama-esquematico">Diagrama esquemático</h2>
 <p><img alt="esquemático" src="../assets/esp32_devkitc_v4-sch.png" /></p>
 <p><a href="https://dl.espressif.com/dl/schematics/esp32_devkitc_v4-sch.pdf">Ver pdf original</a></p>
