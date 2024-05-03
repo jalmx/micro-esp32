@@ -4,7 +4,7 @@
 
 Realizar el siguiente ejercicio, ver la animación
 
-![ldr_bar_sch](./assets/videos/schematic/ldr_led_bar.png)
+![ldr_bar_sch](./assets/schematic/ldr_led_bar.png)
 
 ![ldr_bar_gir](./assets/videos/LDR_bar.gif)
 

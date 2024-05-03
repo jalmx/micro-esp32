@@ -9,7 +9,7 @@ Realizar el siguiente ejercicio, como se ve en la animación
 **Funcionamiento**
 
 1. Contador hexadecimal, es decir, va desde el 0 hasta la F
-   1. 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+   1. **0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F**
 2. Cada que se presione un botón, debe incrementar el dígito
 3. Cada que se presione otro botón, se decrementa en uno el dígito
 4. Hay un tercer botón, para el reset del conteo

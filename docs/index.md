@@ -10,7 +10,7 @@ Documentación para el aprendizaje del **Lenguaje C** con un enfoque básico par
 
 ### [Interfaz de Arduino IDE](./02_interfaz_ide.md)
 
-### [Entradas y Salidas Digitales (I/O)](./03_interfaz_ide.md)
+### [Entradas y Salidas Digitales (I/O)](./03_io.md)
 
 ### [Ejercicios con IO Digitales](./04_io_ex.md)
 
