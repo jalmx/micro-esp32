@@ -508,6 +508,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#led-onoff-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      LED ON/OFF (Toggle)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#control-de-buzzer" class="md-nav__link">
     <span class="md-ellipsis">
       Control de buzzer
@@ -944,6 +953,15 @@
   <a href="#led-onoff" class="md-nav__link">
     <span class="md-ellipsis">
       LED ON/OFF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led-onoff-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      LED ON/OFF (Toggle)
     </span>
   </a>
   
@@ -1473,6 +1491,62 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<h3 id="led-onoff-toggle">LED ON/OFF (Toggle)</h3>
+<p>En este caso, si presiono el LED, este se enciende y se manteniente de esa manera, en caso que se vuelva a presionar, se apagará hasta que sea presionado de nuevo el LED.</p>
+<p><strong>Material</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cantidad</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Placa ESP32</td>
+</tr>
+<tr>
+<td>1</td>
+<td>LED</td>
+</tr>
+<tr>
+<td>1</td>
+<td>R330</td>
+</tr>
+<tr>
+<td>1</td>
+<td>push button</td>
+</tr>
+<tr>
+<td>1</td>
+<td>R1K</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diagrama pictórico</strong></p>
+<p><img alt="basic" src="../assets/schematic/input_01.png" /></p>
+<p><strong>Código</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
+
+<span class="c1">// the setup function runs once when you press reset or power the board</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">   </span><span class="c1">// configuro el pin 32 como salida</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BTN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">// configuro el pin 34 como entrada</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w"> </span><span class="c1">// indico que el pin 32 se ponga en estado BAJO, es decir, manda un 0 a la salida</span>
+<span class="p">}</span>
+
+<span class="c1">// the loop function runs over and over again forever</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN</span><span class="p">);</span><span class="w"> </span><span class="c1">//leo el estado del botón y lo guardo en la variable status</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro </span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">LED</span><span class="p">));</span><span class="w">   </span><span class="c1">// enciendo el LED o lo apaga dependiendo su estado </span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"> </span><span class="c1">// espero este tiempo para evitar el transitorio del botón</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="control-de-buzzer">Control de buzzer</h3>
 <p>Vamos a realizar un control de un buzzer activo (es decir, que con alimentación emita un sonido), cuando no se presione el botón, simplemente parpadea un led a 250mS, cuando sea presionado el botón el buzzer sonara y al mismo tiempo el LED va a encender a la misma velocidad</p>
 <p><strong>Material</strong></p>
@@ -1588,13 +1662,13 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/display_7segm_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define A 25</span>
+<span class="cp">#define B 26</span>
+<span class="cp">#define C 27</span>
+<span class="cp">#define D 14</span>
+<span class="cp">#define E 12</span>
+<span class="cp">#define F 19</span>
+<span class="cp">#define G 18</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">);</span>
 
@@ -1735,7 +1809,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="p">}</span>
 
 <span class="c1">// the loop function runs over and over again forever</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//variable que me ayuda a conocer en que digito hay que desplegar</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//variable que me ayuda a conocer en que dígito hay que desplegar</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
