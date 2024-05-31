@@ -12,13 +12,13 @@
         <meta name="author" content="Alejandro Leyva">
       
       
-        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/02_interfaz_ide/">
+        <link rel="canonical" href="https://www.alejandro-leyva.com/micro-esp32/instalacion_manual/">
       
       
-        <link rel="prev" href="../01_estructura/">
+        <link rel="prev" href="../Referencias/">
       
       
-        <link rel="next" href="../03_io/">
+        <link rel="next" href="../lista_de_materiales/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Interfaz de Arduino IDE - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
+        <title>Instalación manual de librerías - Programa Tarjetas Electrónicas - ESP32 - Arduino</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interfaz-de-arduino-ide" class="md-skip">
+        <a href="#instalacion-manual-de-librerias" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Interfaz de Arduino IDE
+              Instalación manual de librerías
             
           </span>
         </div>
@@ -318,30 +318,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Interfaz de Arduino IDE
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../02_interfaz_ide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -350,44 +330,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#arduino-ide-18x" class="md-nav__link">
-    <span class="md-ellipsis">
-      Arduino IDE 1.8x
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arduino-ide-2x" class="md-nav__link">
-    <span class="md-ellipsis">
-      Arduino IDE 2.x
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -556,10 +498,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../instalacion_manual/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Instalación manual de librerías
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -568,6 +530,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arduino-ide-18x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arduino IDE 1.8.x
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arduino-ide-2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arduino IDE 2.x
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -641,7 +641,7 @@
         <li class="md-nav__item">
   <a href="#arduino-ide-18x" class="md-nav__link">
     <span class="md-ellipsis">
-      Arduino IDE 1.8x
+      Arduino IDE 1.8.x
     </span>
   </a>
   
@@ -671,13 +671,48 @@
                   
 
 
-<h1 id="interfaz-de-arduino-ide">Interfaz de Arduino IDE</h1>
-<h2 id="arduino-ide-18x">Arduino IDE 1.8x</h2>
-<p>Vista general del editor</p>
-<p><img alt="1.8" src="../assets/editor_general_1_8x.png" /></p>
-<p><img alt="1.8" src="../assets/editor_general_1_8.png" /></p>
+<h1 id="instalacion-manual-de-librerias">Instalación manual de librerías</h1>
+<h2 id="arduino-ide-18x">Arduino IDE 1.8.x</h2>
+<ol>
+<li>Descargar la librería en cuestión a tu almacenamiento local<br />
+<img alt="arduino 1.8.x" src="../assets/install_lib/step_0_arduino18x.png" /></li>
+<li>Ir al menú <em>Sketch &gt; Incluir librería &gt; Agregar librería .ZIP</em>
+    <img alt="arduino 1.8.x" src="../assets/install_lib/step_1_arduino18x.png" /></li>
+<li>Buscamos nuestra librería en formato <code>.zip</code>, damos <code>Ok</code>
+    <img alt="arduino 1.8.x" src="../assets/install_lib/step_2_arduino18x.png" /></li>
+<li>Vemos el mensaje de que la instalación de la librería fue exitosa
+    <img alt="arduino 1.8.x" src="../assets/install_lib/step_3_arduino18x.png" /></li>
+<li>Verificamos en los ejemplos y compilamos alguno para saber que todo este bien
+    <img alt="arduino 1.8.x" src="../assets/install_lib/step_4_arduino18x.png" /></li>
+</ol>
 <h2 id="arduino-ide-2x">Arduino IDE 2.x</h2>
-<p><img alt="ide 2" src="../assets/editor_2.png" /></p>
+<ol>
+<li>
+<p>Descargar la librería en cuestión a tu almacenamiento local<br />
+<img alt="ardunio 2.x" src="../assets/install_lib/strep_1_arduino2x.png" /></p>
+</li>
+<li>
+<p>Abrir tu editor <strong>Arduino IDE 2.x</strong>
+    Sketch &gt; Agregar librería &gt; agregar librería ZIP
+    <img alt="ardunio 2.x" src="../assets/install_lib/strep_2_arduino2x.png" /></p>
+</li>
+<li>
+<p>Seleccionar el archivo en donde lo tengamos guardado
+    <img alt="ardunio 2.x" src="../assets/install_lib/strep_3_arduino2x.png" /></p>
+</li>
+<li>
+<p>Aceptamos agregarla
+    <img alt="ardunio 2.x" src="../assets/install_lib/strep_4_arduino2x.png" /></p>
+</li>
+<li>
+<p>Observamos el <em>log</em> con el mensaje de "Librería instalada"
+    <img alt="ardunio 2.x" src="../assets/install_lib/strep_5_arduino2x.png" /></p>
+</li>
+<li>
+<p>Verificamos que se haya instalado correctamente con algún ejemplo, compilamos para ello
+    <img alt="ardunio 2.x" src="../assets/install_lib/strep_6_arduino2x.png" /></p>
+</li>
+</ol>
 
 
 
@@ -707,7 +742,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pie" >
         
           
-          <a href="../01_estructura/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Estructura de código base Arduino">
+          <a href="../Referencias/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Referencias">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -717,20 +752,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Estructura de código base Arduino
+                Referencias
               </div>
             </div>
           </a>
         
         
           
-          <a href="../03_io/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Entradas y Salidas Digitales (I/O)">
+          <a href="../lista_de_materiales/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Lista de materiales">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Siguiente
               </span>
               <div class="md-ellipsis">
-                Entradas y Salidas Digitales (I/O)
+                Lista de materiales
               </div>
             </div>
             <div class="md-footer__button md-icon">
