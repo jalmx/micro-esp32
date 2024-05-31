@@ -271,7 +271,7 @@ Con dos protocolos, estos son
 ![connect](./assets/schematic/oled_basic.png)
 
 !!! Warning Librería
-    Las librerías que se necesitan son varias, si estas con el gestor e instalar en la carpeta de `librerías` del IDE de Arduino. [Descargar aquí](./assets/libs/oled_ssd%26shx.zip) y las agregamos de manera manual.
+    Las librerías que se necesitan son varias, si estas con el gestor e instalar en la carpeta de `librerías` del IDE de Arduino. [Descargar aquí](./assets/libs/oled_ssd%26shx.zip) y las agregamos de manera manual. Ver la instalación manual -> [aquí](./instalacion_manual.md)
 
 
 <details markdown="1">

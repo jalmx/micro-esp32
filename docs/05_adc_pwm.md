@@ -706,10 +706,10 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
     | 180 grados | 127 |
 
 !!! Note Descargar librería 
-    Descargar librería. [Dar click aqui](./assets/libs/ESP32Servo.zip)
+    Descargar librería. [Dar click aquí](./assets/libs/ESP32Servo.zip). Ver la instalación manual -> [aquí](./instalacion_manual.md)
 
-!!! Note Instalar librería
-    ![](./assets/esp_servo_install.png)
+!!! Note Instalar librería desde el gestor de librería del IDE
+    ![](./assets/esp_servo_install.png). 
 
 ### Servomotor básico
 

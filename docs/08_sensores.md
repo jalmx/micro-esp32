@@ -781,7 +781,7 @@ void loop() {
     Descarga la librería, [Dar click aquí](./assets/libs/MFRC522.zip)
 
 !!! Note Instalar librería con IDE
-    ![rfid ide](./assets/rfid_install_ide.png)
+    ![rfid ide](./assets/rfid_install_ide.png). Ver la instalación manual -> [aquí](./instalacion_manual.md)
 
 
 !!! Warning Conexiones del módulo
