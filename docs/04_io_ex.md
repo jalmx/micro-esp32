@@ -4,7 +4,7 @@
 
 Realizar el siguiente ejercicio, como se ve en la animación
 
-![](./assets/videos/contador_btn.gif)
+![contador btn](./assets/videos/contador_btn.gif)
 
 **Funcionamiento**
 

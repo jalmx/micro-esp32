@@ -26,7 +26,7 @@ La comunicación I^2^C nos reduce el uso de pines, pero esto incrementa el uso d
 
 ![i2c](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2018/07/I2C_LCD2.jpg?w=750&quality=100&strip=all&ssl=1)
 
-El controlador es el PCF8574 el encargado de recibir la informacion y comunicarla al microcontrolador de la LCD, realizando las acciones que enviamos por el protocolo.
+El controlador es el PCF8574 el encargado de recibir la información y comunicarla al microcontrolador de la LCD, realizando las acciones que enviamos por el protocolo.
 
 ![i2c](https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/PCF8574-Chip-On-I2C-LCD.jpg)
 

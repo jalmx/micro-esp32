@@ -99,7 +99,7 @@ void setup() {
   Serial.println("Presionar # para aceptar el password");
   Serial.println("Presionar * para cancelar y volver a escribir el password");
   Serial.println("------------------------");
-  Serial.println("Introduccir el password");
+  Serial.println("Introducir el password");
   Serial.println("------------------------");
 }
 
@@ -149,7 +149,7 @@ void loop() {
       Serial.println("Presionar # para aceptar el password");
       Serial.println("Presionar * para cancelar y volver a escribir el password");
       Serial.println("------------------------");
-      Serial.println("Introduccir el password");
+      Serial.println("Introducir el password");
       Serial.println("------------------------");
       input_password = ""; // se limpia el contenido
     } else {
@@ -176,7 +176,7 @@ El sensor de flama va detectar cuando exista fuego, haciendo sonar una alarma y 
 #define FLAME_SENSOR 34
 
 void setup() {
-  //configuro e inicio la comunicacion serial
+  //configuro e inicio la comunicación serial
   Serial.begin(115200);
 
   //configuro los pines como entradas y salidas

@@ -51,7 +51,7 @@ Vamos a realizar una lectura básica de un ADC y mandar ese valor a la monitor s
 **Código**
 
 ```C
-const byte pinADC = 34; //pin que sera leído del ADC
+#define pinADC 34 //pin que sera leído del ADC
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -90,10 +90,10 @@ Vamos a realizar una lectura del ADC e ir encendiendo los LEDs en función del v
 **Código**
 
 ```C
-const byte pinADC = 34;  //pin que sera leído del ADC
-const byte LED1 = 33;    //Configuro el pin en donde colocaré el LED
-const byte LED2 = 25;    //Configuro el pin en donde colocaré el LED
-const byte LED3 = 26;    //Configuro el pin en donde colocaré el LED
+#define pinADC 34  //pin que sera leído del ADC
+#define LED1 33    //Configuro el pin en donde colocaré el LED
+#define LED2 25    //Configuro el pin en donde colocaré el LED
+#define LED3 26    //Configuro el pin en donde colocaré el LED
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -151,8 +151,8 @@ Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
 **Código**
 
 ```C
-const byte pinADC = 34;  //pin que sera leído del ADC
-const byte LED1 = 25;    //Configuro el pin en donde colocaré el LED
+#define pinADC 34  //pin que sera leído del ADC
+#define LED1 25    //Configuro el pin en donde colocaré el LED
 #define LIMIT 2500       //ESTE VALOR SE CAMBIA CON BASE AL AJUSTE DEL SENSOR
 
 // the setup routine runs once when you press reset:
@@ -202,10 +202,10 @@ Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
 **Código**
 
 ```C
-int LED1 = 32; //ROJO
-int LED2 = 33; //AMARILLO
-int LED3 = 25; //VERDE
-const byte pinADC = 34;  //pin que sera leído del ADC
+#define LED1 32 //ROJO
+#define LED2 33 //AMARILLO
+#define LED3 25 //VERDE
+#define pinADC 34  //pin que sera leído del ADC
 #define LIMIT 2000  
 
 // the setup function runs once when you press reset or power the board
@@ -293,11 +293,11 @@ Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar. En 
 **Código**
 
 ```C
-int LED1 = 32; //ROJO
-int LED2 = 33; //AMARILLO
-int LED3 = 25; //VERDE
-const byte pinADC = 34;  //pin que sera leído del ADC
-int btn = 27; //pin para el botón
+#define LED1 32 //ROJO
+#define LED2 33 //AMARILLO
+#define LED3 25 //VERDE
+#define pinADC 34  //pin que sera leído del ADC
+#define btn 27 //pin para el botón
 #define LIMIT 2000 // esta constante es para la comparación del sensor de luz
 
 // the setup function runs once when you press reset or power the board
@@ -732,7 +732,7 @@ Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática
 ```C
 #include <ESP32Servo.h>
 
-int pos = 0;    // variable que guarda la posicion del servo
+#define pos 0    // variable que guarda la posición del servo
 
 #define SERVO_PIN 25
 
@@ -741,12 +741,12 @@ Servo myservo;  // Crea el objeto para el control del servomotor
 // Puede controlar hasta 16 servos
 
 void setup() {
-  // permite el uso de todos los timer, simpre deja esta seccion, y no preguntes por qué
+  // permite el uso de todos los timer, siempre deja esta sección, y no preguntes por qué
   ESP32PWM::allocateTimer(0);
   ESP32PWM::allocateTimer(1);
   ESP32PWM::allocateTimer(2);
   ESP32PWM::allocateTimer(3);
-  myservo.setPeriodHertz(50);    // estandar de trabajo del servo es a 50 hz
+  myservo.setPeriodHertz(50);    // estándar de trabajo del servo es a 50 hz
   myservo.attach(SERVO_PIN, 500, 2400); // configuramos el objeto del servo
   // por default se usa min/max de 1000us and 2000us
   // Si usas otro servo se deben ajustar los tiempos para el giro de 180 grados
@@ -757,11 +757,11 @@ void loop() {
   for (pos = 0; pos <= 180; pos += 1) { // va desde 0 a 180 grados
     // in steps of 1 degree
     myservo.write(pos);    // le indica al servo en donde colocarse
-    delay(15);             // espera 15ms para la siguiente posicion
+    delay(15);             // espera 15ms para la siguiente posición
   }
   for (pos = 180; pos >= 0; pos -= 1) { // va desde 180 a 0 grados
     myservo.write(pos);    // le indica al servo en donde colocarse
-    delay(15);             // espera 15ms para la siguiente posicion
+    delay(15);             // espera 15ms para la siguiente posición
   }
 }
 
@@ -794,7 +794,7 @@ Servo myservo;  // Crea el objeto para el control del servomotor
 #define POT  34
 
 void setup() {
-  // permite el uso de todos los timer, simpre deja esta seccion, y no preguntes por qué
+  // permite el uso de todos los timer, siempre deja esta sección, y no preguntes por qué
   ESP32PWM::allocateTimer(0);
   ESP32PWM::allocateTimer(1);
   ESP32PWM::allocateTimer(2);
