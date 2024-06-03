@@ -1208,7 +1208,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/io_basic.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED 32 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">   </span><span class="c1">// configuro el pin 32 como salida</span>
@@ -1248,9 +1248,9 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/leds_3.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED1 32 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="cp">#define LED2 33 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="cp">#define LED3 25 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">   </span><span class="c1">// configuro el pin 32 como salida</span>
@@ -1296,7 +1296,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/io_basic.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED 32 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 
@@ -1343,9 +1343,9 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Simulación</strong></p>
 <p><img alt="simulacion" src="../assets/videos/semaforo.gif" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">//ROJO</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w"> </span><span class="c1">//AMARILLO</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">//VERDE</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED1 32 </span><span class="c1">//ROJO</span>
+<span class="cp">#define LED2 33 </span><span class="c1">//AMARILLO</span>
+<span class="cp">#define LED3 25 </span><span class="c1">//VERDE</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 
@@ -1431,8 +1431,8 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/input_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED 32 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="cp">#define BTN 34 </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1489,8 +1489,8 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/input_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED 32 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="cp">#define BTN 34 </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1547,8 +1547,8 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/input_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED 32 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="cp">#define BTN 34; </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1607,9 +1607,9 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/buzzer_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BUZZER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro la variable con el numero del pin en donde tendré el buzzer</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w"> </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED 33 </span><span class="c1">// declaro una variable con el número del pin en donde tengo el led</span>
+<span class="cp">#define BUZZER 25 </span><span class="c1">// declaro la variable con el numero del pin en donde tendré el buzzer</span>
+<span class="cp">#define BTN 34 </span><span class="c1">// declaro una variable para identificar el pin en donde estará el botón</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1794,14 +1794,14 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/display_7segm_btn.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define A  25</span>
+<span class="cp">#define B  26</span>
+<span class="cp">#define C  27</span>
+<span class="cp">#define D  14</span>
+<span class="cp">#define E  12</span>
+<span class="cp">#define F  19</span>
+<span class="cp">#define G  18</span>
+<span class="cp">#define BTN  34</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="p">);</span>
 
@@ -1928,12 +1928,12 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><img alt="motor dc gif" src="../assets/videos/motor_dc.gif" /></p>
 <p><strong>Código</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">//Configuro los pines físicos para las entradas y salidas</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED_I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED_D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">MOTOR_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">MOTOR_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">BTN_D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">BTN_I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">35</span><span class="p">;</span>
+<span class="cp">#define LED_I 25</span>
+<span class="cp">#define LED_D 26</span>
+<span class="cp">#define MOTOR_1 18</span>
+<span class="cp">#define MOTOR_2 19</span>
+<span class="cp">#define BTN_D 34</span>
+<span class="cp">#define BTN_I 35</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// configurando los pines como entradas y salidas</span>
@@ -2048,7 +2048,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="w">  </span><span class="c1">// set the speed at 60 rpm:</span>
 <span class="w">  </span><span class="n">myStepper</span><span class="p">.</span><span class="n">setSpeed</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
 <span class="w">  </span><span class="c1">// initialize the serial port:</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">15200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
 <span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BTN_I</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
 <span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BTN_D</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
 <span class="p">}</span>
@@ -2126,8 +2126,8 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="cp">#define MODULE_SINGLE 2  </span><span class="c1">// SI ESTAS USANDO EL MODULO DE DOBLE RELAY, CAMBIA EL VALOR A 2</span>
 
 
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">BTN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">RELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+<span class="cp">#define BTN 34</span>
+<span class="cp">#define RELAY 25</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">//configuro los pines como entrada y salida</span>
@@ -2217,12 +2217,12 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <p><img alt="carrito" src="../assets/carrito.png" /></p>
 <p><strong>Código</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">//Se uso el ESP32 version Wemos</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">sensorD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">;</span><span class="w"> </span><span class="c1">//</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">sensorI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">motorD_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span><span class="w"> </span><span class="c1">// 26</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">motorD_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">// 25</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">motorI_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span><span class="w"> </span><span class="c1">// 17</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">motorI_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="c1">//1 6</span>
+<span class="cp">#define sensorD  19 </span><span class="c1">//</span>
+<span class="cp">#define sensorI  23</span>
+<span class="cp">#define motorD_1  26 </span><span class="c1">// 26</span>
+<span class="cp">#define motorD_2  25 </span><span class="c1">// 25</span>
+<span class="cp">#define motorI_1  17 </span><span class="c1">// 17</span>
+<span class="cp">#define motorI_2  16 </span><span class="c1">//1 6</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// put your setup code here, to run once:</span>

@@ -986,7 +986,7 @@
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/potenciometer_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">pinADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w"> </span><span class="c1">//pin que sera leído del ADC</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define pinADC 34 </span><span class="c1">//pin que sera leído del ADC</span>
 
 <span class="c1">// the setup routine runs once when you press reset:</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1038,10 +1038,10 @@
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/potenciometer_bar_led_01.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">pinADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">  </span><span class="c1">//pin que sera leído del ADC</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define pinADC 34  </span><span class="c1">//pin que sera leído del ADC</span>
+<span class="cp">#define LED1 33    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<span class="cp">#define LED2 25    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<span class="cp">#define LED3 26    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
 
 <span class="c1">// the setup routine runs once when you press reset:</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1113,8 +1113,8 @@
 <p><strong>Diagrama pictórico</strong></p>
 <p><img alt="basic" src="../assets/schematic/ldr_led.png" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">pinADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">  </span><span class="c1">//pin que sera leído del ADC</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w">    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define pinADC 34  </span><span class="c1">//pin que sera leído del ADC</span>
+<span class="cp">#define LED1 25    </span><span class="c1">//Configuro el pin en donde colocaré el LED</span>
 <span class="cp">#define LIMIT 2500       </span><span class="c1">//ESTE VALOR SE CAMBIA CON BASE AL AJUSTE DEL SENSOR</span>
 
 <span class="c1">// the setup routine runs once when you press reset:</span>
@@ -1176,10 +1176,10 @@
 <p><strong>Simulación</strong></p>
 <p><img alt="simulacion" src="../assets/videos/semaforo_con_sensor.gif" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">//ROJO</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w"> </span><span class="c1">//AMARILLO</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">//VERDE</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">pinADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">  </span><span class="c1">//pin que sera leído del ADC</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED1 32 </span><span class="c1">//ROJO</span>
+<span class="cp">#define LED2 33 </span><span class="c1">//AMARILLO</span>
+<span class="cp">#define LED3 25 </span><span class="c1">//VERDE</span>
+<span class="cp">#define pinADC 34  </span><span class="c1">//pin que sera leído del ADC</span>
 <span class="cp">#define LIMIT 2000  </span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
@@ -1285,11 +1285,11 @@
 <p><strong>Simulación</strong></p>
 <p><img alt="simulacion" src="../assets/videos/semaforo_ldr_button.gif" /></p>
 <p><strong>Código</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">LED1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="c1">//ROJO</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">;</span><span class="w"> </span><span class="c1">//AMARILLO</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">LED3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w"> </span><span class="c1">//VERDE</span>
-<span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">pinADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">  </span><span class="c1">//pin que sera leído del ADC</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span><span class="w"> </span><span class="c1">//pin para el botón</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED1 32 </span><span class="c1">//ROJO</span>
+<span class="cp">#define LED2 33 </span><span class="c1">//AMARILLO</span>
+<span class="cp">#define LED3 25 </span><span class="c1">//VERDE</span>
+<span class="cp">#define pinADC 34  </span><span class="c1">//pin que sera leído del ADC</span>
+<span class="cp">#define btn 27 </span><span class="c1">//pin para el botón</span>
 <span class="cp">#define LIMIT 2000 </span><span class="c1">// esta constante es para la comparación del sensor de luz</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
@@ -1689,7 +1689,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <p><strong>Código</strong></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP32Servo.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">    </span><span class="c1">// variable que guarda la posicion del servo</span>
+<span class="cp">#define pos 0    </span><span class="c1">// variable que guarda la posición del servo</span>
 
 <span class="cp">#define SERVO_PIN 25</span>
 
@@ -1698,12 +1698,12 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <span class="c1">// Puede controlar hasta 16 servos</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// permite el uso de todos los timer, simpre deja esta seccion, y no preguntes por qué</span>
+<span class="w">  </span><span class="c1">// permite el uso de todos los timer, siempre deja esta sección, y no preguntes por qué</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="w">  </span><span class="n">myservo</span><span class="p">.</span><span class="n">setPeriodHertz</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w">    </span><span class="c1">// estandar de trabajo del servo es a 50 hz</span>
+<span class="w">  </span><span class="n">myservo</span><span class="p">.</span><span class="n">setPeriodHertz</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w">    </span><span class="c1">// estándar de trabajo del servo es a 50 hz</span>
 <span class="w">  </span><span class="n">myservo</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="n">SERVO_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">2400</span><span class="p">);</span><span class="w"> </span><span class="c1">// configuramos el objeto del servo</span>
 <span class="w">  </span><span class="c1">// por default se usa min/max de 1000us and 2000us</span>
 <span class="w">  </span><span class="c1">// Si usas otro servo se deben ajustar los tiempos para el giro de 180 grados</span>
@@ -1714,11 +1714,11 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">180</span><span class="p">;</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// va desde 0 a 180 grados</span>
 <span class="w">    </span><span class="c1">// in steps of 1 degree</span>
 <span class="w">    </span><span class="n">myservo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span><span class="w">    </span><span class="c1">// le indica al servo en donde colocarse</span>
-<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w">             </span><span class="c1">// espera 15ms para la siguiente posicion</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w">             </span><span class="c1">// espera 15ms para la siguiente posición</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">180</span><span class="p">;</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// va desde 180 a 0 grados</span>
 <span class="w">    </span><span class="n">myservo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span><span class="w">    </span><span class="c1">// le indica al servo en donde colocarse</span>
-<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w">             </span><span class="c1">// espera 15ms para la siguiente posicion</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w">             </span><span class="c1">// espera 15ms para la siguiente posición</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1741,7 +1741,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <span class="cp">#define POT  34</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// permite el uso de todos los timer, simpre deja esta seccion, y no preguntes por qué</span>
+<span class="w">  </span><span class="c1">// permite el uso de todos los timer, siempre deja esta sección, y no preguntes por qué</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">  </span><span class="n">ESP32PWM</span><span class="o">::</span><span class="n">allocateTimer</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
