@@ -90,7 +90,12 @@ Hay 3 formas mutuamente exclusivas para darle alimentación a la tarjeta:
 
 ## Pinout
 
-![pinout esp32](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitC-v4-pinout.png)
+### ESP32 Dev
+![pinout esp32](../docs/assets/esp32_devkitC_v4_pinlayout.png)
+
+### ESP32 Wemos D1 R32
+
+![pinout esp32](../docs/assets/esp32_Pinout_D1_R32.png)
 
 
 ### Consideraciones con algunos pines
