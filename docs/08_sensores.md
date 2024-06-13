@@ -251,10 +251,11 @@ void loop() {
 
     Se deben agregar una librerías para usar este sensor. [Click aquí](./assets/libs/Pack_DTHxx.zip), agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.
 
+![modulo dth11](assets/dh11_1.webp)
 
-![dht](./assets/schematic/dht11_bb.png)
+![dht](assets/schematic/dht11_bb.png)
 
-![dht11 anima](./assets/videos/DHT11.gif)
+![dht11 anima](assets/videos/DHT11.gif)
 
 ```C
 #include <Adafruit_Sensor.h>
