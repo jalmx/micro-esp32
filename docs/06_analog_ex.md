@@ -1,4 +1,4 @@
-# Ejercicios con IO Analógicas
+# Ejercicios con I/O Analógicas
 
 ## Lámparas del parque
 

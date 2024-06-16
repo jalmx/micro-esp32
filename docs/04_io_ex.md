@@ -1,4 +1,4 @@
-# Ejercicios con IO Digitales
+# Ejercicios con I/O Digitales
 
 ## Display de 7 Segmentos
 
