@@ -1,4 +1,4 @@
-# Herramientas de comunicacion serial
+# Herramientas de comunicación serial
 
 ## [PuTTY](https://www.putty.org/)
 

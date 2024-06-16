@@ -177,6 +177,67 @@ void loop() {
 }
 ```
 
+### Control crepuscular (Sensor de luz) con PROMEDIO
+
+Este circuito toma la lectura del sensor de luz, imprime ese valor y también hace el calculo del promedio de 50 muestras, para dar un valor mas estable de salida. Para ver como se ve el resultado utilizar el `serial plotter` de IDE o algún otro software para gráficar datos de comunicación serial.
+
+**Material**
+
+|Cantidad|Descripción|
+|---|---|
+|1| Placa ESP32|
+|1|  LED|
+|1|  R330|
+|1|  R10k|
+|1|  LDR|
+
+**Diagrama pictórico**
+
+![basic](./assets/schematic/ldr_led.png)
+
+**Código**
+
+```c
+#define pinADC 34  //pin que sera leído del ADC
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // inicializamos el monitor serial a 115200 baudios
+  Serial.begin(115200);
+}
+
+float promedio = 0.0;
+long suma = 0;
+int contador = 0;
+
+void loop() {
+
+  int valueADC = analogRead(pinADC);
+  Serial.print("Luz:");
+  Serial.print(valueADC);
+  Serial.print(",");
+
+  if (contador < 50) {
+    suma += valueADC;
+    contador++;
+  } else {
+    promedio = (float)suma / 50.0;
+    contador = 0;
+    suma = 0;
+  }
+
+  Serial.print("Promedio:");
+  Serial.println(promedio);
+  delay(500);
+}
+```
+
+**Gráfica obtenida**
+
+![grafica](assets/videos/grafica_LDR.gif)
+
+Software utilizado: [Serial Test](https://github.com/wh201906/SerialTest)
+
 ### Semáforo con Sensor de Luz
 
 Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
