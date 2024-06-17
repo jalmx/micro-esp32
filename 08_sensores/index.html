@@ -547,6 +547,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#graficando-temperatura-y-humedad-dth11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graficando Temperatura y Humedad DTH11
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sensor-ultrasonico-hc-sr04" class="md-nav__link">
     <span class="md-ellipsis">
       Sensor Ultrasónico HC-SR04
@@ -866,6 +875,15 @@
   <a href="#sensor-de-temperatura-y-humedad-dth11" class="md-nav__link">
     <span class="md-ellipsis">
       Sensor de Temperatura y Humedad DTH11
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graficando-temperatura-y-humedad-dth11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graficando Temperatura y Humedad DTH11
     </span>
   </a>
   
@@ -1286,6 +1304,57 @@ Tendremos todo el feedback en el monitor serial.</p>
 <span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">relative_humidity</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;%&quot;</span><span class="p">));</span>
 <span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="graficando-temperatura-y-humedad-dth11">Graficando Temperatura y Humedad DTH11</h2>
+<div class="admonition warning librería">
+<p class="admonition-title">Warning</p>
+<p>Se deben agregar una librerías para usar este sensor. <a href="../assets/libs/Pack_DTHxx.zip">Click aquí</a>, agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.</p>
+</div>
+<p><img alt="dht" src="../assets/schematic/dht11_bb.png" /></p>
+<p><img alt="dht11 anima" src="../assets/videos/humedad_grafica_1.gif" /></p>
+<p><img alt="dht11 anima" src="../assets/videos/humedad_plot.gif" /></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_Sensor.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;DHT.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;DHT_U.h&gt;</span>
+
+<span class="cp">#define DHTPIN 2     </span><span class="c1">// El pin que se usara para comunicar al sensor con el micro</span>
+
+<span class="cp">#define DHTTYPE    DHT11   </span><span class="c1">// se define que sensor se usara (tenemos el DHT22, FHT21)</span>
+
+<span class="n">DHT_Unified</span><span class="w"> </span><span class="nf">dht</span><span class="p">(</span><span class="n">DHTPIN</span><span class="p">,</span><span class="w"> </span><span class="n">DHTTYPE</span><span class="p">);</span><span class="w"> </span><span class="c1">// Se crea el objeto con los valores indicados para que se configure el sensor a usar</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//inicializa la comunicación serial</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dht</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="c1">//inicializamos al sensor</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">sensors_event_t</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
+<span class="w">  </span><span class="n">dht</span><span class="p">.</span><span class="n">temperature</span><span class="p">().</span><span class="n">getEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isnan</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">temperature</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Error reading temperature!&quot;</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Temperature: &quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">temperature</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// Get humidity event and print its value.</span>
+<span class="w">  </span><span class="n">dht</span><span class="p">.</span><span class="n">humidity</span><span class="p">().</span><span class="n">getEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isnan</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">relative_humidity</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Error reading humidity!&quot;</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Humidity: &quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">relative_humidity</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="c1">// esperamos un segundo para tomar otra lectura</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="sensor-ultrasonico-hc-sr04">Sensor Ultrasónico HC-SR04</h2>
