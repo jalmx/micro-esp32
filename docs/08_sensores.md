@@ -328,6 +328,65 @@ void loop() {
 }
 ```
 
+## Graficando Temperatura y Humedad DTH11
+
+!!! Warning Librería
+
+    Se deben agregar una librerías para usar este sensor. [Click aquí](./assets/libs/Pack_DTHxx.zip), agregarlas a tu IDE, de lo contrario no funcionara el código de ejemplo.
+
+
+![dht](assets/schematic/dht11_bb.png)
+
+![dht11 anima](assets/videos/humedad_grafica_1.gif)
+
+![dht11 anima](assets/videos/humedad_plot.gif)
+
+```C
+#include <Adafruit_Sensor.h>
+#include <DHT.h>
+#include <DHT_U.h>
+
+#define DHTPIN 2     // El pin que se usara para comunicar al sensor con el micro
+
+#define DHTTYPE    DHT11   // se define que sensor se usara (tenemos el DHT22, FHT21)
+
+DHT_Unified dht(DHTPIN, DHTTYPE); // Se crea el objeto con los valores indicados para que se configure el sensor a usar
+
+void setup() {
+  //inicializa la comunicación serial
+  Serial.begin(115200);
+  dht.begin(); //inicializamos al sensor
+  delay(500);
+  Serial.println();
+}
+
+void loop() {
+
+  sensors_event_t event;
+  dht.temperature().getEvent(&event);
+  if (isnan(event.temperature)) {
+    Serial.println(F("Error reading temperature!"));
+  }
+  else {
+    Serial.print(F("Temperature: "));
+    Serial.print(event.temperature);
+    Serial.print(",");
+  }
+  // Get humidity event and print its value.
+  dht.humidity().getEvent(&event);
+  if (isnan(event.relative_humidity)) {
+    Serial.println(F("Error reading humidity!"));
+  }
+  else {
+    Serial.print(F("Humidity: "));
+    Serial.print(event.relative_humidity);
+    Serial.println();
+  }
+  delay(1000);// esperamos un segundo para tomar otra lectura
+}
+```
+
+
 ## Sensor Ultrasónico HC-SR04
 
 !!! note Descargar la librería
