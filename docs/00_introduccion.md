@@ -1,7 +1,7 @@
 # Introducción a Arduino con ESP32
 
 El ecosistema Arduino esta compuesto por una tarjeta con un microcontrolador y los periféricos necesarios mínimos para operar, el cual contiene un firmware para comunicarse y carga los programas realizados en C.
-Esta placa trabaja en conjunto con un IDE (Entorno de Desarrollo Integrado) el cual facilita la carga y depuración de los programas realizados. 
+Esta placa trabaja en conjunto con un IDE (Entorno de Desarrollo Integrado) el cual facilita la carga y depuración de los programas realizados.
 
 El lenguaje que utiliza el entorno Arduino es C/C++, el cual nos ayuda a desarrollar nuestro programa y con ello desarrollar un prototipo rápido.
 
@@ -24,7 +24,6 @@ En la siguiente imagen y la tabla se describe los componentes clases, interfaces
 |Puerto micro USB|USB interface. Power supply for the board as well as the communication interface between a computer and the ESP32-WROOM-32 module.|
 |LED de alimentación de 5V|Turns on when the USB or an external 5V power supply is connected to the board. For details see the schematics in Related Documents.|
 |I/O|Most of the pins on the ESP module are broken out to the pin headers on the board. You can program ESP32 to enable multiple functions such as PWM, ADC, DAC, I2C, I2S, SPI, etc.|
-
 
 ## Opciones de fuente de alimentación
 
@@ -91,12 +90,12 @@ Hay 3 formas mutuamente exclusivas para darle alimentación a la tarjeta:
 ## Pinout
 
 ### ESP32 Dev
+
 ![pinout esp32](assets/esp32_devkitC_v4_pinlayout.png)
 
 ### ESP32 Wemos D1 R32
 
 ![pinout esp32](assets/esp32_Pinout_D1_R32.png)
-
 
 ### Consideraciones con algunos pines
 

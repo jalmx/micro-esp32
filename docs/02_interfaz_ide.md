@@ -10,5 +10,4 @@ Vista general del editor
 
 ## Arduino IDE 2.x
 
-
 ![ide 2](./assets/editor_2.png)

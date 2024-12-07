@@ -17,7 +17,7 @@ Los pines a los que se puede conectar son los que indican `ADCx CHx`, lo cual si
 ![pines adc](./assets/adc-pins-esp32-f-fs8.png)
 
 !!! Note Nota
-    No se necesita inicializar el pin como entrada, solo se usa la función `analogRead(pin)`. 
+    No se necesita inicializar el pin como entrada, solo se usa la función `analogRead(pin)`.
     ```C
     // de esta manera utilizaríamos la función y guarda el dato en una variable
     int valueADC = analogRead(noPin);
@@ -25,7 +25,6 @@ Los pines a los que se puede conectar son los que indican `ADCx CHx`, lo cual si
 
 !!! Note Nota
     Se recomienda colocar un capacitor de 0.1uF en la entrada del ADC para reducir el ruido, junto con multimuestra para reducirlo lo máximo posible. [Ir a documentación oficial](https://docs.espressif.com/projects/esp-idf/en/v4.2/esp32/api-reference/peripherals/adc.html)
-
 
 !!! Danger Peligro
     NUNCA se debe exceder de 3.3V a la entrada del ADC, ni voltajes negativos, esto dañaría de manera parcial o total el microcontrolador.
@@ -81,7 +80,6 @@ Vamos a realizar una lectura del ADC e ir encendiendo los LEDs en función del v
 |1|  Pot 10k|
 |3|  LEDs|
 |3|  R330|
-
 
 **Diagrama pictórico**
 
@@ -436,7 +434,7 @@ void loop() {
 Modulación de Ancho de Pulso (`Pulse width modulation` (`PWM`)) es una manera artificial de generar una salida analógica en un pin digital. Existen dos parámetros asociados al PWM que son la ==frecuencia== y el ==ciclo de trabajo== (*duty cycle*).
 El ciclo de trabajo define que tan largo sera el estado del pin en alto de `un periodo`. El máximo ciclo de trabajo es cuando el pin esta todo el tiempo en alto (100%) y el mínimo todo el tiempo en bajo (0%).
 
-En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su salida. 
+En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su salida.
 
 !!! warning "Limitación del PWM"
     La limitación es que todos deben correr a la misma frecuencia de trabajo, la cual esta entre 1Hz y 1kHz
@@ -450,7 +448,7 @@ En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su 
 Características del PWM en el ESP32
 
 - 16 Canales. `Canal 0 - 15` (excepto los pines GPIO36, GPIO39, GPIO34, y GPIO35)
-- Resolución de 1 - 16 bits. 
+- Resolución de 1 - 16 bits.
 - 3 Funciones para control y configuración
 
 ![](./assets/esp32_pwm_pins.png)
@@ -474,9 +472,7 @@ Detalles de la funciones
   - `canal_PWM`: El canal que estamos usando para el PWM
   - `valorPWM`: El valor que queremos asignar. Recordar que el valor esta en función de la resolución. Por ejemplo, si estamos usando 8 bits, los valores van desde 0 a 255.
 
-
 [Ver mas detalles en la documentación oficial](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/ledc.html)
-
 
 ### Control LED RGB
 
@@ -550,7 +546,6 @@ void loop() {
 ```
 
 </details>
-
 
 ### Control de Intensidad de un LED botones
 
@@ -655,6 +650,7 @@ void loop() {
 
 }
 ```
+
 </details>
 
 ### Control de intensidad de un LED con potenciómetro
@@ -674,7 +670,6 @@ Haremos un simple cambio de color con botones, incrementando el brillo de cada u
   ![rgb video](./assets/videos/rgb_pot_anima.gif)
 
 </details>
-
 
 <details markdown="1">
 <summary>Código</summary>
@@ -740,7 +735,6 @@ void loop() {
 
 </details>
 
-
 ### Servomotor
 
 El servomotor que utilizaremos el SG-90, es un servomotor básico.
@@ -766,11 +760,11 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
     | 90 grados |76 |
     | 180 grados | 127 |
 
-!!! Note Descargar librería 
+!!! Note Descargar librería
     Descargar librería. [Dar click aquí](./assets/libs/ESP32Servo.zip). Ver la instalación manual -> [aquí](./instalacion_manual.md)
 
 !!! Note Instalar librería desde el gestor de librería del IDE
-    ![](./assets/esp_servo_install.png). 
+    ![](./assets/esp_servo_install.png).
 
 ### Servomotor básico
 
@@ -778,7 +772,6 @@ Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática
 
 !!! Warning
     Se necesita un fuente externa de 5V para el correcto funcionamiento del servomotor.
-
 
 **Animación**
 
