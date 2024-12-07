@@ -1002,7 +1002,7 @@
 <p><img alt="pines adc" src="../assets/adc-pins-esp32-f-fs8.png" /></p>
 <div class="admonition note nota">
 <p class="admonition-title">Note</p>
-<p>No se necesita inicializar el pin como entrada, solo se usa la función <code>analogRead(pin)</code>. 
+<p>No se necesita inicializar el pin como entrada, solo se usa la función <code>analogRead(pin)</code>.
 <div class="highlight"><pre><span></span><code><span class="c1">// de esta manera utilizaríamos la función y guarda el dato en una variable</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">valueADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">noPin</span><span class="p">);</span>
 </code></pre></div></p>
@@ -1494,7 +1494,7 @@
 <h2 id="salida-analogica-pwm">Salida Analógica (PWM)</h2>
 <p>Modulación de Ancho de Pulso (<code>Pulse width modulation</code> (<code>PWM</code>)) es una manera artificial de generar una salida analógica en un pin digital. Existen dos parámetros asociados al PWM que son la <mark>frecuencia</mark> y el <mark>ciclo de trabajo</mark> (<em>duty cycle</em>).
 El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code>un periodo</code>. El máximo ciclo de trabajo es cuando el pin esta todo el tiempo en alto (100%) y el mínimo todo el tiempo en bajo (0%).</p>
-<p>En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su salida. </p>
+<p>En el ESP8266 todos los pines (excepto el GPIO16 o el pin 0) soportan PWM en su salida.</p>
 <div class="admonition warning">
 <p class="admonition-title">Limitación del PWM</p>
 <p>La limitación es que todos deben correr a la misma frecuencia de trabajo, la cual esta entre 1Hz y 1kHz</p>
@@ -1505,7 +1505,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <p>Características del PWM en el ESP32</p>
 <ul>
 <li>16 Canales. <code>Canal 0 - 15</code> (excepto los pines GPIO36, GPIO39, GPIO34, y GPIO35)</li>
-<li>Resolución de 1 - 16 bits. </li>
+<li>Resolución de 1 - 16 bits.</li>
 <li>3 Funciones para control y configuración</li>
 </ul>
 <p><img alt="" src="../assets/esp32_pwm_pins.png" /></p>
@@ -1804,7 +1804,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 </div>
 <div class="admonition note instalar librería desde el gestor de librería del ide">
 <p class="admonition-title">Note</p>
-<p><img alt="" src="../assets/esp_servo_install.png" />. </p>
+<p><img alt="" src="../assets/esp_servo_install.png" />.</p>
 </div>
 <h3 id="servomotor-basico">Servomotor básico</h3>
 <p>Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática.</p>
