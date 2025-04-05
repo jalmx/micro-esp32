@@ -13,7 +13,7 @@ En este caso usaremos la tarjeta `ESP32 Dev Kit`, la cual tiene un microcontrola
 
 En la siguiente imagen y la tabla se describe los componentes clases, interfaces y controles de la tarjeta ESP32-DevKitC V4.
 
-![Board](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitc-functional-overview.jpg)
+![Board](assets/esp32-devkitc-functional-overview1.jpg)
 
 |Componente clave|Descripción|
 |---|---|
@@ -89,7 +89,7 @@ Hay 3 formas mutuamente exclusivas para darle alimentación a la tarjeta:
 
 ## Pinout
 
-### ESP32 Dev
+### ESP32 DevKit V4
 
 ![pinout esp32](assets/esp32_devkitC_v4_pinlayout.png)
 
@@ -101,13 +101,23 @@ Hay 3 formas mutuamente exclusivas para darle alimentación a la tarjeta:
 
 Los pines 34 y 35 solo pueden ser entradas, esto lo debes considerar si quieres ocupar la maxima cantidad de pines.
 
-![](./assets/esp32_pwm_pins.png)
+![pins](./assets/esp32_pwm_pins.png)
 
 ## Diagrama esquemático
 
 ![esquemático](./assets/esp32_devkitc_v4-sch.png)
 
-[Ver pdf original](https://dl.espressif.com/dl/schematics/esp32_devkitc_v4-sch.pdf)
+[Ver pdf original](assets/esp32_devkitc_v4-sch.pdf)
+
+### ESP32 DevKit V1
+
+![pinout](assets/ESP-32-pinout-diagram-v1.png)
+
+![pinout](assets/ESP32-DOIT-DEV-KIT-v1-pinout-mischianti.png)
+
+![esquemático](./assets/SchematicsforESP32_v1.png)
+
+[Ver pdf original](assets/SchematicsforESP32_v1.png)
 
 ---
 
