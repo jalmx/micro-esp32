@@ -195,7 +195,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/jalmx/micro-esp" title="Ir al repositorio" class="md-source" data-md-component="source">
+        <a href="https://github.com/jalmx/micro-esp32" title="Ir al repositorio" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -241,7 +241,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/jalmx/micro-esp" title="Ir al repositorio" class="md-source" data-md-component="source">
+      <a href="https://github.com/jalmx/micro-esp32" title="Ir al repositorio" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -1179,11 +1179,11 @@
 <h2 id="salidas-y-entradas-digitales">Salidas y Entradas digitales</h2>
 <h3 id="salidas-digitales">Salidas digitales</h3>
 <p>Para comenzar vamos a controlar las salidas digitales. Para esto se usa la función <code>piMode</code> y <code>digitalWrite</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1">// uso de la función piMode y digitalWrite</span>
-<span class="n">pinMode</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span><span class="w"> </span><span class="c1">// </span>
+<div class="highlight"><pre><span></span><code><span class="c1">// uso de la función piMode y digitalWrite</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span><span class="w"> </span><span class="c1">//</span>
 <span class="n">digitalWrite</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">I_O</span><span class="p">);</span>
 </code></pre></div>
-Configuración del <code>MODO</code>:</p>
+<p>Configuración del <code>MODO</code>:</p>
 <ul>
 <li><code>OUTPUT</code>: Indica que el pin será <code>salida</code></li>
 <li><code>INPUT</code>: Indica que el pin será <code>entrada</code></li>
@@ -1197,14 +1197,14 @@ Configuración del <code>MODO</code>:</p>
 <span class="n">pinMode</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">)</span>
 <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
 </code></pre></div>
-<p>Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../#Pinout">tabla de los pines</a></p>
+<p>Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../00_introduccion/#pinout">tabla de los pines</a></p>
 <h3 id="entradas-digitales">Entradas digitales</h3>
 <p>Para comenzar vamos a controlar las entradas digitales. Para esto se usa la función <code>pinMode</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1">// uso de la función pinMode</span>
-<span class="n">pinMode</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span><span class="w"> </span><span class="c1">// </span>
+<div class="highlight"><pre><span></span><code><span class="c1">// uso de la función pinMode</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">MODO</span><span class="p">);</span><span class="w"> </span><span class="c1">//</span>
 <span class="n">digitalWrite</span><span class="p">(</span><span class="n">NO_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">I_O</span><span class="p">);</span>
 </code></pre></div>
-Configuración del <code>MODO</code>:</p>
+<p>Configuración del <code>MODO</code>:</p>
 <ul>
 <li><code>OUTPUT</code>: Indica que el pin será <code>salida</code></li>
 <li><code>INPUT</code>: Indica que el pin será <code>entrada</code></li>
@@ -1214,11 +1214,11 @@ Configuración del <code>MODO</code>:</p>
 <li><code>LOW</code>: Apagado o nivel bajo o 0V</li>
 <li><code>HIGH</code>: Alto o nivel alto o 3.3V</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code><span class="c1">// Aquí indicamos que el pin 32 será entrada</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Aquí indicamos que el pin 32 será entrada</span>
 <span class="n">pinMode</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">)</span>
 <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
 </code></pre></div>
-Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../#Pinout">tabla de los pines</a></p>
+<p>Para conocer los pines que se pueden usar o el numero que podemos pasar para el pin ver la <a href="../00_introduccion/#pinout">tabla de los pines</a></p>
 <h2 id="utilizando-las-salidas-digitales">Utilizando las salidas digitales</h2>
 <h3 id="encender-un-led">Encender un LED</h3>
 <p>Vamos a realizar un ejemplo básico para encender un LED.</p>
@@ -1347,7 +1347,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 
 <span class="c1">// the loop function runs over and over again forever</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// enciendo el LED </span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// enciendo el LED</span>
 <span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">               </span><span class="c1">// espero un segundo</span>
 <span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">    </span><span class="c1">// apago el LED</span>
 <span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">              </span><span class="c1">// espero un segundo</span>
@@ -1485,11 +1485,11 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN</span><span class="p">);</span><span class="w"> </span><span class="c1">//leo el estado del botón y lo guardo en la variable status</span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro </span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// enciendo el LED </span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// enciendo el LED</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"> </span><span class="c1">// espero este tiempo para evitar el transitorio del botón</span>
 <span class="w">  </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">   </span><span class="c1">// apago el LED </span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">   </span><span class="c1">// apago el LED</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1543,11 +1543,11 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN</span><span class="p">);</span><span class="w"> </span><span class="c1">//leo el estado del botón y lo guardo en la variable status</span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro </span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// enciendo el LED </span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// enciendo el LED</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"> </span><span class="c1">// espero este tiempo para evitar el transitorio del botón</span>
 <span class="w">  </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">   </span><span class="c1">// apago el LED </span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">   </span><span class="c1">// apago el LED</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1601,8 +1601,8 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN</span><span class="p">);</span><span class="w"> </span><span class="c1">//leo el estado del botón y lo guardo en la variable status</span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro </span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">LED</span><span class="p">));</span><span class="w">   </span><span class="c1">// enciendo el LED o lo apaga dependiendo su estado </span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span><span class="w"> </span><span class="c1">//si el botón esta siendo presionado mando entro</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">LED</span><span class="p">));</span><span class="w">   </span><span class="c1">// enciendo el LED o lo apaga dependiendo su estado</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"> </span><span class="c1">// espero este tiempo para evitar el transitorio del botón</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -2011,7 +2011,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <span class="w">    </span><span class="c1">//Leds</span>
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_I</span><span class="p">,</span><span class="n">LOW</span><span class="p">);</span>
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_D</span><span class="p">,</span><span class="n">LOW</span><span class="p">);</span>
-<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_I</span><span class="p">,</span><span class="n">HIGH</span><span class="p">);</span>
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_D</span><span class="p">,</span><span class="n">HIGH</span><span class="p">);</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
@@ -2193,7 +2193,7 @@ Para conocer los pines que se pueden usar o el numero que podemos pasar para el 
 <h3 id="control-rf-315-mhz">Control RF 315 MHz</h3>
 <p>El control RF ya incluye un decodificador, es decir, este IC es el encargado de decirnos qué botón fue presionado en el control y con ello sabremos la acción a realizar.</p>
 <p><img alt="control rf" src="../assets/control_rf.jpg" /></p>
-<p>Descripción del receptor </p>
+<p>Descripción del receptor</p>
 <p><img alt="receptor" src="../assets/Pinout-2.png" /></p>
 <p>Cuando se pulsa un botón el control remoto, si la comunicación es correcta levanta el pin VT para indicar que ha detectado una transmisión valida (Valid Trans).</p>
 <p><img alt="RF" src="../assets/schematic/rf_01.png" /></p>
