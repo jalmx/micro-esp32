@@ -1,22 +1,55 @@
 # Ejercicios con I/O Digitales
 
-## Display de 7 Segmentos
+## 1. Secuencias de luces
+
+### Funcionamiento
+
+Realizar una secuencia de luces, de mínimo 8 luces (LEDs) (pueden ser más),
+La secuencia es que vayan encendiendo una a una, es decir, primero 1r led, después el 2o led, así sucesivamente. Hasta que todos queden encendidos, esperas un segundo y se van apagando en el orden que se fueron encendiendo.
+Esta secuencia se irán repitiendo de manera infinita.
+
+## 2. Control de entradas (push button con secuencias)
+
+### Funcionamiento
+
+- Cuando el 1er botón, debe realizar la siguiente secuencia. Ir encendiendo una a una, una vez han encendido todos, se apagan todos  los leds durante 800mS y vuelve a comenzar la secuencia
+- Cuando el 2o botón, debe realizar la siguiente secuencia. Irán encendiendo de dos en dos, hasta que queden encendidos todos; una vez están encendidos todos, se apagan durante 500 mS y vuelve a comenzar la secuencia.
+- Cuando presione ambos botones al mismo tiempo, Encienden todos los leds pares por 1 segundo, después de ese tiempo se apagan, y encienden los leds impares por 500 mS, después de eso se apagan, y se repite la secuencia.
+Mientras no presione nada, todos los leds deben parpadear a 250 mS
+
+## 3. Alarma antirrobo
+
+### Funcionamiento
+
+- Se tendrán 2 botones (sensor digital, es representativo), cuando se presione cualquier botón sonará una alarma (buzzer) con 3 luces (3 leds), el cual indica que han abierto una ventana.
+Mientras NO se active ningún botón, debe hacer un sonido cada 2 segundos junto a un led
+- Si se activan ambos sensores, sonará la alarma cada 100 mS junto con un led
+
+## 4. Frase - Display de 7 Segmentos
+
+### Funcionamiento
+
+Visualizar una frase personalizada, de mínimo 15 dígitos (letras con o sin números), los guiones representan un espacio y no cuenta en la frase.
+Ejemplo de frase, (esta frase no está permitida usar):
+**HOLA-CbtIS-85**
+
+## 5. Secuencia hexadecimal - Display de 7 Segmentos
 
 Realizar el siguiente ejercicio, como se ve en la animación
 
 ![contador btn](./assets/videos/contador_btn.gif)
 
-**Funcionamiento**
+### Funcionamiento
 
 1. Contador hexadecimal, es decir, va desde el 0 hasta la F
-   1. **0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F**
+   - **0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F**
 2. Cada que se presione un botón, debe incrementar el dígito
 3. Cada que se presione otro botón, se decrementa en uno el dígito
 4. Hay un tercer botón, para el reset del conteo
 5. Cuando llegue al topo superior (F) o inferior (cero), no debe pasar nada
 
 <!-- Código -->
-<!-- 
+<!--
 <details markdown="1">
 <summary>Código</summary>
 
@@ -111,140 +144,10 @@ void loop()
     display(1, 0, 0, 1, 1, 1, 1); // E
   if (count == 15)
     display(1, 0, 0, 0, 1, 1, 1); // F
-  
+
   delay(10);
 }
 ```
 </details>
 
  -->
-
-## Control de Motor DC con LCD
-
-Realizar el siguiente ejercicio, como se ve en la animación
-
-![motor lcd](./assets/videos/motor_lcd.gif)
-
-**Funcionamiento**
-
-1. Cuando el no se este presionando ningún botón, debe estar parpadeando los 2 leds y en la pantalla indicar "MOTOR DETENIDO"
-2. Cuando sea presionado un botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA DERECHA"
-3. Cuando sea presionado el otro botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA IZQUIERDA"
-
-
-<!-- 
-**Código**
-
-<details markdown="1">
-<summary>Código</summary>
-
-```C
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-
-//Configuro los pines físicos para las entradas y salidas
-const byte LED_I = 25;
-const byte LED_D = 26;
-const byte MOTOR_1 = 18;
-const byte MOTOR_2 = 19;
-const byte BTN_D = 34;
-const byte BTN_I = 35;
-
-// Set the LCD address to 0x27 for a 16 chars and 2 line display
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup() {
-  // configurando los pines como entradas y salidas
-  pinMode(LED_I, OUTPUT);
-  pinMode(LED_D, OUTPUT);
-  pinMode(MOTOR_1, OUTPUT);
-  pinMode(MOTOR_2, OUTPUT);
-  pinMode(BTN_I, INPUT);
-  pinMode(BTN_D, INPUT);
-
-  Serial.begin(115200);
-  lcd.begin();
-  // Enciende la luz de fondo pantalla
-  lcd.backlight();
-  //Por default comenzará a escribir en la posición x=0,y=0
-  //se manda el siguiente texto a la pantalla
-  lcd.print("Mecatronica 85"); //no se ponen acentos
-  //Nos movemos al segundo renglón, en la primera posición
-  lcd.setCursor(0, 1);
-  //se manda el siguiente texto a la pantalla
-  lcd.print("Motor DC");
-}
-
-int mensaje1 = 0;
-int mensaje2 = 0;
-int mensaje3 = 0;
-
-void loop() {
-  if (digitalRead(BTN_I) == 1) {
-
-    if (mensaje1 == 0) {
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("MOTOR"); //no se ponen acentos
-      lcd.setCursor(0, 1);
-      lcd.print("DERECHA");
-      Serial.println("Motor gira derecha");
-      mensaje1++;
-      mensaje2 = 0;
-      mensaje3 = 0;
-    }
-    digitalWrite(MOTOR_1, HIGH);
-    digitalWrite(MOTOR_2, LOW);
-    //Leds
-    digitalWrite(LED_I, HIGH);
-    digitalWrite(LED_D, LOW);
-
-  } else if (digitalRead(BTN_D) == 1) {
-
-    if (mensaje2 == 0) {
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("MOTOR"); //no se ponen acentos
-      lcd.setCursor(0, 1);
-      lcd.print("IZQUIERDA");
-      Serial.println("Motor gira Izquierdar");
-      mensaje2++;
-      mensaje1 = 0;
-      mensaje3 = 0;
-    }
-
-    // Motor
-    digitalWrite(MOTOR_1, LOW);
-    digitalWrite(MOTOR_2, HIGH);
-    //Leds
-    digitalWrite(LED_I, LOW);
-    digitalWrite(LED_D, HIGH);
-  } else {
-
-    if (mensaje3 == 0) {
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("MOTOR"); //no se ponen acentos
-      lcd.setCursor(0, 1);
-      lcd.print("DETENIDO");
-      Serial.println("Motor Detenido");
-      mensaje3++;
-      mensaje1 = 0;
-      mensaje2 = 0;
-    }
-    // Motor apagado
-    digitalWrite(MOTOR_1, LOW);
-    digitalWrite(MOTOR_2, LOW);
-    //Hago un blink con los leds
-    //Leds
-    digitalWrite(LED_I, LOW);
-    digitalWrite(LED_D, LOW);
-    delay(200);
-    digitalWrite(LED_I, HIGH);
-    digitalWrite(LED_D, HIGH);
-    delay(200);
-  }
-}
-```
-
-</details> -->

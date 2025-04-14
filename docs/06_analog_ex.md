@@ -1,6 +1,6 @@
 # Ejercicios con I/O Analógicas
 
-## Lámparas del parque
+## 1. Lámparas del parque
 
 Realizar el siguiente ejercicio, ver la animación
 
@@ -8,16 +8,15 @@ Realizar el siguiente ejercicio, ver la animación
 
 ![ldr_bar_gir](./assets/videos/LDR_bar.gif)
 
-**Funcionamiento**
+### Funcionamiento
 
 1. Cuando exista poca luz en el sensor (esto definido por el programador), se deben encender todas las lamparas (los LEDs), de forma secuencial e ir quedando encendidas hasta que estén todas prendidas.
 2. Si hay una luz intermedia, solo deben estar encendidas 2 lamparas.
 3. Si hay suficiente luz en el ambiente, deben continuar apagadas.
 4. Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.
 
-
 <!-- Bloque de código -->
-<!-- 
+<!--
 <details markdown="1">
 <summary>Código</summary>
 
@@ -75,3 +74,11 @@ void loop() {
 </details>
 
  -->
+
+## 2. Control RGB
+
+### Funcionamiento
+
+- Con un botón conmutas entre el control con botones o con el potenciómetro
+- Con 3 botones para controlar un LED RGB, un botón para el rojo, un botón para el verde y el último para el azul, cada vez que presione un botón incremento el valor de PWM y hacer el cambio en cada color, cuando se llegue al límite, se reinicia el valor a cero.
+- Con un potenciómetro y un botón, hacer el control de un LED RGB, es decir, cuando presiono el botón, conmuto entre cada color, y el potenciómetro me ajusta del 0 al 100% el color que esté seleccionado en ese momento.
