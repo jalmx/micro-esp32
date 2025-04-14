@@ -431,14 +431,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-control-de-entradas-push-button-con-secuencias" class="md-nav__link">
+  <a href="#2-secuencias-de-luces" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Control de entradas (push button con secuencias)
+      2. Secuencias de luces
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Control de entradas (push button con secuencias)">
+    <nav class="md-nav" aria-label="2. Secuencias de luces">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lista-de-sensores-y-actuadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de sensores y actuadores
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#funcionamiento_1" class="md-nav__link">
@@ -463,6 +472,15 @@
   
     <nav class="md-nav" aria-label="3. Alarma antirrobo">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lista-de-sensores-y-actuadores_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de sensores y actuadores
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#funcionamiento_2" class="md-nav__link">
@@ -805,14 +823,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-control-de-entradas-push-button-con-secuencias" class="md-nav__link">
+  <a href="#2-secuencias-de-luces" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Control de entradas (push button con secuencias)
+      2. Secuencias de luces
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Control de entradas (push button con secuencias)">
+    <nav class="md-nav" aria-label="2. Secuencias de luces">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lista-de-sensores-y-actuadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de sensores y actuadores
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#funcionamiento_1" class="md-nav__link">
@@ -837,6 +864,15 @@
   
     <nav class="md-nav" aria-label="3. Alarma antirrobo">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lista-de-sensores-y-actuadores_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de sensores y actuadores
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#funcionamiento_2" class="md-nav__link">
@@ -918,29 +954,44 @@
 <h1 id="ejercicios-con-io-digitales">Ejercicios con I/O Digitales</h1>
 <h2 id="1-secuencias-de-luces">1. Secuencias de luces</h2>
 <h3 id="funcionamiento">Funcionamiento</h3>
-<p>Realizar una secuencia de luces, de mínimo 8 luces (LEDs) (pueden ser más),
-La secuencia es que vayan encendiendo una a una, es decir, primero 1r led, después el 2o led, así sucesivamente. Hasta que todos queden encendidos, esperas un segundo y se van apagando en el orden que se fueron encendiendo.
-Esta secuencia se irán repitiendo de manera infinita.</p>
-<h2 id="2-control-de-entradas-push-button-con-secuencias">2. Control de entradas (push button con secuencias)</h2>
+<ul>
+<li>Realizar una secuencia de luces, de mínimo 8 luces (LEDs) (pueden ser más),</li>
+<li>La secuencia es que vayan encendiendo una a una, es decir, primero 1r led, después el 2o led, así sucesivamente. Hasta que todos queden encendidos, esperas un segundo y se van apagando en el orden que se fueron encendiendo.</li>
+<li>Esta secuencia se irán repitiendo de manera infinita.</li>
+</ul>
+<h2 id="2-secuencias-de-luces">2. Secuencias de luces</h2>
+<h3 id="lista-de-sensores-y-actuadores">Lista de sensores y actuadores</h3>
+<ul>
+<li>8 leds</li>
+<li>3 botones con su resistencia</li>
+</ul>
 <h3 id="funcionamiento_1">Funcionamiento</h3>
 <ul>
-<li>Cuando el 1er botón, debe realizar la siguiente secuencia. Ir encendiendo una a una, una vez han encendido todos, se apagan todos  los leds durante 800mS y vuelve a comenzar la secuencia</li>
-<li>Cuando el 2o botón, debe realizar la siguiente secuencia. Irán encendiendo de dos en dos, hasta que queden encendidos todos; una vez están encendidos todos, se apagan durante 500 mS y vuelve a comenzar la secuencia.</li>
-<li>Cuando presione ambos botones al mismo tiempo, Encienden todos los leds pares por 1 segundo, después de ese tiempo se apagan, y encienden los leds impares por 500 mS, después de eso se apagan, y se repite la secuencia.
-Mientras no presione nada, todos los leds deben parpadear a 250 mS</li>
+<li>Mientras se presiona el <strong>1er botón</strong>, debe realizar la siguiente secuencia. Ir encendiendo uno a uno los leds, una vez han encendido todos se quedan encendidos por 1 segundo, después se apagan todos  los leds durante 800mS y vuelve a comenzar la secuencia</li>
+<li>Mientras se presiona el <strong>2o botón</strong>, debe realizar la siguiente secuencia. Irán encendiendo de dos en dos, hasta que queden encendidos todos, una vez han encendido todos se quedan encendidos por 2 segundos, en ese tiempo deben parpadean 2 veces, de manera simétrica, es decir, encienden 250 segundos, se apagan 250 segundos, etc; después se apagan durante 500 mS y vuelve a comenzar la secuencia.</li>
+<li>Cuando presione <strong>ambos botones al mismo tiempo</strong>, Encienden todos los leds pares por 1 segundo, después de ese tiempo se apagan, y encienden los leds impares por 500 mS, después de eso se apagan, y se repite la secuencia.</li>
+<li>Mientras no presione nada, todos los leds deben parpadear a 250 mS</li>
 </ul>
 <h2 id="3-alarma-antirrobo">3. Alarma antirrobo</h2>
+<h3 id="lista-de-sensores-y-actuadores_1">Lista de sensores y actuadores</h3>
+<ul>
+<li>3 leds</li>
+<li>2 botones con su resistencia</li>
+<li>1 buzzer activo</li>
+</ul>
 <h3 id="funcionamiento_2">Funcionamiento</h3>
 <ul>
-<li>Se tendrán 2 botones (sensor digital, es representativo), cuando se presione cualquier botón sonará una alarma (buzzer) con 3 luces (3 leds), el cual indica que han abierto una ventana.
-Mientras NO se active ningún botón, debe hacer un sonido cada 2 segundos junto a un led</li>
-<li>Si se activan ambos sensores, sonará la alarma cada 100 mS junto con un led</li>
+<li>Se tendrán 2 botones (sensor digital de ventana, es representativo)</li>
+<li>Cuando se presione cualquier botón sonará una alarma (buzzer) con 3 luces (3 leds), estos leds se quedan encendidos junto con el buzzer; el cual indica que han abierto una ventana.</li>
+<li>Mientras NO se active ningún botón, debe hacer un sonido cada 2 segundos junto a un led</li>
+<li>Si se activan ambos sensores, sonará la alarma cada 100 mS junto con 2 leds</li>
 </ul>
 <h2 id="4-frase-display-de-7-segmentos">4. Frase - Display de 7 Segmentos</h2>
 <h3 id="funcionamiento_3">Funcionamiento</h3>
-<p>Visualizar una frase personalizada, de mínimo 15 dígitos (letras con o sin números), los guiones representan un espacio y no cuenta en la frase.
-Ejemplo de frase, (esta frase no está permitida usar):
-<strong>HOLA-CbtIS-85</strong></p>
+<ul>
+<li>Visualizar una frase personalizada, de mínimo 15 dígitos (letras con o sin números), los guiones representan un espacio y no cuenta en la frase. No hay limite en la frase.</li>
+<li>Ejemplo de frase, (esta frase no está permitida usar): <strong>HOLA-CbtIS-85</strong></li>
+</ul>
 <h2 id="5-secuencia-hexadecimal-display-de-7-segmentos">5. Secuencia hexadecimal - Display de 7 Segmentos</h2>
 <p>Realizar el siguiente ejercicio, como se ve en la animación</p>
 <p><img alt="contador btn" src="../assets/videos/contador_btn.gif" /></p>
