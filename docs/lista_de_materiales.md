@@ -11,7 +11,7 @@
 - 1 display de 7 segmentos (cátodo común de preferencia)
 - 1 LED RGB (cátodo común de preferencia)
 - 1 potenciómetro de 1k
-- 5 LDR con una Resistencias de 10k
+- 1 LDR con una Resistencias de 10k
 
 ## Por equipo
 
@@ -20,7 +20,7 @@
 - Fuente de 5V de mínimo 2A
 - 1 Motor PAP con su driver
 - 1 Modulo de relay de 5V (con el sencillo esta bien, pero de preferencia el doble)
-- 1 Servo motor SG90 
+- 1 Servo motor SG90
 - 1 teclado matricial de 4x4 (también puede ser de 3x4)
 - 1 Sensor de flama (Modulo Ky-026), con salida digital y analógica
 - 1 Sensor de presencia (PIR HC-SR501)
