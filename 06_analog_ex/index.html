@@ -447,11 +447,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lamparas-del-parque" class="md-nav__link">
+  <a href="#1-lamparas-del-parque" class="md-nav__link">
     <span class="md-ellipsis">
-      Lámparas del parque
+      1. Lámparas del parque
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. Lámparas del parque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-control-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Control RGB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Control RGB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -550,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10_sensores_ex/" class="md-nav__link">
+      <a href="../10_mini_projects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,11 +709,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lamparas-del-parque" class="md-nav__link">
+  <a href="#1-lamparas-del-parque" class="md-nav__link">
     <span class="md-ellipsis">
-      Lámparas del parque
+      1. Lámparas del parque
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. Lámparas del parque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-control-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Control RGB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Control RGB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funcionamiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -694,11 +772,11 @@
 
 
 <h1 id="ejercicios-con-io-analogicas">Ejercicios con I/O Analógicas</h1>
-<h2 id="lamparas-del-parque">Lámparas del parque</h2>
+<h2 id="1-lamparas-del-parque">1. Lámparas del parque</h2>
 <p>Realizar el siguiente ejercicio, ver la animación</p>
 <p><img alt="ldr_bar_sch" src="../assets/schematic/ldr_led_bar.png" /></p>
 <p><img alt="ldr_bar_gir" src="../assets/videos/LDR_bar.gif" /></p>
-<p><strong>Funcionamiento</strong></p>
+<h3 id="funcionamiento">Funcionamiento</h3>
 <ol>
 <li>Cuando exista poca luz en el sensor (esto definido por el programador), se deben encender todas las lamparas (los LEDs), de forma secuencial e ir quedando encendidas hasta que estén todas prendidas.</li>
 <li>Si hay una luz intermedia, solo deben estar encendidas 2 lamparas.</li>
@@ -706,7 +784,7 @@
 <li>Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.</li>
 </ol>
 <!-- Bloque de código -->
-<!-- 
+<!--
 <details markdown="1">
 <summary>Código</summary>
 
@@ -763,6 +841,14 @@
 </details>
 
  -->
+
+<h2 id="2-control-rgb">2. Control RGB</h2>
+<h3 id="funcionamiento_1">Funcionamiento</h3>
+<ul>
+<li>Con un botón conmutas entre el control con botones o con el potenciómetro</li>
+<li>Con 3 botones para controlar un LED RGB, un botón para el rojo, un botón para el verde y el último para el azul, cada vez que presione un botón incremento el valor de PWM y hacer el cambio en cada color, cuando se llegue al límite, se reinicia el valor a cero.</li>
+<li>Con un potenciómetro y un botón, hacer el control de un LED RGB, es decir, cuando presiono el botón, conmuto entre cada color, y el potenciómetro me ajusta del 0 al 100% el color que esté seleccionado en ese momento.</li>
+</ul>
 
 
 
