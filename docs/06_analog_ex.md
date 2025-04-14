@@ -2,12 +2,6 @@
 
 ## 1. Lámparas del parque
 
-Realizar el siguiente ejercicio, ver la animación
-
-![ldr_bar_sch](./assets/schematic/ldr_led_bar.png)
-
-![ldr_bar_gir](./assets/videos/LDR_bar.gif)
-
 ### Lista de sensores y actuadores
 
 - 8 leds
@@ -20,6 +14,10 @@ Realizar el siguiente ejercicio, ver la animación
 - Si hay una luz intermedia, solo deben estar encendidas las lamparas pares.
 - Si hay suficiente luz en el ambiente, deben estar todas apagadas todas.
 - Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.
+
+![ldr_bar_sch](./assets/schematic/ldr_led_bar.png)
+
+![ldr_bar_gir](./assets/videos/LDR_bar.gif)
 
 <!-- Bloque de código -->
 <!--
@@ -85,7 +83,7 @@ void loop() {
 
 ### Lista de sensores y actuadores
 
-- 8 leds
+- 1 led RGB
 - 5 botones con su resistencia
 - 1 potenciómetro
 
