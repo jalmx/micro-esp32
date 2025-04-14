@@ -4,34 +4,45 @@
 
 ### Funcionamiento
 
-Realizar una secuencia de luces, de mínimo 8 luces (LEDs) (pueden ser más),
-La secuencia es que vayan encendiendo una a una, es decir, primero 1r led, después el 2o led, así sucesivamente. Hasta que todos queden encendidos, esperas un segundo y se van apagando en el orden que se fueron encendiendo.
-Esta secuencia se irán repitiendo de manera infinita.
+- Realizar una secuencia de luces, de mínimo 8 luces (LEDs) (pueden ser más),
+- La secuencia es que vayan encendiendo una a una, es decir, primero 1r led, después el 2o led, así sucesivamente. Hasta que todos queden encendidos, esperas un segundo y se van apagando en el orden que se fueron encendiendo.
+- Esta secuencia se irán repitiendo de manera infinita.
 
-## 2. Control de entradas (push button con secuencias)
+## 2. Secuencias de luces
+
+### Lista de sensores y actuadores
+
+- 8 leds
+- 3 botones con su resistencia
 
 ### Funcionamiento
 
-- Cuando el 1er botón, debe realizar la siguiente secuencia. Ir encendiendo una a una, una vez han encendido todos, se apagan todos  los leds durante 800mS y vuelve a comenzar la secuencia
-- Cuando el 2o botón, debe realizar la siguiente secuencia. Irán encendiendo de dos en dos, hasta que queden encendidos todos; una vez están encendidos todos, se apagan durante 500 mS y vuelve a comenzar la secuencia.
-- Cuando presione ambos botones al mismo tiempo, Encienden todos los leds pares por 1 segundo, después de ese tiempo se apagan, y encienden los leds impares por 500 mS, después de eso se apagan, y se repite la secuencia.
-Mientras no presione nada, todos los leds deben parpadear a 250 mS
+- Mientras se presiona el **1er botón**, debe realizar la siguiente secuencia. Ir encendiendo uno a uno los leds, una vez han encendido todos se quedan encendidos por 1 segundo, después se apagan todos  los leds durante 800mS y vuelve a comenzar la secuencia
+- Mientras se presiona el **2o botón**, debe realizar la siguiente secuencia. Irán encendiendo de dos en dos, hasta que queden encendidos todos, una vez han encendido todos se quedan encendidos por 2 segundos, en ese tiempo deben parpadean 2 veces, de manera simétrica, es decir, encienden 250 segundos, se apagan 250 segundos, etc; después se apagan durante 500 mS y vuelve a comenzar la secuencia.
+- Cuando presione **ambos botones al mismo tiempo**, Encienden todos los leds pares por 1 segundo, después de ese tiempo se apagan, y encienden los leds impares por 500 mS, después de eso se apagan, y se repite la secuencia.
+- Mientras no presione nada, todos los leds deben parpadear a 250 mS
 
 ## 3. Alarma antirrobo
 
+### Lista de sensores y actuadores
+
+- 3 leds
+- 2 botones con su resistencia
+- 1 buzzer activo
+
 ### Funcionamiento
 
-- Se tendrán 2 botones (sensor digital, es representativo), cuando se presione cualquier botón sonará una alarma (buzzer) con 3 luces (3 leds), el cual indica que han abierto una ventana.
-Mientras NO se active ningún botón, debe hacer un sonido cada 2 segundos junto a un led
-- Si se activan ambos sensores, sonará la alarma cada 100 mS junto con un led
+- Se tendrán 2 botones (sensor digital de ventana, es representativo)
+- Cuando se presione cualquier botón sonará una alarma (buzzer) con 3 luces (3 leds), estos leds se quedan encendidos junto con el buzzer; el cual indica que han abierto una ventana.
+- Mientras NO se active ningún botón, debe hacer un sonido cada 2 segundos junto a un led
+- Si se activan ambos sensores, sonará la alarma cada 100 mS junto con 2 leds
 
 ## 4. Frase - Display de 7 Segmentos
 
 ### Funcionamiento
 
-Visualizar una frase personalizada, de mínimo 15 dígitos (letras con o sin números), los guiones representan un espacio y no cuenta en la frase.
-Ejemplo de frase, (esta frase no está permitida usar):
-**HOLA-CbtIS-85**
+- Visualizar una frase personalizada, de mínimo 15 dígitos (letras con o sin números), los guiones representan un espacio y no cuenta en la frase. No hay limite en la frase.
+- Ejemplo de frase, (esta frase no está permitida usar): **HOLA-CbtIS-85**
 
 ## 5. Secuencia hexadecimal - Display de 7 Segmentos
 

@@ -8,12 +8,18 @@ Realizar el siguiente ejercicio, ver la animación
 
 ![ldr_bar_gir](./assets/videos/LDR_bar.gif)
 
+### Lista de sensores y actuadores
+
+- 8 leds
+- 1 LDR con su resistencia de 10k
+
 ### Funcionamiento
 
-1. Cuando exista poca luz en el sensor (esto definido por el programador), se deben encender todas las lamparas (los LEDs), de forma secuencial e ir quedando encendidas hasta que estén todas prendidas.
-2. Si hay una luz intermedia, solo deben estar encendidas 2 lamparas.
-3. Si hay suficiente luz en el ambiente, deben continuar apagadas.
-4. Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.
+- Tendremos 8 lamparas (leds) en el parque.
+- Cuando exista poca luz en el sensor (esto definido por el programador), se deben encender todas las lamparas (los LEDs), de forma secuencial deben ir quedando encendidas hasta que estén todas prendidas.
+- Si hay una luz intermedia, solo deben estar encendidas las lamparas pares.
+- Si hay suficiente luz en el ambiente, deben estar todas apagadas todas.
+- Al momento en apagarse, se irán apagando una a una, hasta que al final queden apagadas.
 
 <!-- Bloque de código -->
 <!--
@@ -76,6 +82,12 @@ void loop() {
  -->
 
 ## 2. Control RGB
+
+### Lista de sensores y actuadores
+
+- 8 leds
+- 5 botones con su resistencia
+- 1 potenciómetro
 
 ### Funcionamiento
 

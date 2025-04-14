@@ -2,9 +2,12 @@
 
 ## 1. Control de Motor DC con LCD
 
-Realizar el siguiente ejercicio, como se ve en la animación
+### Lista de sensores y actuadores
 
-![motor lcd](./assets/videos/motor_lcd.gif)
+- 2 leds
+- Pantalla LCD
+- Motor DC
+- Driver para motor DC
 
 ### Funcionamiento
 
@@ -12,6 +15,7 @@ Realizar el siguiente ejercicio, como se ve en la animación
 2. Cuando sea presionado un botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA DERECHA"
 3. Cuando sea presionado el otro botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA IZQUIERDA"
 
+![motor lcd](./assets/videos/motor_lcd.gif)
 <!--
 **Código**
 
@@ -131,8 +135,6 @@ void loop() {
 
 ## 2. Cuarto automatizado
 
-### Funcionamiento
-
 ### Lista de sensores y actuadores
 
 - Sensor de temperatura y humedad (DTH11)
@@ -143,17 +145,17 @@ void loop() {
 
 ### Funcionamiento
 
-Al entrar al cuarto, detecta presencia y al pasar por la puerta (el sensor ultrasónico detecta que entraste), al estar dentro del cuarto, de manera automática se abren las cortinas (con el motor PAP, por 2 segundos, simulando que abre la cortina), mientras estés dentro del cuarto se mantienen las cortinas abiertas, al salir del cuarto, debe pasar 2 segundo y las cortinas se cierran de manera automática, obviamente si saliste el sensor ultrasónico lo detecta, mientras este no lo detecte no debe accionar nada.
-Si alguien más entra al cuarto y tú estás dentro, a causa del sensor de presencial no debe de considerar que saliste, dado que el sensor de presencial es el que conoce si sigues dentro o no. Es decir, el sensor ultrasónico detecto un paso, pero él no sabe si hacia afuera o hacia adentro.
-Cuando estés dentro del cuarto se debe ver en la pantalla la temperatura y humedad, cuando salgas del cuarto debe indicar en la pantalla, "cuarto vacío". Al entrar al cuarto, debe mostrar el mensaje de bienvenida (BIENVENIDO MI AMO) durante 2 segundos.
-cuando estés dentro del cuarto, el sensor de presencia detecta que estás dentro, las luces se encienden (2 leds)
+- Al entrar al cuarto, detecta presencia y al pasar por la puerta (el sensor ultrasónico detecta que entraste), al estar dentro del cuarto, de manera automática se abren las cortinas (con el motor PAP, por 2 segundos, simulando que abre la cortina), mientras estés dentro del cuarto se mantienen las cortinas abiertas, al salir del cuarto, debe pasar 2 segundo y las cortinas se cierran de manera automática, obviamente si saliste el sensor ultrasónico lo detecta, mientras este no lo detecte no debe accionar nada.
+- Si alguien más entra al cuarto y tú estás dentro, a causa del sensor de presencial no debe de considerar que saliste, dado que el sensor de presencial es el que conoce si sigues dentro o no. Es decir, el sensor ultrasónico detecto un paso, pero él no sabe si hacia afuera o hacia adentro.
+- Cuando estés dentro del cuarto se debe ver en la pantalla la temperatura y humedad, cuando salgas del cuarto debe indicar en la pantalla, "cuarto vacío". Al entrar al cuarto, debe mostrar el mensaje de bienvenida (BIENVENIDO MI AMO) durante 2 segundos.
+- cuando estés dentro del cuarto, el sensor de presencia detecta que estás dentro, las luces se encienden (2 leds)
 
 ## 3. Sistema de seguridad de cocina
 
 ### Lista de sensores y actuadores
 
 - Sensor de flama
-- 2 Sensores obstáculos (infrarrojo) y/o ultrasónico (también combinados)
+- 2 Sensores obstáculos (infrarrojo) y/o ultrasónico (también pueden ser combinados)
 - Motor DC
 - Módulo de Relay (válvula solenoide)
 - Buzzer
@@ -196,9 +198,11 @@ cuando estés dentro del cuarto, el sensor de presencia detecta que estás dentr
 - Sensor de temperatura DS18B20 (sonda)
 - DTH11
 - Pantalla LCD
+- 1 botón con su resistencia
 
 ### Funcionamiento
 
-- Se debe obtener la temperatura del sensor DTH11 y de la sonda DS18B20, obtener de cada uno 30 muestras y obtener la media de temperatura, esta temperatura mostrarla en una pantalla. Esta toma de muestras será cada segundo.
+- Se debe obtener la temperatura del sensor DTH11 y de la sonda DS18B20, obtener de cada uno 30 muestras, con esos datos la media de temperatura. Esta toma de muestras será cada segundo.
 - Un led debe parpadear cada vez que se toma la muestra de la temperatura.
 - En la pantalla se debe visualizar la temperatura del DTH11, DS18B20, la media de estas temperaturas y la humedad
+- Con un botón debe cambiar entre mostrar la temperatura en Celsius o Fahrenheit
