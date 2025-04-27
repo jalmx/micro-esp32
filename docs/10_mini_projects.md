@@ -11,7 +11,7 @@
 
 ### Funcionamiento
 
-1. Cuando el no se este presionando ningún botón, debe estar parpadeando los 2 leds y en la pantalla indicar "MOTOR DETENIDO"
+1. Cuando no se este presionando ningún botón, debe estar parpadeando los 2 leds y en la pantalla indicar "MOTOR DETENIDO"
 2. Cuando sea presionado un botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA DERECHA"
 3. Cuando sea presionado el otro botón debe encender solamente el LED indicativo a dicha dirección, e indicar en la pantalla "MOTOR A LA IZQUIERDA"
 
@@ -100,7 +100,7 @@ void loop() {
     // Motor
     digitalWrite(MOTOR_1, LOW);
     digitalWrite(MOTOR_2, HIGH);
-    //Leds
+    //**Leds**
     digitalWrite(LED_I, LOW);
     digitalWrite(LED_D, HIGH);
   } else {

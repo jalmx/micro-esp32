@@ -2,7 +2,7 @@
 
 ## Individual
 
-- 1 Placa ESP32-WROOM-­32 (ESP32-DevKitC V4) (con su cable usb)
+- 1 Placa ESP32 (ESP32-DevKitC V4 o ESP32-DevKitC V1) (con su cable usb)
 - 5 LEDs de diferentes colores
 - 5 Resistencias de 330, 1/4W
 - 5 Resistencias de 1k, 1/4W
@@ -18,6 +18,9 @@
 - Motor DC (de máximo 6V)
 - Driver para motor DC, puente H (modulo L298)
 - Fuente de 5V de mínimo 2A
+- Pack de jumper macho-macho
+- Pack de jumper macho-hembra
+- Pack de jumper hembra-hembra
 - 1 Motor PAP con su driver
 - 1 Modulo de relay de 5V (con el sencillo esta bien, pero de preferencia el doble)
 - 1 Servo motor SG90
@@ -25,7 +28,7 @@
 - 1 Sensor de flama (Modulo Ky-026), con salida digital y analógica
 - 1 Sensor de presencia (PIR HC-SR501)
 - 1 Sensor DTH11 (humedad y temperatura)
-- 1 Sensor Ultrasonico
+- 1 Sensor Ultrasónico
 - 1 Sensor DS18B20 (preferiblemente la sonda)
 - 1 Pantalla LCD con modulo de comunicación I2C
 - 1 Modulo de lector RFID MFRC522 con una tarjeta o llavero
