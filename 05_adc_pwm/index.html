@@ -512,6 +512,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Configuración de PWM en ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#las-funciones-para-el-pwm-v2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las funciones para el PWM v2.x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#las-funciones-para-el-pwm-v3x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las funciones para el PWM v3.x
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -901,6 +925,30 @@
       Configuración de PWM en ESP32
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Configuración de PWM en ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#las-funciones-para-el-pwm-v2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las funciones para el PWM v2.x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#las-funciones-para-el-pwm-v3x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Las funciones para el PWM v3.x
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1310,7 +1358,7 @@
 <span class="cp">#define LED2 33 </span><span class="c1">//AMARILLO</span>
 <span class="cp">#define LED3 25 </span><span class="c1">//VERDE</span>
 <span class="cp">#define pinADC 34  </span><span class="c1">//pin que sera leído del ADC</span>
-<span class="cp">#define LIMIT 2000  </span>
+<span class="cp">#define LIMIT 2000</span>
 
 <span class="c1">// the setup function runs once when you press reset or power the board</span>
 
@@ -1508,8 +1556,8 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <li>Resolución de 1 - 16 bits.</li>
 <li>3 Funciones para control y configuración</li>
 </ul>
-<p><img alt="" src="../assets/esp32_pwm_pins.png" /></p>
-<p>Las funciones para el PWM</p>
+<p><img alt="pins" src="../assets/esp32_pwm_pins.png" /></p>
+<h4 id="las-funciones-para-el-pwm-v2x">Las funciones para el PWM v2.x</h4>
 <ul>
 <li><code>ledcSetup</code>: Para configuración de inicio del PWM</li>
 <li><code>ledcAttachPin</code>: Asigna la configuración al pin indicado</li>
@@ -1528,7 +1576,26 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <li><code>canal_PWM</code>: El canal que estamos usando para el PWM</li>
 <li><code>valorPWM</code>: El valor que queremos asignar. Recordar que el valor esta en función de la resolución. Por ejemplo, si estamos usando 8 bits, los valores van desde 0 a 255.</li>
 </ul>
+<h4 id="las-funciones-para-el-pwm-v3x">Las funciones para el PWM v3.x</h4>
+<ul>
+<li><code>ledcAttachChannel</code>: Para configuración de inicio del PWM y  Asigna la configuración al pin indicado</li>
+<li><code>ledcWrite</code>: Escribe el valor que saldrá por el pin.</li>
+</ul>
+<p>Detalles de la funciones</p>
+<ul>
+<li><code>ledcAttachChannel(pin, frecuencia, resolucion, canal_PWM)</code>: Es la primera función que se debe llamar y solo una vez para configurar el comportamiento del PWM</li>
+<li><code>canal_PWM</code>: Es un valor del 0 al 15, donde se selecciona el canal que usaremos del uC</li>
+<li><code>frecuencia</code>: Es la frecuencia de trabajo del PWM. Vamos a manejar por default 1000 (1kHz)</li>
+<li><code>resolucion</code>: Tenemos desde 1 a 16 bits de resolución, en la mayoría de aplicaciones con 8 bits es suficiente o hasta 10 bits. Recordemos que para saber cual sera el valor mínimo debemos de aplicar <span class="arithmatex">\(3.3V/resolucion_{bits}\)</span>. Con 8 bits sería <span class="arithmatex">\(3.3/256=0.012V\)</span></li>
+<li><code>pin</code>: Es el numero del pin que vamos a usar como salida PWM (ver el esquema de los pines que podemos usar)</li>
+<li><code>ledcWrite(pin, duty)</code>: La función que se encarga de poner el valor en el pin indicado con un cierto ciclo de trabajo.</li>
+<li><code>pin</code>: Es el numero del pin que vamos a usar como salida PWM (ver el esquema de los pines que podemos usar)</li>
+<li><code>duty</code>: Ciclo de trabajo al que se le asignara al pin de salida, es decir, el valor del PWM.</li>
+</ul>
 <p><a href="https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/ledc.html">Ver mas detalles en la documentación oficial</a></p>
+<blockquote>
+<p>Nota: Se colocan las 2 versiones porque el equipo de <strong>Arduino oficial</strong> continua en la version 2.x y <strong>Espressif</strong> va en la version 3.x</p>
+</blockquote>
 <h3 id="control-led-rgb">Control LED RGB</h3>
 <p>Haremos un simple cambio de color, incrementando el brillo de cada uno.</p>
 <div class="admonition warning cuidado">
@@ -1543,7 +1610,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <p><img alt="rgb video" src="../assets/videos/led_rgb.gif" /></p>
 </details>
 <details>
-<summary>Código</summary>
+<summary>Código 2.x</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">#define LED_R 25  </span><span class="c1">// PIN LED ROJO</span>
 <span class="cp">#define LED_G 26  </span><span class="c1">// PIN LED VERDE</span>
 <span class="cp">#define LED_B 27  </span><span class="c1">// PIN LED AZUL</span>
@@ -1591,6 +1658,57 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <span class="p">}</span>
 </code></pre></div>
 </details>
+<details>
+<summary>Código 3.x</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED_R 13  </span><span class="c1">// PIN LED ROJO</span>
+<span class="cp">#define LED_G 12  </span><span class="c1">// PIN LED VERDE</span>
+<span class="cp">#define LED_B 14  </span><span class="c1">// PIN LED AZUL</span>
+
+<span class="cp">#define FREQ        1000  </span><span class="c1">// frecuencia de trabajo para el PWM a 1KHz</span>
+<span class="cp">#define ledChannel0 0     </span><span class="c1">//defino el canal 0, que usaremos para el color Rojo</span>
+<span class="cp">#define ledChannel1 1     </span><span class="c1">//defino el canal 1, que usaremos para el color Verde</span>
+<span class="cp">#define ledChannel2 2     </span><span class="c1">//defino el canal 2, que usaremos para el color Azul</span>
+<span class="cp">#define resolution  8     </span><span class="c1">// 8-bit de resolución (para Leds es ideal)</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// configuro el comportamiento del canal</span>
+<span class="w">  </span><span class="n">ledcAttachChannel</span><span class="p">(</span><span class="n">LED_R</span><span class="p">,</span><span class="w"> </span><span class="n">FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcAttachChannel</span><span class="p">(</span><span class="n">LED_G</span><span class="p">,</span><span class="w"> </span><span class="n">FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcAttachChannel</span><span class="p">(</span><span class="n">LED_B</span><span class="p">,</span><span class="w"> </span><span class="n">FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//se apagan todos los Leds</span>
+<span class="w">  </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_R</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_G</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_B</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Incrementa el brillo del rojo</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dutyCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">dutyCycle</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">dutyCycle</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_R</span><span class="p">,</span><span class="w"> </span><span class="n">dutyCycle</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;enciendo rojo&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">dutyCycle</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// Incrementa el brillo del verde</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dutyCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">dutyCycle</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">dutyCycle</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_G</span><span class="p">,</span><span class="w"> </span><span class="n">dutyCycle</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;enciendo verde&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">dutyCycle</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// Incrementa el brillo del azul</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dutyCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">dutyCycle</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">dutyCycle</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_B</span><span class="p">,</span><span class="w"> </span><span class="n">dutyCycle</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;enciendo azul&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">dutyCycle</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
 <h3 id="control-de-intensidad-de-un-led-botones">Control de Intensidad de un LED botones</h3>
 <p>Haremos un simple cambio de color con botones, incrementando el brillo de cada uno cuando se presione un botón, para su respectivo color.</p>
 <div class="admonition warning cuidado">
@@ -1604,7 +1722,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <p><img alt="rgb video" src="../assets/videos/rgb_btn_anima.gif" /></p>
 </details>
 <details>
-<summary>Código</summary>
+<summary>Código 2.x</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">#define LED_R 25  </span><span class="c1">// PIN LED ROJO</span>
 <span class="cp">#define LED_G 26  </span><span class="c1">// PIN LED VERDE</span>
 <span class="cp">#define LED_B 27  </span><span class="c1">// PIN LED AZUL</span>
@@ -1679,6 +1797,85 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <span class="w">      </span><span class="n">blue</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">inc</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">ledChannel2</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Azul: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">blue</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details>
+<summary>Código 3.x</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED_R 25  </span><span class="c1">// PIN LED ROJO</span>
+<span class="cp">#define LED_G 26  </span><span class="c1">// PIN LED VERDE</span>
+<span class="cp">#define LED_B 27  </span><span class="c1">// PIN LED AZUL</span>
+
+<span class="cp">#define BTN_R 34  </span><span class="c1">// PIN LED ROJO</span>
+<span class="cp">#define BTN_G 35  </span><span class="c1">// PIN LED VERDE</span>
+<span class="cp">#define BTN_B 32  </span><span class="c1">// PIN LED AZUL</span>
+
+<span class="cp">#define FREQ        1000  </span><span class="c1">// frecuencia de trabajo para el PWM a 1KHz</span>
+<span class="cp">#define ledChannel0 0     </span><span class="c1">//defino el canal 0, que usaremos para el color Rojo</span>
+<span class="cp">#define ledChannel1 1     </span><span class="c1">//defino el canal 1, que usaremos para el color Verde</span>
+<span class="cp">#define ledChannel2 2     </span><span class="c1">//defino el canal 2, que usaremos para el color Azul</span>
+<span class="cp">#define resolution  8     </span><span class="c1">// 8-bit resolution</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BTN_R</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BTN_G</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BTN_B</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// configuro el comportamiento del canal y se asigna el Pin al canal configurado</span>
+<span class="w"> </span><span class="n">ledcAttachChannel</span><span class="p">(</span><span class="n">LED_R</span><span class="p">,</span><span class="w"> </span><span class="n">FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcAttachChannel</span><span class="p">(</span><span class="n">LED_G</span><span class="p">,</span><span class="w"> </span><span class="n">FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcAttachChannel</span><span class="p">(</span><span class="n">LED_B</span><span class="p">,</span><span class="w"> </span><span class="n">FREQ</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="p">,</span><span class="w"> </span><span class="n">ledChannel2</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//se apagan todos los Leds</span>
+<span class="w">  </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_R</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_G</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_B</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">inc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Incrementa el brillo del rojo</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN_R</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">red</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">254</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">red</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">inc</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_R</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Rojo: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">red</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN_G</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">green</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">254</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">green</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">inc</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_G</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Verde: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">green</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BTN_B</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">blue</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">254</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">blue</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">inc</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">LED_B</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Azul: &quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">blue</span><span class="p">);</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
@@ -1778,7 +1975,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">Angulo</th>
+<th style="text-align: center;">Ángulo</th>
 <th style="text-align: center;">PWM</th>
 </tr>
 </thead>
@@ -1804,7 +2001,7 @@ El ciclo de trabajo define que tan largo sera el estado del pin en alto de <code
 </div>
 <div class="admonition note instalar librería desde el gestor de librería del ide">
 <p class="admonition-title">Note</p>
-<p><img alt="" src="../assets/esp_servo_install.png" />.</p>
+<p><img alt="servo" src="../assets/esp_servo_install.png" />.</p>
 </div>
 <h3 id="servomotor-basico">Servomotor básico</h3>
 <p>Se realiza un movimiento de ida y vuelta en el servomotor, de manera automática.</p>
