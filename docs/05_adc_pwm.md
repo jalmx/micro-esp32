@@ -265,7 +265,7 @@ Vamos a encender el LED cuando hay poco luz, de lo contrario se debe apagar.
 #define LED2 33 //AMARILLO
 #define LED3 25 //VERDE
 #define pinADC 34  //pin que sera leído del ADC
-#define LIMIT 2000  
+#define LIMIT 2000
 
 // the setup function runs once when you press reset or power the board
 
@@ -451,9 +451,9 @@ Características del PWM en el ESP32
 - Resolución de 1 - 16 bits.
 - 3 Funciones para control y configuración
 
-![](./assets/esp32_pwm_pins.png)
+![pins](./assets/esp32_pwm_pins.png)
 
-Las funciones para el PWM
+#### Las funciones para el PWM v2.x
 
 - `ledcSetup`: Para configuración de inicio del PWM
 - `ledcAttachPin`: Asigna la configuración al pin indicado
@@ -472,7 +472,25 @@ Detalles de la funciones
   - `canal_PWM`: El canal que estamos usando para el PWM
   - `valorPWM`: El valor que queremos asignar. Recordar que el valor esta en función de la resolución. Por ejemplo, si estamos usando 8 bits, los valores van desde 0 a 255.
 
+#### Las funciones para el PWM v3.x
+
+- `ledcAttachChannel`: Para configuración de inicio del PWM y  Asigna la configuración al pin indicado
+- `ledcWrite`: Escribe el valor que saldrá por el pin.
+
+Detalles de la funciones
+
+- `ledcAttachChannel(pin, frecuencia, resolucion, canal_PWM)`: Es la primera función que se debe llamar y solo una vez para configurar el comportamiento del PWM
+  - `canal_PWM`: Es un valor del 0 al 15, donde se selecciona el canal que usaremos del uC
+  - `frecuencia`: Es la frecuencia de trabajo del PWM. Vamos a manejar por default 1000 (1kHz)
+  - `resolucion`: Tenemos desde 1 a 16 bits de resolución, en la mayoría de aplicaciones con 8 bits es suficiente o hasta 10 bits. Recordemos que para saber cual sera el valor mínimo debemos de aplicar $3.3V/resolucion_{bits}$. Con 8 bits sería $3.3/256=0.012V$
+  - `pin`: Es el numero del pin que vamos a usar como salida PWM (ver el esquema de los pines que podemos usar)
+- `ledcWrite(pin, duty)`: La función que se encarga de poner el valor en el pin indicado con un cierto ciclo de trabajo.
+  - `pin`: Es el numero del pin que vamos a usar como salida PWM (ver el esquema de los pines que podemos usar)
+  - `duty`: Ciclo de trabajo al que se le asignara al pin de salida, es decir, el valor del PWM.
+
 [Ver mas detalles en la documentación oficial](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/ledc.html)
+
+> Nota: Se colocan las 2 versiones porque el equipo de **Arduino oficial** continua en la version 2.x y **Espressif** va en la version 3.x
 
 ### Control LED RGB
 
@@ -487,7 +505,7 @@ Haremos un simple cambio de color, incrementando el brillo de cada uno.
 
 <details markdown="1">
 <summary>Animación</summary>
-  
+
   ![rgb anima](./assets/videos/rgb_basic_anima.gif)
 
   ![rgb video](./assets/videos/led_rgb.gif)
@@ -495,7 +513,7 @@ Haremos un simple cambio de color, incrementando el brillo de cada uno.
 </details>
 
 <details markdown="1">
-<summary>Código</summary>
+<summary>Código 2.x</summary>
 
 ```C
 #define LED_R 25  // PIN LED ROJO
@@ -547,6 +565,62 @@ void loop() {
 
 </details>
 
+<details markdown="1">
+<summary>Código 3.x</summary>
+
+```C
+#define LED_R 13  // PIN LED ROJO
+#define LED_G 12  // PIN LED VERDE
+#define LED_B 14  // PIN LED AZUL
+
+#define FREQ        1000  // frecuencia de trabajo para el PWM a 1KHz
+#define ledChannel0 0     //defino el canal 0, que usaremos para el color Rojo
+#define ledChannel1 1     //defino el canal 1, que usaremos para el color Verde
+#define ledChannel2 2     //defino el canal 2, que usaremos para el color Azul
+#define resolution  8     // 8-bit de resolución (para Leds es ideal)
+
+void setup() {
+  // configuro el comportamiento del canal
+  ledcAttachChannel(LED_R, FREQ, resolution, ledChannel0);
+  ledcAttachChannel(LED_G, FREQ, resolution, ledChannel1);
+  ledcAttachChannel(LED_B, FREQ, resolution, ledChannel2);
+  Serial.begin(115200);
+}
+
+void loop() {
+  //se apagan todos los Leds
+  ledcWrite(LED_R, 0);
+  ledcWrite(LED_G, 0);
+  ledcWrite(LED_B, 0);
+  delay(15);
+
+  // Incrementa el brillo del rojo
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+    ledcWrite(LED_R, dutyCycle);
+    Serial.println("enciendo rojo");
+    Serial.println(dutyCycle);
+    delay(15);
+  }
+  // Incrementa el brillo del verde
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+    ledcWrite(LED_G, dutyCycle);
+    Serial.println("enciendo verde");
+    Serial.println(dutyCycle);
+    delay(15);
+  }
+  // Incrementa el brillo del azul
+  for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+    ledcWrite(LED_B, dutyCycle);
+    Serial.println("enciendo azul");
+    Serial.println(dutyCycle);
+    delay(15);
+  }
+}
+```
+
+</details>
+
+
 ### Control de Intensidad de un LED botones
 
 Haremos un simple cambio de color con botones, incrementando el brillo de cada uno cuando se presione un botón, para su respectivo color.
@@ -560,13 +634,13 @@ Haremos un simple cambio de color con botones, incrementando el brillo de cada u
 
 <details markdown="1">
 <summary>Animación</summary>
-  
+
   ![rgb video](./assets/videos/rgb_btn_anima.gif)
 
 </details>
 
 <details markdown="1">
-<summary>Código</summary>
+<summary>Código 2.x</summary>
 
 ```C
 #define LED_R 25  // PIN LED ROJO
@@ -653,6 +727,89 @@ void loop() {
 
 </details>
 
+<details markdown="1">
+<summary>Código 3.x</summary>
+
+```C
+#define LED_R 25  // PIN LED ROJO
+#define LED_G 26  // PIN LED VERDE
+#define LED_B 27  // PIN LED AZUL
+
+#define BTN_R 34  // PIN LED ROJO
+#define BTN_G 35  // PIN LED VERDE
+#define BTN_B 32  // PIN LED AZUL
+
+#define FREQ        1000  // frecuencia de trabajo para el PWM a 1KHz
+#define ledChannel0 0     //defino el canal 0, que usaremos para el color Rojo
+#define ledChannel1 1     //defino el canal 1, que usaremos para el color Verde
+#define ledChannel2 2     //defino el canal 2, que usaremos para el color Azul
+#define resolution  8     // 8-bit resolution
+
+void setup() {
+  pinMode(BTN_R, INPUT);
+  pinMode(BTN_G, INPUT);
+  pinMode(BTN_B, INPUT);
+  // configuro el comportamiento del canal y se asigna el Pin al canal configurado
+ ledcAttachChannel(LED_R, FREQ, resolution, ledChannel0);
+  ledcAttachChannel(LED_G, FREQ, resolution, ledChannel1);
+  ledcAttachChannel(LED_B, FREQ, resolution, ledChannel2);
+  //se apagan todos los Leds
+  ledcWrite(LED_R, 0);
+  ledcWrite(LED_G, 0);
+  ledcWrite(LED_B, 0);
+  Serial.begin(115200);
+}
+
+unsigned char red = 0;
+unsigned char blue = 0;
+unsigned char green = 0;
+unsigned char inc = 5;
+
+void loop() {
+  // Incrementa el brillo del rojo
+  if (digitalRead(BTN_R) == 1) {
+    if (red > 254) {
+      red = 0;
+    } else {
+      red += inc;
+    }
+    ledcWrite(LED_R, red);
+    Serial.print("Rojo: ");
+    Serial.println(red);
+    delay(200);
+  }
+
+  if (digitalRead(BTN_G) == 1) {
+    if (green > 254) {
+      green = 0;
+    } else {
+      green += inc;
+    }
+    ledcWrite(LED_G, green);
+    Serial.print("Verde: ");
+    Serial.println(green);
+
+    delay(200);
+  }
+
+
+  if (digitalRead(BTN_B) == 1) {
+    if (blue > 254) {
+      blue = 0;
+    } else {
+      blue += inc;
+    }
+    ledcWrite(LED_B, blue);
+    Serial.print("Azul: ");
+    Serial.println(blue);
+    delay(200);
+  }
+
+}
+```
+
+</details>
+
 ### Control de intensidad de un LED con potenciómetro
 
 Haremos un simple cambio de color con botones, incrementando el brillo de cada uno cuando moviendo el vástago de un potenciómetro, cada uno hará el cambio de su respectivo color.
@@ -666,14 +823,14 @@ Haremos un simple cambio de color con botones, incrementando el brillo de cada u
 
 <details markdown="1">
 <summary>Animación</summary>
-  
+
   ![rgb video](./assets/videos/rgb_pot_anima.gif)
 
 </details>
 
 <details markdown="1">
 <summary>Código</summary>
-  
+
 ```C
 #define LED_R 25  // PIN LED ROJO
 #define LED_G 26  // PIN LED VERDE
@@ -754,7 +911,7 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
 !!! Note Nota
     El dato mínimo que equivale a 0 grados es 25 en el valor de PWM, y para los 180 grados o máximo es de 127. Estos valores los obtuve haciendo experimentos y pruebas con estos elementos.
 
-    |Angulo| PWM|
+    |Ángulo| PWM|
     |:---:|:---:|
     | 0 grados |25 |
     | 90 grados |76 |
@@ -764,7 +921,7 @@ Este motor necesita la siguiente señal para poder generar su desplazamiento:
     Descargar librería. [Dar click aquí](./assets/libs/ESP32Servo.zip). Ver la instalación manual -> [aquí](./instalacion_manual.md)
 
 !!! Note Instalar librería desde el gestor de librería del IDE
-    ![](./assets/esp_servo_install.png).
+    ![servo](./assets/esp_servo_install.png).
 
 ### Servomotor básico
 
