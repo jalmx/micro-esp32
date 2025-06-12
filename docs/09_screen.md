@@ -20,7 +20,7 @@ El control es exactamente igual, obviamente se debe especificar en que sitio se 
 
 Cada carácter esta formado de 5x7 pixels, es decir, podemos dar la forma o figura que quisiéramos por cada carácter y hacer combinaciones infinitas (inclusive hacer juegos)
 
-![pantalla](https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/Character-LCD-Internal-Pixel-Grid-Structure.png)
+![pantalla](https://lastminuteengineers.com/wp-content/uploads/arduino/Character-LCD-Internal-Pixel-Grid-Structure.png)
 
 La comunicación I^2^C nos reduce el uso de pines, pero esto incrementa el uso de mas hardware o librerías para implementar el protocolo.
 
@@ -28,13 +28,13 @@ La comunicación I^2^C nos reduce el uso de pines, pero esto incrementa el uso d
 
 El controlador es el PCF8574 el encargado de recibir la información y comunicarla al microcontrolador de la LCD, realizando las acciones que enviamos por el protocolo.
 
-![i2c](https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/PCF8574-Chip-On-I2C-LCD.jpg)
+![i2c](https://lastminuteengineers.com/wp-content/uploads/arduino/PCF8574-Chip-On-I2C-LCD.jpg)
 
 En la comunicación I^2^C es un protocolo tipo Maestro-Esclavo, y cada esclavo tiene un ID único (dirección), para saber a que dispositivo le estamos solicitando la información y de quien estamos recibiendo.
 
 Al igual en este modulo incorpora un trimpot para ajustar el contraste de la pantalla, el jumper para el brillo de la pantalla y el selector de dirección (es la modificación de una resistencia)
 
-![back](https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/I2C-LCD-Adapter-Hardware-Overview.jpg)
+![back](https://lastminuteengineers.com/wp-content/uploads/arduino/I2C-LCD-Adapter-Hardware-Overview.jpg)
 
 ### Referencias
 
@@ -42,7 +42,7 @@ https://naylampmechatronics.com/oled/638-display-oled-i2c-130-12864-sh1106.html
 
 ## Pines de la LCD con I^2^C
 
-![lcd](https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/I2C-LCD-Display-Pinout.png)
+![lcd](https://lastminuteengineers.com/wp-content/uploads/arduino/I2C-LCD-Display-Pinout.png)
 
 !!! Warning Conexión
     Los pines a los que se conectan los pines de `SDA` y `SCL` de la pantalla Iran a:
