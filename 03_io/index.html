@@ -474,6 +474,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#semaforo-doble" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semáforo doble
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -985,6 +994,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#semaforo-doble" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semáforo doble
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1369,11 +1387,11 @@
 <td>Placa ESP32</td>
 </tr>
 <tr>
-<td>1</td>
+<td>3</td>
 <td>LED</td>
 </tr>
 <tr>
-<td>1</td>
+<td>3</td>
 <td>R330</td>
 </tr>
 </tbody>
@@ -1429,6 +1447,36 @@
 <span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
 <span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Apaga amarillo&quot;</span><span class="p">);</span>
 <span class="p">}</span>
+</code></pre></div>
+<h3 id="semaforo-doble">Semáforo doble</h3>
+<p>Vamos a realizar un ejemplo de un semáforo de cruce sencillo,</p>
+<p><strong>Material</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cantidad</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Placa ESP32</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LED</td>
+</tr>
+<tr>
+<td>6</td>
+<td>R330</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diagrama pictórico</strong></p>
+<p><strong>Simulación</strong></p>
+<p><strong>Código</strong></p>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 <h2 id="entradas-digitales_1">Entradas digitales</h2>
 <div class="admonition nota">
@@ -2297,7 +2345,7 @@
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">motorI_1</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;nada&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;detenido&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">motorD_1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
 <span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">motorI_1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
 <span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
