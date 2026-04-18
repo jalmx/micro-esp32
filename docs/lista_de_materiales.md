@@ -15,9 +15,9 @@
 
 ## Por equipo
 
-- Motor DC (de máximo 6V)
-- Driver para motor DC, puente H (modulo L298)
 - Fuente de 5V de mínimo 2A
+- Motor DC (de máximo 6V)
+- Driver para motor DC, puente H (modulo L298 o modulo L293D)
 - Pack de jumper macho-macho
 - Pack de jumper macho-hembra
 - Pack de jumper hembra-hembra
@@ -29,6 +29,7 @@
 - 1 Sensor de presencia (PIR HC-SR501)
 - 1 Sensor DTH11 (humedad y temperatura)
 - 1 Sensor Ultrasónico
-- 1 Sensor DS18B20 (preferiblemente la sonda)
-- 1 Pantalla LCD con modulo de comunicación I2C
+- 1 Sensor DS18B20 (preferiblemente la sonda o el encapsulado TO-92)
+- 1 Pantalla LCD 16x2 o LCD 20x4 con modulo de comunicación I2C
 - 1 Modulo de lector RFID MFRC522 con una tarjeta o llavero
+- 1 Control RF con modulo receptor con decodificador (depende si tienen la practica)
