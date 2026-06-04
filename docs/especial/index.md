@@ -240,9 +240,12 @@ void loop()
   }
 }
 ```
+
 ![ejemplo1](../assets/videos/especial_2.gif)
 
 ## Sonidos
+
+### Versión 2.x
 
 ```c
 #define LED_1 27
@@ -382,6 +385,150 @@ void loop()
     apagarLeds();
     led1(); // Pequeño destello para indicar que el sistema está activo
     delay(50); // Pequeña pausa para estabilidad
+  }
+}
+```
+
+### Versión 3x
+
+```c
+#include <Arduino.h>
+
+// Pines asignados
+#define LED_1 33
+#define LED_2 15
+#define LED_3 18
+#define LED_4 2
+#define LED_5 4
+#define BUZZER 32
+
+#define BTN_1 36
+#define BTN_2 39
+
+void led1();
+
+void led1(){
+  digitalWrite(LED_1, HIGH);
+  delay(250);
+  digitalWrite(LED_1, LOW);
+  delay(250);
+}
+
+const int ledPins[] = {LED_1, LED_2, LED_3, LED_4, LED_5};
+const int btnPins[] = {BTN_1, BTN_2};
+const int numLeds = sizeof(ledPins) / sizeof(ledPins[0]);
+const int numBtns = sizeof(btnPins) / sizeof(btnPins[0]);
+
+// Configuración para la API v3.x de ESP32 (Ya no se necesita definir un canal manual)
+const int resolution = 8;
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("Sistema v3.x Iniciado...");
+
+  // Configurar LEDs como salidas
+  for (int i = 0; i < numLeds; i++)
+  {
+    pinMode(ledPins[i], OUTPUT);
+    digitalWrite(ledPins[i], LOW);
+  }
+
+  // Configurar botones (Pines 36 y 39 requieren pull-down externo)
+  for (int i = 0; i < numBtns; i++)
+  {
+    pinMode(btnPins[i], INPUT);
+  }
+
+  // --- NUEVA API ESP32 v3.x ---
+  // Vincula el pin directamente a una frecuencia y resolución.
+  // El core gestiona el canal PWM automáticamente en el fondo.
+  ledcAttach(BUZZER, 2000, resolution);
+  ledcWriteTone(BUZZER, 0); // Silencio inicial (frecuencia 0)
+}
+
+// Función para apagar todos los LEDs rápidamente
+void apagarLeds() {
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(ledPins[i], LOW);
+  }
+}
+
+void loop()
+{
+  // Leer botones
+  bool btn1 = digitalRead(BTN_1);
+  bool btn2 = digitalRead(BTN_2);
+
+  // Ambos botones presionados (Modo Caos)
+  if (btn1 && btn2)
+  {
+    Serial.println("¡AMBOS BOTONES PULSADOS! Modo Caos activado...");
+
+    for (int i = 0; i < 10; i++) {
+      int freqAleatoria = random(800, 3000);
+      ledcWriteTone(BUZZER, freqAleatoria); // Usamos directamente el pin en lugar del canal
+
+      apagarLeds();
+      digitalWrite(ledPins[random(0, numLeds)], HIGH);
+
+      delay(60);
+    }
+
+    ledcWriteTone(BUZZER, 0);
+    apagarLeds();
+  }
+  // Botón 1 (Efecto Sirena)
+  else if (btn1)
+  {
+    Serial.println("Ejecutando: Efecto Sirena...");
+
+    for (int i = 0; i < numLeds; i++)
+    {
+      digitalWrite(ledPins[i], HIGH);
+      ledcWriteTone(BUZZER, 600 + (i * 150));
+      delay(150);
+      digitalWrite(ledPins[i], LOW);
+    }
+
+    for (int i = numLeds - 1; i >= 0; i--)
+    {
+      digitalWrite(ledPins[i], HIGH);
+      ledcWriteTone(BUZZER, 1200 - ((numLeds - 1 - i) * 150));
+      delay(150);
+      digitalWrite(ledPins[i], LOW);
+    }
+
+    ledcWriteTone(BUZZER, 0);
+  }
+  // Botón 2 (Efecto Arpegio)
+  else if (btn2)
+  {
+    Serial.println("Ejecutando: Efecto Arpegio Ascendente...");
+
+    int notas[] = {262, 330, 392, 523, 659};
+
+    for (int i = 0; i < numLeds; i++)
+    {
+      digitalWrite(ledPins[i], HIGH);
+      ledcWriteTone(BUZZER, notas[i]);
+      delay(200);
+    }
+
+    ledcWriteTone(BUZZER, 880);
+    delay(300);
+
+    ledcWriteTone(BUZZER, 0);
+    apagarLeds();
+    delay(200);
+  }
+  // Ningún botón presionado
+  else
+  {
+    ledcWriteTone(BUZZER, 0);
+    apagarLeds();
+    led1();
+    delay(50);
   }
 }
 ```
